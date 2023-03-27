@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter_highlight/flutter_highlight.dart';
-import 'package:flutter_highlight/themes/atom-one-dark.dart';
+
 import 'package:showcase_app/data.dart';
 import 'package:showcase_app/utils/colors.dart';
 import 'package:showcase_app/widgets/codeview.dart';

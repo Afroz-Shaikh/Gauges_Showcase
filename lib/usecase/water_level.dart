@@ -86,7 +86,7 @@ class _WaterTankPainter extends CustomPainter {
     final double factor = size.height / maxLevel;
     final double height = 2 * factor * filledLevel;
     final Paint borderPaint = Paint()
-      ..color = Colors.red
+      ..color = Colors.grey
       ..style = PaintingStyle.stroke
       ..strokeWidth = 4;
     final Paint waterPaint = Paint()..color = waterColor;

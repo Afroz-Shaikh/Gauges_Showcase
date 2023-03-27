@@ -10,11 +10,11 @@
 		</data>
 		<key>Resources/flutter_assets/AssetManifest.bin</key>
 		<data>
-		FWC2gdrkqEeWw24YhdySIf/G9e0=
+		HPGL4OvekuyfEmVmlyf12LAZIqE=
 		</data>
 		<key>Resources/flutter_assets/AssetManifest.json</key>
 		<data>
-		nTU6QG+BLVni5D8FrkG/aONZkKI=
+		3KRLwKG1Zz7pvLCaa+/dAg8qfN4=
 		</data>
 		<key>Resources/flutter_assets/FontManifest.json</key>
 		<data>
@@ -22,7 +22,7 @@
 		</data>
 		<key>Resources/flutter_assets/NOTICES.Z</key>
 		<data>
-		lwmLQo1isHAVhsQcGS6LytT/+JM=
+		3CSpPC0FN/Y+p1t2mF6Cp65/cy0=
 		</data>
 		<key>Resources/flutter_assets/assets/bmi_light.png</key>
 		<data>
@@ -42,11 +42,11 @@
 		</data>
 		<key>Resources/flutter_assets/kernel_blob.bin</key>
 		<data>
-		3z33jSZdGw38gSaLK2dSfB8fz4E=
+		fR7UVsX50CHrF9B4Lra+NcR9onM=
 		</data>
 		<key>Resources/flutter_assets/lib/usecase/battery.dart</key>
 		<data>
-		0H02DBnwUb6E/Ug1WKlzZ8Hqzf4=
+		S2PE4YtvYOFGc6RpRhJ2R9iTIkU=
 		</data>
 		<key>Resources/flutter_assets/lib/usecase/blood_sugar_test.dart</key>
 		<data>
@@ -55,6 +55,10 @@
 		<key>Resources/flutter_assets/lib/usecase/daily_tasks.dart</key>
 		<data>
 		ZCKp8ZjOBp5QmbRknjpZ4hIgQPs=
+		</data>
+		<key>Resources/flutter_assets/lib/usecase/direction_gauge.dart</key>
+		<data>
+		pZpK2O/x7YZI3A+fLKQsaKioTtA=
 		</data>
 		<key>Resources/flutter_assets/lib/usecase/disk_space.dart</key>
 		<data>
@@ -90,7 +94,7 @@
 		</data>
 		<key>Resources/flutter_assets/lib/usecase/speedometer.dart</key>
 		<data>
-		xt6bm8CWlosUxmaCtoH3tktg9g8=
+		pC8k4VYMx2rUIx7B5tl7q3/6KK8=
 		</data>
 		<key>Resources/flutter_assets/lib/usecase/temperature_meter.dart</key>
 		<data>
@@ -110,7 +114,7 @@
 		</data>
 		<key>Resources/flutter_assets/lib/usecase/vaccination_graph.dart</key>
 		<data>
-		hv3Ra0xVQwmvfGYKyb8hxSZKTHk=
+		i/UV84EFpiEMO5e3kWFCTCBGrII=
 		</data>
 		<key>Resources/flutter_assets/lib/usecase/water_level.dart</key>
 		<data>
@@ -146,14 +150,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			OZ6vH8dp8fS2BEjg+BPRkiVp0IVAnLQovd6TklXXl5w=
+			sPDxVYs/WsO4brh1YJVWOqFG49nwlGNIarnePq6lclM=
 			</data>
 		</dict>
 		<key>Resources/flutter_assets/AssetManifest.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			JLrm6kLld0mDzJugjse8iLVvaUpv5LmptkIJNo+LlRk=
+			XWYGuS7obTjwhNTRomceIpTfHe1cIfnrinz1g2MLtPE=
 			</data>
 		</dict>
 		<key>Resources/flutter_assets/FontManifest.json</key>
@@ -167,7 +171,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			N0gbyBsUjK9+xDwIXcSklNN6ubqM59HP+CFYL2ZLK8E=
+			knzZ8N3kat+OoP2C7jc3xDJnZw3iEvytuV6a2vsMaAI=
 			</data>
 		</dict>
 		<key>Resources/flutter_assets/assets/bmi_light.png</key>
@@ -202,14 +206,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			KnQpqpdcSLA+atyqwzNCBv0MqHhZuhmZ6IzLAIeHVTY=
+			VpdPaY3YsoMyCOA8Ommm/1ygsmGekqBbNudleB8XxSw=
 			</data>
 		</dict>
 		<key>Resources/flutter_assets/lib/usecase/battery.dart</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			ZdOvQum9z8V/T5OvWl2PqsZt+9xkKIJnE3NBNSiS7jE=
+			lCn1Gry6Zvmt5qrmiJLlAxKJCYrZ9QqBDICR5JFT5+c=
 			</data>
 		</dict>
 		<key>Resources/flutter_assets/lib/usecase/blood_sugar_test.dart</key>
@@ -224,6 +228,13 @@
 			<key>hash2</key>
 			<data>
 			mFrkNbWzX0UbwEx50PpsMbYlcbEK4DF3jXrFDf8cSVI=
+			</data>
+		</dict>
+		<key>Resources/flutter_assets/lib/usecase/direction_gauge.dart</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			mdmODO17EBsksZ/ySeocQPfnHD1/cTYkrLWnJQRgcdo=
 			</data>
 		</dict>
 		<key>Resources/flutter_assets/lib/usecase/disk_space.dart</key>
@@ -286,7 +297,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			I/GtAF1KZ0oAg031EIiuGw5X3LNkI0hrx+O1lt9udKw=
+			7FmYS9Nd92G2srbvUXD0Y0ucyGhViqZ7q3HZNIlmOWM=
 			</data>
 		</dict>
 		<key>Resources/flutter_assets/lib/usecase/temperature_meter.dart</key>
@@ -321,7 +332,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			cn36lFPjgHWPiXBLDtkJ+DK3zImqcfOGgVQP6R9W8H0=
+			6oLfcmpEh/aY7e2C3SvxlLrL/2DIbE400juuyPxuXGg=
 			</data>
 		</dict>
 		<key>Resources/flutter_assets/lib/usecase/water_level.dart</key>

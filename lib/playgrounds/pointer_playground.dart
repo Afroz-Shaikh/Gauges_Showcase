@@ -16,7 +16,7 @@ class _PointerPlayGroundState extends State<PointerPlayGround> {
   // Configurations
   PointerShape shape = PointerShape.triangle;
   double value = 0;
-  PointerPosition position = PointerPosition.center;
+  PointerPosition pointerPosition = PointerPosition.center;
   double height = 10;
   double width = 10;
   bool reverse = false;
@@ -37,7 +37,7 @@ class _PointerPlayGroundState extends State<PointerPlayGround> {
             height: height,
             width: width,
             shape: shape,
-            position: position,
+            position: pointerPosition,
             alignment: alignment,
             orientation: orientation,
             reverse: reverse),
@@ -98,11 +98,28 @@ class _PointerPlayGroundState extends State<PointerPlayGround> {
           setState(() {
             if (value != null) {
               orientation = value;
+              _updateValueBarPosition();
             }
           });
         },
       ),
     );
+  }
+
+  void _updateValueBarPosition() {
+    if (orientation == GaugeOrientation.vertical) {
+      pointerPosition = pointerPosition == PointerPosition.bottom
+          ? PointerPosition.left
+          : pointerPosition == PointerPosition.center
+              ? PointerPosition.center
+              : PointerPosition.right;
+    } else if (orientation == GaugeOrientation.horizontal) {
+      pointerPosition = pointerPosition == PointerPosition.left
+          ? PointerPosition.bottom
+          : pointerPosition == PointerPosition.center
+              ? PointerPosition.center
+              : PointerPosition.top;
+    }
   }
 
   Widget inverseAxisHandler() {
@@ -139,30 +156,30 @@ class _PointerPlayGroundState extends State<PointerPlayGround> {
           child: ButtonTheme(
               alignedDropdown: true,
               child: DropdownButtonHideUnderline(
-                child: DropdownButton<String>(
+                child: DropdownButton<PointerShape>(
                     borderRadius: BorderRadius.circular(10),
-                    value: shape.toString(),
+                    value: shape,
                     items: const [
                       DropdownMenuItem(
-                        value: 'PointerShape.circle',
+                        value: PointerShape.circle,
                         child: Text('circle '),
                       ),
                       DropdownMenuItem(
-                        value: 'PointerShape.rectangle',
+                        value: PointerShape.rectangle,
                         child: Text('rectangle'),
                       ),
                       DropdownMenuItem(
-                        value: 'PointerShape.triangle',
+                        value: PointerShape.triangle,
                         child: Text('triangle '),
                       ),
                       DropdownMenuItem(
-                        value: 'PointerShape.diamond',
+                        value: PointerShape.diamond,
                         child: Text('diamond '),
                       ),
                     ],
-                    onChanged: (String? value) {
+                    onChanged: (PointerShape? value) {
                       setState(() {
-                        handleShapeChange(value);
+                        handleShapeChange(value!);
                       });
                     }),
               )),
@@ -171,18 +188,18 @@ class _PointerPlayGroundState extends State<PointerPlayGround> {
     );
   }
 
-  void handleShapeChange(String? value) {
+  void handleShapeChange(PointerShape? value) {
     if (value != null) {
-      if (value == 'PointerShape.circle') {
+      if (value == PointerShape.circle) {
         shape = PointerShape.circle;
       }
-      if (value == 'PointerShape.rectangle') {
+      if (value == PointerShape.rectangle) {
         shape = PointerShape.rectangle;
       }
-      if (value == 'PointerShape.triangle') {
+      if (value == PointerShape.triangle) {
         shape = PointerShape.triangle;
       }
-      if (value == 'PointerShape.diamond') {
+      if (value == PointerShape.diamond) {
         shape = PointerShape.diamond;
       }
     }
@@ -201,34 +218,41 @@ class _PointerPlayGroundState extends State<PointerPlayGround> {
           child: ButtonTheme(
               alignedDropdown: true,
               child: DropdownButtonHideUnderline(
-                child: DropdownButton<String>(
+                child: DropdownButton<PointerPosition>(
                     borderRadius: BorderRadius.circular(10),
-                    value: position.toString(),
-                    items: const [
-                      DropdownMenuItem(
-                        value: 'PointerPosition.center',
-                        child: Text('center'),
-                      ),
-                      DropdownMenuItem(
-                        value: 'PointerPosition.top',
-                        child: Text('top'),
-                      ),
-                      DropdownMenuItem(
-                        value: 'PointerPosition.bottom',
-                        child: Text('bottom'),
-                      ),
-                      DropdownMenuItem(
-                        value: 'PointerPosition.left',
-                        child: Text('left'),
-                      ),
-                      DropdownMenuItem(
-                        value: 'PointerPosition.right',
-                        child: Text('right'),
-                      ),
-                    ],
-                    onChanged: (String? value) {
+                    value: pointerPosition,
+                    items: orientation == GaugeOrientation.horizontal
+                        ? const [
+                            DropdownMenuItem(
+                              value: PointerPosition.top,
+                              child: Text('top'),
+                            ),
+                            DropdownMenuItem(
+                              value: PointerPosition.center,
+                              child: Text('center'),
+                            ),
+                            DropdownMenuItem(
+                              value: PointerPosition.bottom,
+                              child: Text('bottom'),
+                            ),
+                          ]
+                        : const [
+                            DropdownMenuItem(
+                              value: PointerPosition.left,
+                              child: Text('left'),
+                            ),
+                            DropdownMenuItem(
+                              value: PointerPosition.center,
+                              child: Text('center'),
+                            ),
+                            DropdownMenuItem(
+                              value: PointerPosition.right,
+                              child: Text('right'),
+                            ),
+                          ],
+                    onChanged: (PointerPosition? value) {
                       setState(() {
-                        handlePositionChange(value);
+                        handlePositionChange(value!);
                       });
                     }),
               )),
@@ -237,10 +261,10 @@ class _PointerPlayGroundState extends State<PointerPlayGround> {
     );
   }
 
-  void handlePositionChange(String? value) {
+  void handlePositionChange(PointerPosition? value) {
     if (orientation == GaugeOrientation.horizontal &&
-        (position == PointerPosition.left ||
-            position == PointerPosition.right)) {
+        (pointerPosition == PointerPosition.left ||
+            pointerPosition == PointerPosition.right)) {
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
           padding: EdgeInsets.all(8),
@@ -253,20 +277,20 @@ class _PointerPlayGroundState extends State<PointerPlayGround> {
       );
     }
     if (value != null) {
-      if (value == 'PointerPosition.center') {
-        position = PointerPosition.center;
+      if (value == PointerPosition.center) {
+        pointerPosition = PointerPosition.center;
       }
-      if (value == 'PointerPosition.top') {
-        position = PointerPosition.top;
+      if (value == PointerPosition.top) {
+        pointerPosition = PointerPosition.top;
       }
-      if (value == 'PointerPosition.bottom') {
-        position = PointerPosition.bottom;
+      if (value == PointerPosition.bottom) {
+        pointerPosition = PointerPosition.bottom;
       }
-      if (value == 'PointerPosition.left') {
-        position = PointerPosition.left;
+      if (value == PointerPosition.left) {
+        pointerPosition = PointerPosition.left;
       }
-      if (value == 'PointerPosition.right') {
-        position = PointerPosition.right;
+      if (value == PointerPosition.right) {
+        pointerPosition = PointerPosition.right;
       }
     }
   }
@@ -285,26 +309,26 @@ class _PointerPlayGroundState extends State<PointerPlayGround> {
           child: ButtonTheme(
               alignedDropdown: true,
               child: DropdownButtonHideUnderline(
-                child: DropdownButton<String>(
+                child: DropdownButton<PointerAlignment>(
                     borderRadius: BorderRadius.circular(10),
-                    value: alignment.toString(),
+                    value: alignment,
                     items: const [
                       DropdownMenuItem(
-                        value: 'PointerAlignment.center',
+                        value: PointerAlignment.center,
                         child: Text('center'),
                       ),
                       DropdownMenuItem(
-                        value: 'PointerAlignment.start',
+                        value: PointerAlignment.start,
                         child: Text('start'),
                       ),
                       DropdownMenuItem(
-                        value: 'PointerAlignment.end',
+                        value: PointerAlignment.end,
                         child: Text('end'),
                       ),
                     ],
-                    onChanged: (String? value) {
+                    onChanged: (PointerAlignment? value) {
                       setState(() {
-                        handleAlignmentChange(value);
+                        handleAlignmentChange(value!);
                       });
                     }),
               )),
@@ -313,17 +337,15 @@ class _PointerPlayGroundState extends State<PointerPlayGround> {
     );
   }
 
-  void handleAlignmentChange(String? value) {
-    if (value != null) {
-      if (value == 'PointerAlignment.center') {
-        alignment = PointerAlignment.center;
-      }
-      if (value == 'PointerAlignment.start') {
-        alignment = PointerAlignment.start;
-      }
-      if (value == 'PointerAlignment.end') {
-        alignment = PointerAlignment.end;
-      }
+  void handleAlignmentChange(PointerAlignment value) {
+    if (value == PointerAlignment.center) {
+      alignment = PointerAlignment.center;
+    }
+    if (value == PointerAlignment.start) {
+      alignment = PointerAlignment.start;
+    }
+    if (value == PointerAlignment.end) {
+      alignment = PointerAlignment.end;
     }
   }
 

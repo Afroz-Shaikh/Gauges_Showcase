@@ -17,7 +17,7 @@ class _LinearGaugePlayGroundState extends State<LinearGaugePlayGround> {
   GaugeOrientation orientation = GaugeOrientation.horizontal;
   double _valueBarOffset = 0;
   PointerShape shape = PointerShape.triangle;
-  bool isHorizontal = true;
+  // bool isHorizontal = true;
   double value = 0;
   bool reverse = false;
 
@@ -35,7 +35,7 @@ class _LinearGaugePlayGroundState extends State<LinearGaugePlayGround> {
             shape: shape,
             valueBarPosition: _valueBarPosition,
             valueBarOffset: _valueBarOffset,
-            isHorizontal: isHorizontal,
+            orientation: orientation,
             reverse: reverse,
           ),
           Flexible(
@@ -89,26 +89,41 @@ class _LinearGaugePlayGroundState extends State<LinearGaugePlayGround> {
           child: ButtonTheme(
               alignedDropdown: true,
               child: DropdownButtonHideUnderline(
-                child: DropdownButton<String>(
+                child: DropdownButton<ValueBarPosition>(
                     autofocus: false,
                     focusColor: Colors.white,
                     borderRadius: BorderRadius.circular(10),
-                    value: _valueBarPosition.toString(),
-                    items: const [
-                      DropdownMenuItem(
-                        value: 'ValueBarPosition.top',
-                        child: Text('top'),
-                      ),
-                      DropdownMenuItem(
-                        value: 'ValueBarPosition.bottom',
-                        child: Text('bottom'),
-                      ),
-                      DropdownMenuItem(
-                        value: 'ValueBarPosition.center',
-                        child: Text('center'),
-                      ),
-                    ],
-                    onChanged: (String? value) {
+                    value: _valueBarPosition,
+                    items: orientation == GaugeOrientation.horizontal
+                        ? const [
+                            DropdownMenuItem(
+                              value: ValueBarPosition.top,
+                              child: Text('top'),
+                            ),
+                            DropdownMenuItem(
+                              value: ValueBarPosition.bottom,
+                              child: Text('bottom'),
+                            ),
+                            DropdownMenuItem(
+                              value: ValueBarPosition.center,
+                              child: Text('center'),
+                            ),
+                          ]
+                        : const [
+                            DropdownMenuItem(
+                              value: ValueBarPosition.left,
+                              child: Text('left'),
+                            ),
+                            DropdownMenuItem(
+                              value: ValueBarPosition.center,
+                              child: Text('center'),
+                            ),
+                            DropdownMenuItem(
+                              value: ValueBarPosition.right,
+                              child: Text('right'),
+                            ),
+                          ],
+                    onChanged: (value) {
                       handleValueBarPositionChange(value);
                     }),
               )),
@@ -117,17 +132,37 @@ class _LinearGaugePlayGroundState extends State<LinearGaugePlayGround> {
     );
   }
 
-  void handleValueBarPositionChange(String? value) {
-    return setState(() {
-      if (value != null) {
-        if (value == 'ValueBarPosition.top') {
-          _valueBarPosition = ValueBarPosition.top;
+  void handleValueBarPositionChange(ValueBarPosition? value) {
+    setState(() {
+      if (orientation == GaugeOrientation.vertical) {
+        switch (value) {
+          case ValueBarPosition.left:
+            _valueBarPosition = ValueBarPosition.left;
+            break;
+          case ValueBarPosition.right:
+            _valueBarPosition = ValueBarPosition.right;
+            break;
+          case ValueBarPosition.center:
+            _valueBarPosition = ValueBarPosition.center;
+            break;
+          default:
+            _valueBarPosition = ValueBarPosition.center;
+            break;
         }
-        if (value == 'ValueBarPosition.bottom') {
-          _valueBarPosition = ValueBarPosition.bottom;
-        }
-        if (value == 'ValueBarPosition.center') {
-          _valueBarPosition = ValueBarPosition.center;
+      } else {
+        switch (value) {
+          case ValueBarPosition.top:
+            _valueBarPosition = ValueBarPosition.top;
+            break;
+          case ValueBarPosition.bottom:
+            _valueBarPosition = ValueBarPosition.bottom;
+            break;
+          case ValueBarPosition.center:
+            _valueBarPosition = ValueBarPosition.center;
+            break;
+          default:
+            _valueBarPosition = ValueBarPosition.center;
+            break;
         }
       }
     });
@@ -146,41 +181,41 @@ class _LinearGaugePlayGroundState extends State<LinearGaugePlayGround> {
           child: ButtonTheme(
               alignedDropdown: true,
               child: DropdownButtonHideUnderline(
-                child: DropdownButton<String>(
+                child: DropdownButton<PointerShape>(
                     focusColor: Colors.white,
                     borderRadius: BorderRadius.circular(10),
-                    value: shape.toString(),
+                    value: shape,
                     items: const [
                       DropdownMenuItem(
-                        value: 'PointerShape.circle',
+                        value: PointerShape.circle,
                         child: Text('circle'),
                       ),
                       DropdownMenuItem(
-                        value: 'PointerShape.rectangle',
+                        value: PointerShape.rectangle,
                         child: Text('rectangle'),
                       ),
                       DropdownMenuItem(
-                        value: 'PointerShape.triangle',
+                        value: PointerShape.triangle,
                         child: Text('triangle'),
                       ),
                       DropdownMenuItem(
-                        value: 'PointerShape.diamond',
+                        value: PointerShape.diamond,
                         child: Text('diamond'),
                       ),
                     ],
-                    onChanged: (String? value) {
+                    onChanged: (PointerShape? value) {
                       setState(() {
                         if (value != null) {
-                          if (value == 'PointerShape.circle') {
+                          if (value == PointerShape.circle) {
                             shape = PointerShape.circle;
                           }
-                          if (value == 'PointerShape.rectangle') {
+                          if (value == PointerShape.rectangle) {
                             shape = PointerShape.rectangle;
                           }
-                          if (value == 'PointerShape.triangle') {
+                          if (value == PointerShape.triangle) {
                             shape = PointerShape.triangle;
                           }
-                          if (value == 'PointerShape.diamond') {
+                          if (value == PointerShape.diamond) {
                             shape = PointerShape.diamond;
                           }
                         }
@@ -248,27 +283,40 @@ class _LinearGaugePlayGroundState extends State<LinearGaugePlayGround> {
   }
 
   Widget buildOrientationHandler() {
-    final Map<GaugeOrientation, Widget> children = {
-      GaugeOrientation.horizontal: const Text('Horizontal'),
-      GaugeOrientation.vertical: const Text('Vertical'),
-    };
-
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 8),
       child: CupertinoSlidingSegmentedControl<GaugeOrientation>(
-        groupValue: isHorizontal
-            ? GaugeOrientation.horizontal
-            : GaugeOrientation.vertical,
-        children: children,
+        groupValue: orientation,
+        children: const {
+          GaugeOrientation.horizontal: Text('Horizontal'),
+          GaugeOrientation.vertical: Text('Vertical'),
+        },
         onValueChanged: (GaugeOrientation? value) {
           setState(() {
-            if (value != null) {
-              isHorizontal = !isHorizontal;
-            }
+            if (value == null) return;
+
+            orientation = value;
+            _updateValueBarPosition();
           });
         },
       ),
     );
+  }
+
+  void _updateValueBarPosition() {
+    if (orientation == GaugeOrientation.vertical) {
+      _valueBarPosition = _valueBarPosition == ValueBarPosition.bottom
+          ? ValueBarPosition.left
+          : _valueBarPosition == ValueBarPosition.center
+              ? ValueBarPosition.center
+              : ValueBarPosition.right;
+    } else if (orientation == GaugeOrientation.horizontal) {
+      _valueBarPosition = _valueBarPosition == ValueBarPosition.left
+          ? ValueBarPosition.bottom
+          : _valueBarPosition == ValueBarPosition.center
+              ? ValueBarPosition.center
+              : ValueBarPosition.top;
+    }
   }
 }
 
@@ -278,7 +326,7 @@ class LinearGaugeView extends StatelessWidget {
     required this.shape,
     required ValueBarPosition valueBarPosition,
     required double valueBarOffset,
-    required this.isHorizontal,
+    required this.orientation,
     required this.reverse,
   })  : _valueBarPosition = valueBarPosition,
         _valueBarOffset = valueBarOffset;
@@ -286,7 +334,7 @@ class LinearGaugeView extends StatelessWidget {
   final PointerShape shape;
   final ValueBarPosition _valueBarPosition;
   final double _valueBarOffset;
-  final bool isHorizontal;
+  final GaugeOrientation orientation;
   final bool reverse;
 
   @override
@@ -308,9 +356,7 @@ class LinearGaugeView extends StatelessWidget {
                       position: _valueBarPosition,
                       offset: _valueBarOffset),
                 ],
-                gaugeOrientation: isHorizontal
-                    ? GaugeOrientation.horizontal
-                    : GaugeOrientation.vertical,
+                gaugeOrientation: orientation,
                 rulers: RulerStyle(
                     rulerPosition: RulerPosition.center,
                     inverseRulers: reverse)),

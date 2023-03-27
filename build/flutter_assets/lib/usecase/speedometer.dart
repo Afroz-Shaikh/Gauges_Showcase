@@ -72,28 +72,12 @@ class _SpeedometerState extends State<Speedometer> {
                               fontWeight: FontWeight.bold,
                               fontSize: 120),
                     ),
-                    InkWell(
-                      // onTap: () {
-                      //   if (_timer != null && _timer!.isActive) {
-                      //     _timer!.cancel();
-                      //     _timer = null;
-                      //   } else {
-                      //     _timer = Timer.periodic(
-                      //         const Duration(milliseconds: 50), (timer) {
-                      //       setState(() {
-                      //         speed =
-                      //             (100 + 100 * sin(timer.tick / 10)).toDouble();
-                      //       });
-                      //     });
-                      //   }
-                      // },
-                      child: const Text(
-                        "kmph",
-                        style: TextStyle(
-                            color: Colors.black,
-                            fontWeight: FontWeight.bold,
-                            fontSize: 30),
-                      ),
+                    const Text(
+                      "KMPH",
+                      style: TextStyle(
+                          color: Colors.black,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 30),
                     ),
                   ],
                 ),

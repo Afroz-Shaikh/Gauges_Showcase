@@ -19,17 +19,18 @@ class LemonadeGauge extends StatelessWidget {
             RangeLinearGauge(color: Colors.grey, start: 230, end: 230),
           ],
           customLabels: const [
-            CustomRulerLabel(text: "0 ml", value: 0),
+            CustomRulerLabel(text: "250 ml", value: 0),
             CustomRulerLabel(text: "Water", value: 100),
             CustomRulerLabel(text: "150 ml", value: 150),
-            CustomRulerLabel(text: "Lemon", value: 200),
-            CustomRulerLabel(text: "220 ml", value: 220),
-            CustomRulerLabel(text: "Sugar", value: 230),
-            CustomRulerLabel(text: "250ml", value: 250)
+            CustomRulerLabel(text: "Lemon", value: 180),
+            CustomRulerLabel(text: "20 ml", value: 220),
+            CustomRulerLabel(text: "Sugar", value: 235),
+            CustomRulerLabel(text: "0 ml", value: 250),
           ],
           linearGaugeBoxDecoration: const LinearGaugeBoxDecoration(
-              thickness: 250, backgroundColor: Colors.grey, borderRadius: 10),
+              thickness: 250, backgroundColor: Colors.grey, borderRadius: 30),
           rulers: const RulerStyle(
+            inverseRulers: true,
             showPrimaryRulers: false,
             showSecondaryRulers: false,
             rulerPosition: RulerPosition.right,

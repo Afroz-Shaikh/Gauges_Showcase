@@ -4,12 +4,12 @@ import 'package:flutter/painting.dart';
 
 const gaugesCodeTheme = {
   'root':
-      TextStyle(backgroundColor: Color(0xffffffff), color: Color(0xff000000)),
+      TextStyle(backgroundColor: Color(0xff000000), color: Color(0xffffffff)),
   'comment': TextStyle(color: Color(0xff007400)),
   'quote': TextStyle(color: Color(0xff007400)),
-  'tag': TextStyle(color: Color(0xffaa0d91)),
-  'attribute': TextStyle(color: Color(0xffaa0d91)),
-  'keyword': TextStyle(color: Color(0xffaa0d91)),
+  'tag': TextStyle(color: Color(0xff0E0EFF)),
+  'attribute': TextStyle(color: Color.fromARGB(255, 2, 53, 156)),
+  'keyword': TextStyle(color: Color.fromARGB(255, 3, 53, 235)),
   'selector-tag': TextStyle(color: Color(0xffaa0d91)),
   'literal': TextStyle(color: Color(0xffaa0d91)),
   'name': TextStyle(color: Color(0xffaa0d91)),

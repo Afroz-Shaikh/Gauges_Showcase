@@ -83,11 +83,28 @@ class _RangeLinearGaugePlayGroundState
           setState(() {
             if (value != null) {
               orientation = value;
+              _updateValueBarPosition();
             }
           });
         },
       ),
     );
+  }
+
+  void _updateValueBarPosition() {
+    if (orientation == GaugeOrientation.vertical) {
+      rulerPosition = rulerPosition == RulerPosition.bottom
+          ? RulerPosition.left
+          : rulerPosition == RulerPosition.center
+              ? RulerPosition.center
+              : RulerPosition.right;
+    } else if (orientation == GaugeOrientation.horizontal) {
+      rulerPosition = rulerPosition == RulerPosition.left
+          ? RulerPosition.bottom
+          : rulerPosition == RulerPosition.center
+              ? RulerPosition.center
+              : RulerPosition.top;
+    }
   }
 
   Widget inverseAxisHandler() {
@@ -112,99 +129,77 @@ class _RangeLinearGaugePlayGroundState
   }
 
   buildRulerPositionHandler() {
-    if (orientation == GaugeOrientation.horizontal) {
-      return Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          const SizedBox(
-            child: Text('Ruler Position'),
-          ),
-          Padding(
-            padding: const EdgeInsets.only(left: 1),
-            child: ButtonTheme(
-              alignedDropdown: false,
-              child: DropdownButtonHideUnderline(
-                child: DropdownButton<String>(
-                  borderRadius: BorderRadius.circular(10),
-                  value: rulerPosition.toString(),
-                  items: [
-                    DropdownMenuItem<String>(
-                      value: RulerPosition.bottom.toString(),
-                      child: const Text('Bottom'),
-                    ),
-                    DropdownMenuItem<String>(
-                      value: RulerPosition.center.toString(),
-                      child: const Text('Center'),
-                    ),
-                    DropdownMenuItem<String>(
-                      value: RulerPosition.top.toString(),
-                      child: const Text('Top'),
-                    ),
-                  ],
-                  onChanged: (String? value) {
-                    setState(() {
-                      handleRulerPositionChange(value);
-                    });
-                  },
-                ),
-              ),
-            ),
-          )
-        ],
-      );
-    } else {
-      return Row(
-        children: [
-          const Text('Ruler Position'),
-          const Text(":"),
-          Padding(
-            padding: const EdgeInsets.only(left: 1),
-            child: ButtonTheme(
-              alignedDropdown: true,
-              child: DropdownButton<String>(
-                value: rulerPosition.toString(),
-                items: [
-                  DropdownMenuItem<String>(
-                    value: RulerPosition.right.toString(),
-                    child: const Text('right'),
-                  ),
-                  DropdownMenuItem<String>(
-                    value: RulerPosition.center.toString(),
-                    child: const Text('Center'),
-                  ),
-                  DropdownMenuItem<String>(
-                    value: RulerPosition.left.toString(),
-                    child: const Text('left'),
-                  ),
-                ],
-                onChanged: (String? value) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        const SizedBox(
+          child: Text('Ruler Position'),
+        ),
+        Padding(
+          padding: const EdgeInsets.only(left: 1),
+          child: ButtonTheme(
+            alignedDropdown: false,
+            child: DropdownButtonHideUnderline(
+              child: DropdownButton<RulerPosition>(
+                borderRadius: BorderRadius.circular(10),
+                value: rulerPosition,
+                items: orientation == GaugeOrientation.horizontal
+                    ? const [
+                        DropdownMenuItem<RulerPosition>(
+                          value: RulerPosition.bottom,
+                          child: Text('Bottom'),
+                        ),
+                        DropdownMenuItem<RulerPosition>(
+                          value: RulerPosition.center,
+                          child: Text('Center'),
+                        ),
+                        DropdownMenuItem<RulerPosition>(
+                          value: RulerPosition.top,
+                          child: Text('Top'),
+                        ),
+                      ]
+                    : const [
+                        DropdownMenuItem<RulerPosition>(
+                          value: RulerPosition.right,
+                          child: Text('right'),
+                        ),
+                        DropdownMenuItem<RulerPosition>(
+                          value: RulerPosition.center,
+                          child: Text('Center'),
+                        ),
+                        DropdownMenuItem<RulerPosition>(
+                          value: RulerPosition.left,
+                          child: Text('left'),
+                        ),
+                      ],
+                onChanged: (value) {
                   setState(() {
-                    handleRulerPositionChange(value);
+                    handleRulerPositionChange(value!);
                   });
                 },
               ),
             ),
-          )
-        ],
-      );
-    }
+          ),
+        )
+      ],
+    );
   }
 
-  void handleRulerPositionChange(String? value) {
+  void handleRulerPositionChange(RulerPosition value) {
     switch (value) {
-      case 'RulerPosition.bottom':
+      case RulerPosition.bottom:
         rulerPosition = RulerPosition.bottom;
         break;
-      case 'RulerPosition.center':
+      case RulerPosition.center:
         rulerPosition = RulerPosition.center;
         break;
-      case 'RulerPosition.top':
+      case RulerPosition.top:
         rulerPosition = RulerPosition.top;
         break;
-      case 'RulerPosition.right':
+      case RulerPosition.right:
         rulerPosition = RulerPosition.right;
         break;
-      case 'RulerPosition.left':
+      case RulerPosition.left:
         rulerPosition = RulerPosition.left;
         break;
     }

@@ -16,7 +16,7 @@ class _ValueBarPlayGroundState extends State<ValueBarPlayGround> {
   // Configurations
 
   double value = 50;
-  ValueBarPosition position = ValueBarPosition.center;
+  ValueBarPosition valuebarPosition = ValueBarPosition.center;
   double valueBarThickness = 4;
   double valueBarOffset = 0;
   double borderRadius = 0;
@@ -50,7 +50,7 @@ class _ValueBarPlayGroundState extends State<ValueBarPlayGround> {
             valueBarOffset: valueBarOffset,
             valueBarThickness: valueBarThickness,
             orientation: orientation,
-            valueBarPosition: position,
+            valueBarPosition: valuebarPosition,
             borderRadius: borderRadius,
             edgeStyle: edgeStyle,
             reverse: reverse),
@@ -140,11 +140,28 @@ class _ValueBarPlayGroundState extends State<ValueBarPlayGround> {
           setState(() {
             if (value != null) {
               orientation = value;
+              _updateValueBarPosition();
             }
           });
         },
       ),
     );
+  }
+
+  void _updateValueBarPosition() {
+    if (orientation == GaugeOrientation.vertical) {
+      valuebarPosition = valuebarPosition == ValueBarPosition.bottom
+          ? ValueBarPosition.left
+          : valuebarPosition == ValueBarPosition.center
+              ? ValueBarPosition.center
+              : ValueBarPosition.right;
+    } else if (orientation == GaugeOrientation.horizontal) {
+      valuebarPosition = valuebarPosition == ValueBarPosition.left
+          ? ValueBarPosition.bottom
+          : valuebarPosition == ValueBarPosition.center
+              ? ValueBarPosition.center
+              : ValueBarPosition.top;
+    }
   }
 
   Widget inverseAxisHandler() {
@@ -182,34 +199,41 @@ class _ValueBarPlayGroundState extends State<ValueBarPlayGround> {
           child: ButtonTheme(
               alignedDropdown: true,
               child: DropdownButtonHideUnderline(
-                child: DropdownButton<String>(
+                child: DropdownButton<ValueBarPosition>(
                     borderRadius: BorderRadius.circular(10),
-                    value: position.toString(),
-                    items: const [
-                      DropdownMenuItem(
-                        value: 'ValueBarPosition.center',
-                        child: Text('center'),
-                      ),
-                      DropdownMenuItem(
-                        value: 'ValueBarPosition.top',
-                        child: Text('top'),
-                      ),
-                      DropdownMenuItem(
-                        value: 'ValueBarPosition.bottom',
-                        child: Text('bottom'),
-                      ),
-                      DropdownMenuItem(
-                        value: 'ValueBarPosition.left',
-                        child: Text('left'),
-                      ),
-                      DropdownMenuItem(
-                        value: 'ValueBarPosition.right',
-                        child: Text('right'),
-                      ),
-                    ],
-                    onChanged: (String? value) {
+                    value: valuebarPosition,
+                    items: orientation == GaugeOrientation.horizontal
+                        ? const [
+                            DropdownMenuItem(
+                              value: ValueBarPosition.top,
+                              child: Text('top'),
+                            ),
+                            DropdownMenuItem(
+                              value: ValueBarPosition.center,
+                              child: Text('center'),
+                            ),
+                            DropdownMenuItem(
+                              value: ValueBarPosition.bottom,
+                              child: Text('bottom'),
+                            ),
+                          ]
+                        : const [
+                            DropdownMenuItem(
+                              value: ValueBarPosition.left,
+                              child: Text('left'),
+                            ),
+                            DropdownMenuItem(
+                              value: ValueBarPosition.center,
+                              child: Text('center'),
+                            ),
+                            DropdownMenuItem(
+                              value: ValueBarPosition.right,
+                              child: Text('right'),
+                            ),
+                          ],
+                    onChanged: (ValueBarPosition? value) {
                       setState(() {
-                        handlePositionChange(value);
+                        handlePositionChange(value!);
                       });
                     }),
               )),
@@ -218,36 +242,22 @@ class _ValueBarPlayGroundState extends State<ValueBarPlayGround> {
     );
   }
 
-  void handlePositionChange(String? value) {
-    if (orientation == GaugeOrientation.horizontal &&
-        (position == ValueBarPosition.left ||
-            position == ValueBarPosition.right)) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-          padding: EdgeInsets.all(8),
-          content: Text(
-            '⚠️ Invalid Pointer Position',
-          ),
-          backgroundColor: primaryColor,
-          showCloseIcon: true,
-        ),
-      );
-    }
+  void handlePositionChange(ValueBarPosition? value) {
     if (value != null) {
-      if (value == 'ValueBarPosition.center') {
-        position = ValueBarPosition.center;
+      if (value == ValueBarPosition.center) {
+        valuebarPosition = ValueBarPosition.center;
       }
-      if (value == 'ValueBarPosition.top') {
-        position = ValueBarPosition.top;
+      if (value == ValueBarPosition.top) {
+        valuebarPosition = ValueBarPosition.top;
       }
-      if (value == 'ValueBarPosition.bottom') {
-        position = ValueBarPosition.bottom;
+      if (value == ValueBarPosition.bottom) {
+        valuebarPosition = ValueBarPosition.bottom;
       }
-      if (value == 'ValueBarPosition.left') {
-        position = ValueBarPosition.left;
+      if (value == ValueBarPosition.left) {
+        valuebarPosition = ValueBarPosition.left;
       }
-      if (value == 'ValueBarPosition.right') {
-        position = ValueBarPosition.right;
+      if (value == ValueBarPosition.right) {
+        valuebarPosition = ValueBarPosition.right;
       }
     }
   }
@@ -371,26 +381,26 @@ class _ValueBarPlayGroundState extends State<ValueBarPlayGround> {
           child: ButtonTheme(
               alignedDropdown: true,
               child: DropdownButtonHideUnderline(
-                child: DropdownButton<String>(
+                child: DropdownButton<LinearEdgeStyle>(
                     borderRadius: BorderRadius.circular(10),
-                    value: edgeStyle.toString(),
+                    value: edgeStyle,
                     items: const [
                       DropdownMenuItem(
-                        value: 'LinearEdgeStyle.startCurve',
+                        value: LinearEdgeStyle.startCurve,
                         child: Text('Start Curve'),
                       ),
                       DropdownMenuItem(
-                        value: 'LinearEdgeStyle.endCurve',
+                        value: LinearEdgeStyle.endCurve,
                         child: Text('End Curve'),
                       ),
                       DropdownMenuItem(
-                        value: 'LinearEdgeStyle.bothCurve',
+                        value: LinearEdgeStyle.bothCurve,
                         child: Text('Both Curve'),
                       ),
                     ],
-                    onChanged: (String? value) {
+                    onChanged: (LinearEdgeStyle? value) {
                       setState(() {
-                        handleEdgeStyleChange(value);
+                        handleEdgeStyleChange(value!);
                       });
                     }),
               )),
@@ -399,15 +409,15 @@ class _ValueBarPlayGroundState extends State<ValueBarPlayGround> {
     );
   }
 
-  void handleEdgeStyleChange(String? value) {
+  void handleEdgeStyleChange(LinearEdgeStyle? value) {
     if (value != null) {
-      if (value == 'LinearEdgeStyle.startCurve') {
+      if (value == LinearEdgeStyle.startCurve) {
         edgeStyle = LinearEdgeStyle.startCurve;
       }
-      if (value == 'LinearEdgeStyle.endCurve') {
+      if (value == LinearEdgeStyle.endCurve) {
         edgeStyle = LinearEdgeStyle.endCurve;
       }
-      if (value == 'LinearEdgeStyle.bothCurve') {
+      if (value == LinearEdgeStyle.bothCurve) {
         edgeStyle = LinearEdgeStyle.bothCurve;
       }
     }
@@ -458,7 +468,6 @@ class LinearGaugeView extends StatelessWidget {
             ],
             gaugeOrientation: orientation,
             rulers: RulerStyle(
-              labelOffset: 10,
               inverseRulers: reverse,
               rulerPosition: orientation == GaugeOrientation.horizontal
                   ? RulerPosition.bottom

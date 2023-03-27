@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_highlight/flutter_highlight.dart';
+import 'package:flutter_highlight/themes/atom-one-dark.dart';
+import 'package:google_fonts/google_fonts.dart';
 import '../utils/utils.dart';
+import 'package:flutter_highlight/themes/github.dart';
 
 class CodeView extends StatefulWidget {
   final int index;
@@ -38,17 +41,19 @@ class _CodeViewState extends State<CodeView> {
     return Container(
       width: double.infinity,
       color: const Color(0xffEBEEFD),
-      padding: const EdgeInsets.all(10),
+      padding: const EdgeInsets.all(0),
       child: SingleChildScrollView(
         child: HighlightView(
-          textStyle: const TextStyle(
-            fontFamily: 'Roboto',
+          padding: EdgeInsets.all(10),
+          textStyle: TextStyle(
+            fontFamily: GoogleFonts.sourceCodePro().fontFamily,
             fontSize: 14,
           ),
           code,
           tabSize: 2,
           language: 'dart',
-          theme: gaugesCodeTheme,
+          // theme: gaugesCodeTheme,
+          theme: atomOneDarkTheme,
           // theme: gaugesTheme,
         ),
       ),
