@@ -25,6 +25,25 @@ class _SpeedometerState extends State<Speedometer> {
   Timer? _timer;
 
   @override
+  void initState() {
+    super.initState();
+    _timer = Timer.periodic(const Duration(milliseconds: 50), (timer) {
+      setState(() {
+        speed = (100 + 100 * sin(timer.tick / 10)).toDouble();
+      });
+    });
+  }
+
+  @override
+  void dispose() {
+    if (_timer != null && _timer!.isActive) {
+      _timer!.cancel();
+      _timer = null;
+    }
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       // backgroundColor: Colors.black,
@@ -54,20 +73,20 @@ class _SpeedometerState extends State<Speedometer> {
                               fontSize: 120),
                     ),
                     InkWell(
-                      onTap: () {
-                        if (_timer != null && _timer!.isActive) {
-                          _timer!.cancel();
-                          _timer = null;
-                        } else {
-                          _timer = Timer.periodic(
-                              const Duration(milliseconds: 50), (timer) {
-                            setState(() {
-                              speed =
-                                  (100 + 100 * sin(timer.tick / 10)).toDouble();
-                            });
-                          });
-                        }
-                      },
+                      // onTap: () {
+                      //   if (_timer != null && _timer!.isActive) {
+                      //     _timer!.cancel();
+                      //     _timer = null;
+                      //   } else {
+                      //     _timer = Timer.periodic(
+                      //         const Duration(milliseconds: 50), (timer) {
+                      //       setState(() {
+                      //         speed =
+                      //             (100 + 100 * sin(timer.tick / 10)).toDouble();
+                      //       });
+                      //     });
+                      //   }
+                      // },
                       child: const Text(
                         "kmph",
                         style: TextStyle(

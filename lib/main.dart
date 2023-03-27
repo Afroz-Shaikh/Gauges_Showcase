@@ -3,6 +3,7 @@ import 'package:showcase_app/utils/utils.dart';
 import './home.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
   runApp(
     MaterialApp(
       theme: ThemeData.light(
