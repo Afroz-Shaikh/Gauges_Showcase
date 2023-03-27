@@ -288,6 +288,13 @@
 /Users/shaikafroz/.pub-cache/hosted/pub.dev/term_glyph-1.2.1/LICENSE
 /Users/shaikafroz/.pub-cache/hosted/pub.dev/test_api-0.4.18/LICENSE
 /Users/shaikafroz/.pub-cache/hosted/pub.dev/url_launcher-6.1.10/LICENSE
+/Users/shaikafroz/.pub-cache/hosted/pub.dev/url_launcher-6.1.10/lib/src/legacy_api.dart
+/Users/shaikafroz/.pub-cache/hosted/pub.dev/url_launcher-6.1.10/lib/src/type_conversion.dart
+/Users/shaikafroz/.pub-cache/hosted/pub.dev/url_launcher-6.1.10/lib/src/types.dart
+/Users/shaikafroz/.pub-cache/hosted/pub.dev/url_launcher-6.1.10/lib/src/url_launcher_string.dart
+/Users/shaikafroz/.pub-cache/hosted/pub.dev/url_launcher-6.1.10/lib/src/url_launcher_uri.dart
+/Users/shaikafroz/.pub-cache/hosted/pub.dev/url_launcher-6.1.10/lib/url_launcher.dart
+/Users/shaikafroz/.pub-cache/hosted/pub.dev/url_launcher-6.1.10/lib/url_launcher_string.dart
 /Users/shaikafroz/.pub-cache/hosted/pub.dev/url_launcher_android-6.0.26/LICENSE
 /Users/shaikafroz/.pub-cache/hosted/pub.dev/url_launcher_android-6.0.26/lib/url_launcher_android.dart
 /Users/shaikafroz/.pub-cache/hosted/pub.dev/url_launcher_ios-6.1.3/LICENSE
@@ -946,6 +953,9 @@
 /Users/shaikafroz/Flutter/flutter/packages/flutter_tools/lib/src/build_system/targets/common.dart
 /Users/shaikafroz/Flutter/flutter/packages/flutter_tools/lib/src/build_system/targets/icon_tree_shaker.dart
 /Users/shaikafroz/Flutter/flutter/packages/flutter_tools/lib/src/build_system/targets/macos.dart
+/Users/shaikafroz/FlutterGauges/ShowCaseApp/showcase_app/DOES_NOT_EXIST_RERUN_FOR_WILDCARD567230895
+/Users/shaikafroz/FlutterGauges/ShowCaseApp/showcase_app/assets/bmi_light.png
+/Users/shaikafroz/FlutterGauges/ShowCaseApp/showcase_app/assets/random_code.dart
 /Users/shaikafroz/FlutterGauges/ShowCaseApp/showcase_app/lib/data.dart
 /Users/shaikafroz/FlutterGauges/ShowCaseApp/showcase_app/lib/home.dart
 /Users/shaikafroz/FlutterGauges/ShowCaseApp/showcase_app/lib/main.dart
@@ -955,11 +965,15 @@
 /Users/shaikafroz/FlutterGauges/ShowCaseApp/showcase_app/lib/playgrounds/range_linear_gauge_playground.dart
 /Users/shaikafroz/FlutterGauges/ShowCaseApp/showcase_app/lib/playgrounds/ruler_playground.dart
 /Users/shaikafroz/FlutterGauges/ShowCaseApp/showcase_app/lib/playgrounds/valuebar_playground.dart
+/Users/shaikafroz/FlutterGauges/ShowCaseApp/showcase_app/lib/usecase/.DS_Store
 /Users/shaikafroz/FlutterGauges/ShowCaseApp/showcase_app/lib/usecase/battery.dart
 /Users/shaikafroz/FlutterGauges/ShowCaseApp/showcase_app/lib/usecase/blood_sugar_test.dart
+/Users/shaikafroz/FlutterGauges/ShowCaseApp/showcase_app/lib/usecase/daily_tasks.dart
 /Users/shaikafroz/FlutterGauges/ShowCaseApp/showcase_app/lib/usecase/disk_space.dart
 /Users/shaikafroz/FlutterGauges/ShowCaseApp/showcase_app/lib/usecase/height_indicator.dart
+/Users/shaikafroz/FlutterGauges/ShowCaseApp/showcase_app/lib/usecase/lemonade.dart
 /Users/shaikafroz/FlutterGauges/ShowCaseApp/showcase_app/lib/usecase/progress_bar.dart
+/Users/shaikafroz/FlutterGauges/ShowCaseApp/showcase_app/lib/usecase/progress_level.dart
 /Users/shaikafroz/FlutterGauges/ShowCaseApp/showcase_app/lib/usecase/rainfall.dart
 /Users/shaikafroz/FlutterGauges/ShowCaseApp/showcase_app/lib/usecase/separator.dart
 /Users/shaikafroz/FlutterGauges/ShowCaseApp/showcase_app/lib/usecase/server_utilization.dart
@@ -967,6 +981,7 @@
 /Users/shaikafroz/FlutterGauges/ShowCaseApp/showcase_app/lib/usecase/temperature_meter.dart
 /Users/shaikafroz/FlutterGauges/ShowCaseApp/showcase_app/lib/usecase/thermometer.dart
 /Users/shaikafroz/FlutterGauges/ShowCaseApp/showcase_app/lib/usecase/timeline_controller.dart
+/Users/shaikafroz/FlutterGauges/ShowCaseApp/showcase_app/lib/usecase/usecase.dart
 /Users/shaikafroz/FlutterGauges/ShowCaseApp/showcase_app/lib/usecase/vaccination_graph.dart
 /Users/shaikafroz/FlutterGauges/ShowCaseApp/showcase_app/lib/usecase/water_level.dart
 /Users/shaikafroz/FlutterGauges/ShowCaseApp/showcase_app/lib/utils/code_theme.dart

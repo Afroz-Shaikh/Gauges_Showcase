@@ -54,31 +54,3 @@ class Rainfall extends StatelessWidget {
     );
   }
 }
-
-class LemonadeGauge extends StatelessWidget {
-  const LemonadeGauge({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-      child: LinearGauge(
-        gaugeOrientation: GaugeOrientation.vertical,
-        start: 0,
-        end: 10,
-        customLabels: const [
-          CustomRulerLabel(text: "0 ml", value: 0),
-          CustomRulerLabel(text: "100 ml", value: 10),
-          CustomRulerLabel(text: "150 ml", value: 150),
-          CustomRulerLabel(text: "200ml", value: 200),
-          CustomRulerLabel(text: "250ml", value: 250)
-        ],
-        linearGaugeBoxDecoration: const LinearGaugeBoxDecoration(
-            thickness: 50, backgroundColor: Colors.green, borderRadius: 10),
-        rulers: const RulerStyle(
-          showPrimaryRulers: false,
-          rulerPosition: RulerPosition.right,
-        ),
-      ),
-    );
-  }
-}

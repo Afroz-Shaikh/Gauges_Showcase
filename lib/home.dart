@@ -28,7 +28,36 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     bool displayMobileLayout = MediaQuery.of(context).size.width < 600;
     return Scaffold(
-        appBar: const MainHeader(),
+        appBar: AppBar(
+          elevation: 0.5,
+          centerTitle: false,
+          title: const Text(
+            " Flutter Gauges",
+            style: TextStyle(color: Colors.black, fontWeight: FontWeight.w600),
+          ),
+          backgroundColor: clearWhite,
+          actions: [
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: ElevatedButton.icon(
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.white,
+                    foregroundColor: Colors.blue,
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10)),
+                  ),
+                  onPressed: () {
+                    _launchInBrowser(Uri.parse(
+                        'https://pub.dev/packages/geekyants_flutter_gauges'));
+                  },
+                  icon: const FlutterLogo(),
+                  label: const Text("Get Package")),
+            ),
+            const SizedBox(
+              width: 10,
+            ),
+          ],
+        ),
         backgroundColor: clearWhite,
         body: Row(
           children: [
@@ -88,14 +117,61 @@ class _HomePageState extends State<HomePage> {
                 ),
                 margin: displayMobileLayout ? null : const EdgeInsets.all(10),
                 child: Scaffold(
-                  appBar: MainContentAppBar(
-                      showCodeView: () {
-                        setState(() {
-                          showCode = !showCode;
-                        });
-                      },
-                      codeMode: showCode,
-                      displayMobileLayout: displayMobileLayout),
+                  appBar: AppBar(
+                    iconTheme:
+                        const IconThemeData().copyWith(color: Colors.black),
+                    elevation: 0,
+                    centerTitle: false,
+                    title: Text(
+                      menuItems[selectedIndex].title,
+                      style: const TextStyle(color: Colors.black, fontSize: 14),
+                    ),
+                    automaticallyImplyLeading:
+                        displayMobileLayout ? true : false,
+                    backgroundColor: Colors.white,
+                    actions: [
+                      menuItems[selectedIndex].sourceCodePath != null
+                          ? IconButton(
+                              icon: showCode
+                                  ? const Icon(Icons.display_settings)
+                                  : const Icon(Icons.code_rounded),
+                              tooltip: 'Source Code',
+                              onPressed:
+                                  menuItems[selectedIndex].sourceCodePath !=
+                                          null
+                                      //!
+                                      ? () {
+                                          setState(() {
+                                            showCode = !showCode;
+                                          });
+                                        }
+                                      : null,
+                            )
+                          : const SizedBox(),
+                      IconButton(
+                          onPressed: () {
+                            showDialog(
+                              context: context,
+                              builder: (BuildContext context) => SizedBox(
+                                child: AlertDialog(
+                                  backgroundColor: Colors.white,
+                                  actions: [
+                                    TextButton(
+                                        onPressed: () {
+                                          Navigator.pop(context);
+                                        },
+                                        child: const Text('Close'))
+                                  ],
+                                  content: SizedBox(
+                                      width: MediaQuery.of(context).size.width,
+                                      child: menuItems[selectedIndex].widget),
+                                ),
+                              ),
+                            );
+                          },
+                          icon: const Icon(Icons.fullscreen_exit_rounded)),
+                    ],
+                  ),
                   drawer: displayMobileLayout
                       ? Drawer(
                           child: ListView(
@@ -158,70 +234,70 @@ class _HomePageState extends State<HomePage> {
   }
 }
 
-class MainContentAppBar extends StatelessWidget with PreferredSizeWidget {
-  const MainContentAppBar({
-    super.key,
-    required this.displayMobileLayout,
-    required this.showCodeView,
-    required this.codeMode,
-  });
-  final bool displayMobileLayout;
-  final VoidCallback showCodeView;
-  final bool codeMode;
+// class MainContentAppBar extends StatelessWidget with PreferredSizeWidget {
+//   const MainContentAppBar({
+//     super.key,
+//     required this.displayMobileLayout,
+//     required this.showCodeView,
+//     required this.codeMode,
+//   });
+//   final bool displayMobileLayout;
+//   final VoidCallback showCodeView;
+//   final bool codeMode;
 
-  @override
-  Size get preferredSize => const Size.fromHeight(kToolbarHeight);
+//   @override
+//   Size get preferredSize => const Size.fromHeight(kToolbarHeight);
 
-  @override
-  Widget build(BuildContext context) {
-    return AppBar(
-      iconTheme: const IconThemeData().copyWith(color: Colors.black),
-      elevation: 0,
-      centerTitle: false,
-      title: Text(
-        menuItems[selectedIndex].title,
-        style: const TextStyle(color: Colors.black, fontSize: 14),
-      ),
-      automaticallyImplyLeading: displayMobileLayout ? true : false,
-      backgroundColor: Colors.white,
-      actions: [
-        menuItems[selectedIndex].sourceCodePath != null
-            ? IconButton(
-                icon: codeMode
-                    ? const Icon(Icons.display_settings)
-                    : const Icon(Icons.code_rounded),
-                tooltip: 'Source Code',
-                onPressed: menuItems[selectedIndex].sourceCodePath != null
-                    ? showCodeView
-                    : null,
-              )
-            : const SizedBox(),
-        IconButton(
-            onPressed: () {
-              showDialog(
-                context: context,
-                builder: (BuildContext context) => SizedBox(
-                  child: AlertDialog(
-                    backgroundColor: Colors.white,
-                    actions: [
-                      TextButton(
-                          onPressed: () {
-                            Navigator.pop(context);
-                          },
-                          child: const Text('Close'))
-                    ],
-                    content: SizedBox(
-                        width: MediaQuery.of(context).size.width,
-                        child: menuItems[selectedIndex].widget),
-                  ),
-                ),
-              );
-            },
-            icon: const Icon(Icons.fullscreen_exit_rounded)),
-      ],
-    );
-  }
-}
+//   @override
+//   Widget build(BuildContext context) {
+//     return AppBar(
+//       iconTheme: const IconThemeData().copyWith(color: Colors.black),
+//       elevation: 0,
+//       centerTitle: false,
+//       title: Text(
+//         menuItems[selectedIndex].title,
+//         style: const TextStyle(color: Colors.black, fontSize: 14),
+//       ),
+//       automaticallyImplyLeading: displayMobileLayout ? true : false,
+//       backgroundColor: Colors.white,
+//       actions: [
+//         menuItems[selectedIndex].sourceCodePath != null
+//             ? IconButton(
+//                 icon: codeMode
+//                     ? const Icon(Icons.display_settings)
+//                     : const Icon(Icons.code_rounded),
+//                 tooltip: 'Source Code',
+//                 onPressed: menuItems[selectedIndex].sourceCodePath != null
+//                     ? showCodeView
+//                     : null,
+//               )
+//             : const SizedBox(),
+//         IconButton(
+//             onPressed: () {
+//               showDialog(
+//                 context: context,
+//                 builder: (BuildContext context) => SizedBox(
+//                   child: AlertDialog(
+//                     backgroundColor: Colors.white,
+//                     actions: [
+//                       TextButton(
+//                           onPressed: () {
+//                             Navigator.pop(context);
+//                           },
+//                           child: const Text('Close'))
+//                     ],
+//                     content: SizedBox(
+//                         width: MediaQuery.of(context).size.width,
+//                         child: menuItems[selectedIndex].widget),
+//                   ),
+//                 ),
+//               );
+//             },
+//             icon: const Icon(Icons.fullscreen_exit_rounded)),
+//       ],
+//     );
+//   }
+// }
 
 class DrawerHeader extends StatelessWidget {
   const DrawerHeader({
@@ -242,53 +318,53 @@ class DrawerHeader extends StatelessWidget {
   }
 }
 
-class MainHeader extends StatelessWidget with PreferredSizeWidget {
-  const MainHeader({
-    super.key,
-  });
-  @override
-  Size get preferredSize => const Size.fromHeight(kToolbarHeight);
-  @override
-  Widget build(BuildContext context) {
-    return AppBar(
-      elevation: 0.5,
-      centerTitle: false,
-      title: const Text(
-        " Flutter Gauges",
-        style: TextStyle(color: Colors.black, fontWeight: FontWeight.w600),
-      ),
-      backgroundColor: clearWhite,
-      actions: [
-        Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: ElevatedButton.icon(
-              style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.white,
-                foregroundColor: Colors.blue,
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10)),
-              ),
-              onPressed: () {
-                _launchInBrowser(Uri.parse(
-                    'https://pub.dev/packages/geekyants_flutter_gauges'));
-              },
-              icon: const FlutterLogo(),
-              label: const Text("Get Package")),
-        ),
-        const SizedBox(
-          width: 10,
-        ),
-      ],
-    );
-  }
+/// Getting Error while Deploying to Vercel because of PreferredSizeWidget
+// class MainHeader extends StatelessWidget with PreferredSizeWidget {
+//   const MainHeader({
+//     super.key,
+//   });
+//   @override
+//   Size get preferredSize => const Size.fromHeight(kToolbarHeight);
+//   @override
+//   Widget build(BuildContext context) {
+//     return AppBar(
+//       elevation: 0.5,
+//       centerTitle: false,
+//       title: const Text(
+//         " Flutter Gauges",
+//         style: TextStyle(color: Colors.black, fontWeight: FontWeight.w600),
+//       ),
+//       backgroundColor: clearWhite,
+//       actions: [
+//         Padding(
+//           padding: const EdgeInsets.all(8.0),
+//           child: ElevatedButton.icon(
+//               style: ElevatedButton.styleFrom(
+//                 backgroundColor: Colors.white,
+//                 foregroundColor: Colors.blue,
+//                 shape: RoundedRectangleBorder(
+//                     borderRadius: BorderRadius.circular(10)),
+//               ),
+//               onPressed: () {
+//                 _launchInBrowser(Uri.parse(
+//                     'https://pub.dev/packages/geekyants_flutter_gauges'));
+//               },
+//               icon: const FlutterLogo(),
+//               label: const Text("Get Package")),
+//         ),
+//         const SizedBox(
+//           width: 10,
+//         ),
+//       ],
+//     );
+//   }
 
-  Future<void> _launchInBrowser(Uri url) async {
-    if (!await launchUrl(
-      url,
-      mode: LaunchMode.platformDefault,
-    )) {
-      throw Exception('Could not launch $url');
-    }
+Future<void> _launchInBrowser(Uri url) async {
+  if (!await launchUrl(
+    url,
+    mode: LaunchMode.platformDefault,
+  )) {
+    throw Exception('Could not launch $url');
   }
 }
 
