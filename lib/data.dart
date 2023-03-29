@@ -6,6 +6,7 @@ import 'package:showcase_app/usecase/blood_sugar_test.dart';
 import 'package:showcase_app/usecase/disk_space.dart';
 import 'package:showcase_app/usecase/height_indicator.dart';
 import 'package:showcase_app/usecase/lemonade.dart';
+import 'package:showcase_app/usecase/multiple_pointers.dart';
 import 'package:showcase_app/usecase/progress_bar.dart';
 import 'package:showcase_app/usecase/rainfall.dart';
 import 'package:showcase_app/usecase/separator.dart';
@@ -21,6 +22,7 @@ import '../../usecase/vaccination_graph.dart';
 import '../../usecase/water_level.dart';
 import 'playgrounds/valuebar_playground.dart';
 import 'usecase/direction_gauge.dart';
+import 'usecase/multiple_valuebar.dart';
 
 List<LinearGaugeUseCase> menuItems = [
   LinearGaugeUseCase(
@@ -129,33 +131,49 @@ List<LinearGaugeUseCase> menuItems = [
     sourceCodePath: "lib/usecase/disk_space.dart",
   ),
   LinearGaugeUseCase(
+    title: "Multiple Pointers",
+    widget: const MultiplePointer(),
+    index: 15,
+    type: "UseCase",
+    sourceCodePath: "lib/usecase/multiple_pointers.dart",
+  ),
+  LinearGaugeUseCase(
+    title: "Multiple ValueBar",
+    widget: const MultipleValueBar(),
+    index: 16,
+    type: "UseCase",
+    sourceCodePath: "lib/usecase/multiple_valuebar.dart",
+  ),
+
+  // Playgrounds
+  LinearGaugeUseCase(
     title: "API",
     widget: const LinearGaugePlayGround(),
     type: "API",
-    index: 15,
+    index: 17,
   ),
   LinearGaugeUseCase(
     title: "Pointer API",
     widget: const PointerPlayGround(),
     type: "API",
-    index: 16,
+    index: 18,
   ),
   LinearGaugeUseCase(
     title: "ValueBar API",
     widget: const ValueBarPlayGround(),
     type: "API",
-    index: 17,
+    index: 19,
   ),
   LinearGaugeUseCase(
     title: "RangeLinearGauge API",
     widget: const RangeLinearGaugePlayGround(),
     type: "API",
-    index: 18,
+    index: 20,
   ),
   LinearGaugeUseCase(
     title: "Ruler API",
     widget: const RulerPlayGround(),
     type: "API",
-    index: 19,
+    index: 21,
   ),
 ];

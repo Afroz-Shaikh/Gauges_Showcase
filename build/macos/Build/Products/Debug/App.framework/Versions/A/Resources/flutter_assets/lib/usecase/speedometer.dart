@@ -55,10 +55,11 @@ class _SpeedometerState extends State<Speedometer> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Padding(
-                padding: const EdgeInsets.all(8.0),
+                padding: const EdgeInsets.symmetric(horizontal: 8.0),
                 child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.end,
+                  crossAxisAlignment: CrossAxisAlignment.baseline,
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  textBaseline: TextBaseline.alphabetic,
                   children: [
                     Text(
                       speed.toStringAsFixed(0),
@@ -77,44 +78,42 @@ class _SpeedometerState extends State<Speedometer> {
                       style: TextStyle(
                           color: Colors.black,
                           fontWeight: FontWeight.bold,
-                          fontSize: 30),
+                          fontSize: 40),
                     ),
                   ],
                 ),
               ),
-              Center(
-                child: LinearGauge(
-                  start: 0,
-                  end: 200,
-                  enableAnimation: true,
-                  valueBar: [
-                    ValueBar(
-                        // color: const Color(0xff17c2e9),
-                        color: speed > 150
-                            ? const Color(0xffe91717)
-                            : const Color.fromARGB(255, 0, 94, 226),
-                        value: speed,
-                        valueBarThickness: 30,
-                        borderRadius: 30,
-                        edgeStyle: LinearEdgeStyle.bothCurve)
-                  ],
-                  linearGaugeBoxDecoration: const LinearGaugeBoxDecoration(
-                      thickness: 30,
+              LinearGauge(
+                start: 0,
+                end: 200,
+                enableAnimation: true,
+                valueBar: [
+                  ValueBar(
+                      // color: const Color(0xff17c2e9),
+                      color: speed > 150
+                          ? const Color(0xffe91717)
+                          : const Color.fromARGB(255, 0, 94, 226),
+                      value: speed,
+                      valueBarThickness: 30,
                       borderRadius: 30,
-                      edgeStyle: LinearEdgeStyle.bothCurve,
-                      linearGradient: LinearGradient(colors: [
-                        Color(0xff0a3d60),
-                        Color(0xff072E5f),
-                        Color(0xff0212161),
-                        Color(0xff0490a60),
-                        Color(0xff630362),
-                      ])),
-                  rulers: const RulerStyle(
-                    showLabel: false,
-                    showPrimaryRulers: false,
-                    rulerPosition: RulerPosition.bottom,
-                    showSecondaryRulers: false,
-                  ),
+                      edgeStyle: LinearEdgeStyle.bothCurve)
+                ],
+                linearGaugeBoxDecoration: const LinearGaugeBoxDecoration(
+                    thickness: 30,
+                    borderRadius: 30,
+                    edgeStyle: LinearEdgeStyle.bothCurve,
+                    linearGradient: LinearGradient(colors: [
+                      Color(0xff0a3d60),
+                      Color(0xff072E5f),
+                      Color(0xff0212161),
+                      Color(0xff0490a60),
+                      Color(0xff630362),
+                    ])),
+                rulers: const RulerStyle(
+                  showLabel: false,
+                  showPrimaryRulers: false,
+                  rulerPosition: RulerPosition.bottom,
+                  showSecondaryRulers: false,
                 ),
               ),
             ],

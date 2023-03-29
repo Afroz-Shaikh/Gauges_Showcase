@@ -1,8 +1,8 @@
 version: "Apple Swift version 5.7 (swiftlang-5.7.0.127.4 clang-1400.0.29.50)"
 options: "8c58f61aa599d5018f06646df091de905ab19f55f913a8b8ce348385aec01505"
-build_start_time: [1679919828, 510538101]
-build_end_time: [1679919830, 307896137]
+build_start_time: [1680084177, 51764011]
+build_end_time: [1680084179, 85527896]
 inputs:
-  "/Users/shaikafroz/FlutterGauges/ShowCaseApp/showcase_app/macos/Flutter/GeneratedPluginRegistrant.swift": [1679919820, 749354839]
+  "/Users/shaikafroz/FlutterGauges/ShowCaseApp/showcase_app/macos/Flutter/GeneratedPluginRegistrant.swift": [1680084167, 198077201]
   "/Users/shaikafroz/FlutterGauges/ShowCaseApp/showcase_app/macos/Runner/AppDelegate.swift": [1675961070, 0]
   "/Users/shaikafroz/FlutterGauges/ShowCaseApp/showcase_app/macos/Runner/MainFlutterWindow.swift": [1675961070, 0]

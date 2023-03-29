@@ -3,8 +3,6 @@ import 'package:flutter/services.dart';
 import 'package:flutter_highlight/flutter_highlight.dart';
 import 'package:flutter_highlight/themes/atom-one-dark.dart';
 import 'package:google_fonts/google_fonts.dart';
-import '../utils/utils.dart';
-import 'package:flutter_highlight/themes/github.dart';
 
 class CodeView extends StatefulWidget {
   final int index;
