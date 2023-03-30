@@ -36,25 +36,67 @@ class _CodeViewState extends State<CodeView> {
         child: CircularProgressIndicator(),
       );
     }
-    return Container(
-      width: double.infinity,
-      color: const Color(0xffEBEEFD),
-      padding: const EdgeInsets.all(0),
-      child: SingleChildScrollView(
-        child: HighlightView(
-          padding: EdgeInsets.all(10),
-          textStyle: TextStyle(
-            fontFamily: GoogleFonts.sourceCodePro().fontFamily,
-            fontSize: 14,
+    return Stack(
+      children: [
+        Container(
+          width: double.infinity,
+          color: const Color(0xffEBEEFD),
+          padding: const EdgeInsets.all(0),
+          child: SingleChildScrollView(
+            child: HighlightView(
+              padding: const EdgeInsets.all(10),
+              textStyle: TextStyle(
+                fontFamily: GoogleFonts.sourceCodePro().fontFamily,
+                fontSize: 14,
+              ),
+              code,
+              tabSize: 2,
+              language: 'dart',
+              theme: atomOneDarkTheme,
+              // theme: gaugesTheme,
+            ),
           ),
-          code,
-          tabSize: 2,
-          language: 'dart',
-          // theme: gaugesCodeTheme,
-          theme: atomOneDarkTheme,
-          // theme: gaugesTheme,
         ),
-      ),
+        Positioned(
+          right: 30,
+          top: 10,
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(10),
+            child: MaterialButton(
+              splashColor: Colors.red,
+              color: Colors.white,
+              onPressed: () {
+                _copyToClipboard(code);
+                ScaffoldMessenger.of(context).showSnackBar(
+                  const SnackBar(
+                    behavior: SnackBarBehavior.floating,
+                    content: Text(
+                      "Copied to clipboard",
+                    ),
+                  ),
+                );
+              },
+              child: const Row(
+                children: [
+                  Icon(
+                    Icons.copy,
+                    color: Colors.black,
+                    size: 15,
+                  ),
+                  SizedBox(
+                    width: 4,
+                  ),
+                  Text("Copy ", style: TextStyle(color: Colors.black))
+                ],
+              ),
+            ),
+          ),
+        ),
+      ],
     );
   }
+}
+
+void _copyToClipboard(String code) {
+  Clipboard.setData(ClipboardData(text: code));
 }

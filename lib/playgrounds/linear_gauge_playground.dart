@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:geekyants_flutter_gauges/gauges.dart';
 
 import '../utils/colors.dart';
+import '../utils/snackbar.dart';
 import '../widgets/playground_header.dart';
 
 class LinearGaugePlayGround extends StatefulWidget {
@@ -25,9 +26,11 @@ class _LinearGaugePlayGroundState extends State<LinearGaugePlayGround> {
   @override
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
+    final screenHeight = MediaQuery.of(context).size.height;
+
     return Scaffold(
       body: Flex(
-        direction: screenWidth > 600 ? Axis.horizontal : Axis.vertical,
+        direction: screenWidth > 1000 ? Axis.horizontal : Axis.vertical,
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
@@ -39,14 +42,13 @@ class _LinearGaugePlayGroundState extends State<LinearGaugePlayGround> {
             reverse: reverse,
           ),
           Flexible(
-            flex: 1,
+            flex: screenWidth > 700 ? 1 : 3,
             child: SingleChildScrollView(
               child: Card(
                 child: Container(
                   color: const Color(0xffF5F8FA),
                   padding: const EdgeInsets.all(8.0),
-                  height: MediaQuery.of(context).size.height,
-                  width: 600,
+                  height: screenWidth > 700 ? screenHeight : null,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisAlignment: MainAxisAlignment.start,
@@ -241,9 +243,20 @@ class _LinearGaugePlayGroundState extends State<LinearGaugePlayGround> {
           style: ElevatedButton.styleFrom(foregroundColor: primaryColor),
           child: const Icon(Icons.add),
           onPressed: () {
-            setState(() {
-              _valueBarOffset += 1;
-            });
+            if (_valueBarPosition == ValueBarPosition.center) {
+              showSnackBar(
+                "Can't increase offset when value bar is centered.",
+                context,
+              );
+              // ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+              //     behavior: SnackBarBehavior.floating,
+              //     content: Text(
+              //         "Can't increase offset when value bar is centered.")));
+            } else {
+              setState(() {
+                _valueBarOffset += 1;
+              });
+            }
           },
         ),
         ElevatedButton(
@@ -342,25 +355,24 @@ class LinearGaugeView extends StatelessWidget {
     return Flexible(
       flex: 3,
       child: Container(
+          alignment: Alignment.center,
           margin: const EdgeInsets.only(left: 30),
           width: MediaQuery.of(context).size.width / 2,
-          height: MediaQuery.of(context).size.height / 1,
-          child: Center(
-            child: LinearGauge(
-                pointers: [
-                  Pointer(value: 50, shape: shape)
-                ],
-                valueBar: [
-                  ValueBar(
-                      value: 75,
-                      position: _valueBarPosition,
-                      offset: _valueBarOffset),
-                ],
-                gaugeOrientation: orientation,
-                rulers: RulerStyle(
-                    rulerPosition: RulerPosition.center,
-                    inverseRulers: reverse)),
-          )),
+          // height: MediaQuery.of(context).size.height / 1,
+          child: LinearGauge(
+              pointers: [
+                Pointer(value: 50, shape: shape)
+              ],
+              valueBar: [
+                ValueBar(
+                    value: 75,
+                    position: _valueBarPosition,
+                    offset: _valueBarOffset),
+              ],
+              gaugeOrientation: orientation,
+              rulers: RulerStyle(
+                  rulerPosition: RulerPosition.center,
+                  inverseRulers: reverse))),
     );
   }
 }

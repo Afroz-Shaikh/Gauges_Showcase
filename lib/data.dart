@@ -26,12 +26,13 @@ import 'usecase/multiple_valuebar.dart';
 
 List<LinearGaugeUseCase> menuItems = [
   LinearGaugeUseCase(
-    title: "Speedometer",
-    widget: const Speedometer(),
-    index: 0,
-    type: "UseCase",
-    sourceCodePath: "lib/usecase/speedometer.dart",
-  ),
+      title: "Speedometer",
+      widget: const Speedometer(),
+      index: 0,
+      type: "UseCase",
+      sourceCodePath: "lib/usecase/speedometer.dart",
+      sourceCodeUrl:
+          "https://github.com/Afroz-Shaikh/Gauges_Showcase/blob/main/lib/usecase/speedometer.dart"),
   LinearGaugeUseCase(
     title: "Vaccination Graph",
     widget: const MyVaccinationGraph(),

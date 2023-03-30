@@ -22,7 +22,7 @@
 		</data>
 		<key>Resources/flutter_assets/NOTICES.Z</key>
 		<data>
-		3CSpPC0FN/Y+p1t2mF6Cp65/cy0=
+		ypjpIc6FE9p+KcyckKTwtXHnxrI=
 		</data>
 		<key>Resources/flutter_assets/assets/bmi_light.png</key>
 		<data>
@@ -46,7 +46,7 @@
 		</data>
 		<key>Resources/flutter_assets/kernel_blob.bin</key>
 		<data>
-		WMN8Ofl28DRI6po5aZJvlzPcFMY=
+		e9MmYkBFmhdCMNhREZ06mhUwLQk=
 		</data>
 		<key>Resources/flutter_assets/lib/usecase/battery.dart</key>
 		<data>
@@ -82,11 +82,11 @@
 		</data>
 		<key>Resources/flutter_assets/lib/usecase/multiple_valuebar.dart</key>
 		<data>
-		ia76aGCLfa7N9RvJMvKTn57otgM=
+		bLr+7K2atK/HutFQk8y2SCw5OQI=
 		</data>
 		<key>Resources/flutter_assets/lib/usecase/progress_bar.dart</key>
 		<data>
-		9IHwGeSE2AYGa0OU6CuyVQn6TR8=
+		DIpBZjg30j/aUDMA8405p6hwpNo=
 		</data>
 		<key>Resources/flutter_assets/lib/usecase/progress_level.dart</key>
 		<data>
@@ -106,7 +106,7 @@
 		</data>
 		<key>Resources/flutter_assets/lib/usecase/speedometer.dart</key>
 		<data>
-		n1d3e2H1ihE+FRsIke3O2oOGvSs=
+		QfeCbHpWpP/CfE+SUgXBBZT/VG4=
 		</data>
 		<key>Resources/flutter_assets/lib/usecase/temperature_meter.dart</key>
 		<data>
@@ -183,7 +183,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			knzZ8N3kat+OoP2C7jc3xDJnZw3iEvytuV6a2vsMaAI=
+			/dN8smnu8MypjmEzQ3P3eiEsRpdxVukgTLF9yWCGLVY=
 			</data>
 		</dict>
 		<key>Resources/flutter_assets/assets/bmi_light.png</key>
@@ -225,7 +225,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			PVEHgVcjq+WBZ/1WB6sEDeMx+HahUGW4qiMbHWAFb4Q=
+			gqR+yVt7D0xJ2ovOV8th5KTivDCe7ZHTQwFKNcdFFn8=
 			</data>
 		</dict>
 		<key>Resources/flutter_assets/lib/usecase/battery.dart</key>
@@ -288,14 +288,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			DQgSHNAM6ai4GdHcK1aZKYF8bEh+/KRqARbSNxTh2og=
+			+XoFLNsD3LCcegbiUYCoahEWuno0MnEIClRmubEaA+g=
 			</data>
 		</dict>
 		<key>Resources/flutter_assets/lib/usecase/progress_bar.dart</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			c11MTfhSPtrlhVEzsG6fTSWla3gVL3sufY61qg6SWLM=
+			cjQuqnrfp9LvsT7cCo6dd6KE0ARam7UwNogyIMPhjxk=
 			</data>
 		</dict>
 		<key>Resources/flutter_assets/lib/usecase/progress_level.dart</key>
@@ -330,7 +330,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			Vz53LAd9czUu1dKCtaZrzyhzNeZd2ww/vO+1V/h1GzE=
+			7xpe8KdounFA8jKGENycwxNwxG5cp41Fs9M6pvAue4M=
 			</data>
 		</dict>
 		<key>Resources/flutter_assets/lib/usecase/temperature_meter.dart</key>
