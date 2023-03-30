@@ -51,7 +51,13 @@ class GaugeView extends ConsumerWidget {
                           : null,
                     )
                   : const SizedBox(),
+              menuItems[index].sourceCodeUrl != null
+                  ? GithubButton(
+                      url: menuItems[index].sourceCodeUrl,
+                    )
+                  : const SizedBox(),
               IconButton(
+                  tooltip: "Full Screen",
                   onPressed: () {
                     showDialog(
                       context: context,
@@ -73,11 +79,6 @@ class GaugeView extends ConsumerWidget {
                     );
                   },
                   icon: const Icon(Icons.fullscreen_exit_rounded)),
-              menuItems[index].sourceCodeUrl != null
-                  ? GithubButton(
-                      url: menuItems[index].sourceCodeUrl,
-                    )
-                  : const SizedBox(),
             ],
           ),
           drawer: displayMobileLayout

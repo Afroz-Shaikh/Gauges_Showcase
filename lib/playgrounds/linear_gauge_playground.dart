@@ -243,19 +243,15 @@ class _LinearGaugePlayGroundState extends State<LinearGaugePlayGround> {
           style: ElevatedButton.styleFrom(foregroundColor: primaryColor),
           child: const Icon(Icons.add),
           onPressed: () {
-            if (_valueBarPosition == ValueBarPosition.center) {
+            if (_valueBarPosition != ValueBarPosition.center) {
+              setState(() {
+                _valueBarOffset += 1;
+              });
+            } else {
               showSnackBar(
                 "Can't increase offset when value bar is centered.",
                 context,
               );
-              // ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-              //     behavior: SnackBarBehavior.floating,
-              //     content: Text(
-              //         "Can't increase offset when value bar is centered.")));
-            } else {
-              setState(() {
-                _valueBarOffset += 1;
-              });
             }
           },
         ),
@@ -263,11 +259,18 @@ class _LinearGaugePlayGroundState extends State<LinearGaugePlayGround> {
           style: ElevatedButton.styleFrom(foregroundColor: primaryColor),
           child: const Icon(Icons.remove),
           onPressed: () {
-            setState(
-              () {
-                _valueBarOffset -= 1;
-              },
-            );
+            if (_valueBarPosition != ValueBarPosition.center) {
+              setState(
+                () {
+                  _valueBarOffset -= 1;
+                },
+              );
+            } else {
+              showSnackBar(
+                "Can't decrease offset when value bar is centered.",
+                context,
+              );
+            }
           },
         ),
       ],

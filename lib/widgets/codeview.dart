@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_highlight/flutter_highlight.dart';
 import 'package:flutter_highlight/themes/atom-one-dark.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:showcase_app/utils/snackbar.dart';
 
 class CodeView extends StatefulWidget {
   final int index;
@@ -63,18 +64,19 @@ class _CodeViewState extends State<CodeView> {
           child: ClipRRect(
             borderRadius: BorderRadius.circular(10),
             child: MaterialButton(
-              splashColor: Colors.red,
+              splashColor: Colors.white,
               color: Colors.white,
               onPressed: () {
                 _copyToClipboard(code);
-                ScaffoldMessenger.of(context).showSnackBar(
-                  const SnackBar(
-                    behavior: SnackBarBehavior.floating,
-                    content: Text(
-                      "Copied to clipboard",
-                    ),
-                  ),
-                );
+                showSnackBar("Copied to Clipboard", context);
+                // ScaffoldMessenger.of(context).showSnackBar(
+                //   const SnackBar(
+                //     behavior: SnackBarBehavior.floating,
+                //     content: Text(
+                //       "Copied to clipboard",
+                //     ),
+                //   ),
+                // );
               },
               child: const Row(
                 children: [

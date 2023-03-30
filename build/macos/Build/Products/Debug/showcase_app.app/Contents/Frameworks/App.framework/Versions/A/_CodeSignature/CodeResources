@@ -10,11 +10,11 @@
 		</data>
 		<key>Resources/flutter_assets/AssetManifest.bin</key>
 		<data>
-		RbQxHJzGEv2wirqqsNOdvm29n8Y=
+		dijtyJ6hAuZ5ZLVvw0wApTvsgOY=
 		</data>
 		<key>Resources/flutter_assets/AssetManifest.json</key>
 		<data>
-		/Qor0Vu4O27K5P12BGzGz5R3jUs=
+		QQC3H2VWu4+/uYHQNFtV49QhUIw=
 		</data>
 		<key>Resources/flutter_assets/FontManifest.json</key>
 		<data>
@@ -27,6 +27,10 @@
 		<key>Resources/flutter_assets/assets/bmi_light.png</key>
 		<data>
 		jUnoYAYBWA2XNFZzRIPP1Rb6pLI=
+		</data>
+		<key>Resources/flutter_assets/assets/dart-icon.png</key>
+		<data>
+		RzVZhc7WBNLIgKoKeUvxYCmAzos=
 		</data>
 		<key>Resources/flutter_assets/assets/github_logo.png</key>
 		<data>
@@ -46,7 +50,7 @@
 		</data>
 		<key>Resources/flutter_assets/kernel_blob.bin</key>
 		<data>
-		e9MmYkBFmhdCMNhREZ06mhUwLQk=
+		xxGfm2+VLbBqCFBn2xsutVg1zdU=
 		</data>
 		<key>Resources/flutter_assets/lib/usecase/battery.dart</key>
 		<data>
@@ -126,7 +130,7 @@
 		</data>
 		<key>Resources/flutter_assets/lib/usecase/vaccination_graph.dart</key>
 		<data>
-		i/UV84EFpiEMO5e3kWFCTCBGrII=
+		NuQtwcwS4hzb4paw4TfLddXozpw=
 		</data>
 		<key>Resources/flutter_assets/lib/usecase/water_level.dart</key>
 		<data>
@@ -162,14 +166,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			yddSSrnPGAfPL0nm0xalQSb/FRNM9s8X+AmXnYeum2s=
+			YJfYOqcMAzpUkmLttwSQCNTAcMxSnCvHlYIB+exhbQ8=
 			</data>
 		</dict>
 		<key>Resources/flutter_assets/AssetManifest.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			puLziW+xV9Pjw5SERUQ1Duql4rYzzQ9UJiLNvl7faZM=
+			F84PiD1NfldbFybWmdrENuX98NWMOQ73fEusyOglYNY=
 			</data>
 		</dict>
 		<key>Resources/flutter_assets/FontManifest.json</key>
@@ -191,6 +195,13 @@
 			<key>hash2</key>
 			<data>
 			wUB0/W2vo2KjHMdmqmJpW3cCXJhS6o76FUcYw49pmrg=
+			</data>
+		</dict>
+		<key>Resources/flutter_assets/assets/dart-icon.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			UV6gMf86RQwTqzDzLY5AidG40XHJHWN+B0VEiAf3iPk=
 			</data>
 		</dict>
 		<key>Resources/flutter_assets/assets/github_logo.png</key>
@@ -225,7 +236,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			gqR+yVt7D0xJ2ovOV8th5KTivDCe7ZHTQwFKNcdFFn8=
+			fgZGmQ+Yd7l+E/Rbb6g8IfQ4cB2ePIwx7a1CAaBDOvs=
 			</data>
 		</dict>
 		<key>Resources/flutter_assets/lib/usecase/battery.dart</key>
@@ -365,7 +376,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			6oLfcmpEh/aY7e2C3SvxlLrL/2DIbE400juuyPxuXGg=
+			o4+nEbIsyBqSiPtwug0/HIcbPkbgUL9UTl40Wwko0N0=
 			</data>
 		</dict>
 		<key>Resources/flutter_assets/lib/usecase/water_level.dart</key>

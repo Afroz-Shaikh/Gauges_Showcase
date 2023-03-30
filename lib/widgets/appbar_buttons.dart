@@ -13,18 +13,24 @@ class GetPackageButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(8.0),
-      child: ElevatedButton.icon(
-          style: ElevatedButton.styleFrom(
-            backgroundColor: clearWhite,
-            foregroundColor: Colors.blue,
-            shape:
-                RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-          ),
-          onPressed: () {
-            _launchInBrowser(Uri.parse(packageUrl));
-          },
-          icon: const FlutterLogo(),
-          label: const Text("Get Package")),
+      child: Tooltip(
+        message: "Get Package on Pub.dev",
+        child: ElevatedButton.icon(
+            style: ElevatedButton.styleFrom(
+              backgroundColor: clearWhite,
+              foregroundColor: Colors.blue,
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10)),
+            ),
+            onPressed: () {
+              _launchInBrowser(Uri.parse(packageUrl));
+            },
+            icon: Image.asset(
+              dartLogoPath,
+              scale: 10,
+            ),
+            label: const Text("Get Package")),
+      ),
     );
   }
 }
@@ -36,6 +42,7 @@ class GithubButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return IconButton(
+        tooltip: "Github",
         onPressed: () {
           _launchInBrowser(Uri.parse(url!));
         },

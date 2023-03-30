@@ -46,7 +46,6 @@ class _SpeedometerState extends State<Speedometer> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // backgroundColor: Colors.black,
       body: Center(
         child: Padding(
           padding: const EdgeInsets.all(28.0),
@@ -89,7 +88,6 @@ class _SpeedometerState extends State<Speedometer> {
                 enableAnimation: true,
                 valueBar: [
                   ValueBar(
-                      // color: const Color(0xff17c2e9),
                       color: speed > 150
                           ? const Color(0xffe91717)
                           : const Color.fromARGB(255, 0, 94, 226),

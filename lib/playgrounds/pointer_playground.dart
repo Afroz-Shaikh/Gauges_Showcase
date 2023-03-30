@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:geekyants_flutter_gauges/gauges.dart';
+import 'package:showcase_app/utils/snackbar.dart';
 
 import '../utils/utils.dart';
 import '../widgets/playground_header.dart';
@@ -264,20 +265,6 @@ class _PointerPlayGroundState extends State<PointerPlayGround> {
   }
 
   void handlePositionChange(PointerPosition? value) {
-    if (orientation == GaugeOrientation.horizontal &&
-        (pointerPosition == PointerPosition.left ||
-            pointerPosition == PointerPosition.right)) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-          padding: EdgeInsets.all(8),
-          content: Text(
-            '⚠️ Invalid Pointer Position',
-          ),
-          backgroundColor: primaryColor,
-          showCloseIcon: true,
-        ),
-      );
-    }
     if (value != null) {
       if (value == PointerPosition.center) {
         pointerPosition = PointerPosition.center;

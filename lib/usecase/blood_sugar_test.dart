@@ -21,8 +21,6 @@ class BloodSugarTest extends StatelessWidget {
                 crossAxisAlignment: WrapCrossAlignment.center,
                 direction: Axis.horizontal,
                 alignment: WrapAlignment.spaceBetween,
-                // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                // crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
                   labelWidget(Colors.green, "Great (60-71)"),
                   labelWidget(Colors.lime, "Good (71-80)"),

@@ -55,13 +55,16 @@ class VaccinationLinearGauge extends StatelessWidget {
                 color: Colors.green.shade900,
                 position: ValueBarPosition.top,
                 valueBarThickness: 10,
-                offset: -20,
+                borderRadius: 10,
+                edgeStyle: LinearEdgeStyle.endCurve,
+                offset: 10,
               )
             ],
             pointers: const [
               Pointer(
                   value: 30,
                   height: 0,
+                  width: 40,
                   showLabel: true,
                   labelStyle: TextStyle(
                       color: Colors.black, fontWeight: FontWeight.bold),

@@ -60,20 +60,17 @@ class _DrawerContentState extends State<DrawerContent> {
         children: [
           Expanded(
             flex: showCaseIsExpanded ? 2 : 0,
-            child: Scrollbar(
-              thumbVisibility: true,
-              child: SingleChildScrollView(
-                physics: const ClampingScrollPhysics(),
-                child: DrawerExpansionPanel(
-                  ontap: () {
-                    setState(() {
-                      showCaseIsExpanded = !showCaseIsExpanded;
-                    });
-                  },
-                  isOpen: showCaseIsExpanded,
-                  childrenList: const ShowcaseListView(),
-                  title: "Linear Gauge",
-                ),
+            child: SingleChildScrollView(
+              physics: const ClampingScrollPhysics(),
+              child: DrawerExpansionPanel(
+                ontap: () {
+                  setState(() {
+                    showCaseIsExpanded = !showCaseIsExpanded;
+                  });
+                },
+                isOpen: showCaseIsExpanded,
+                childrenList: const ShowcaseListView(),
+                title: "Linear Gauge",
               ),
             ),
           ),
