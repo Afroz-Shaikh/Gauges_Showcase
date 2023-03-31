@@ -27,10 +27,11 @@ class _RulerPlayGroundState extends State<RulerPlayGround> {
 
   @override
   Widget build(BuildContext context) {
+    final screenHeight = MediaQuery.of(context).size.height;
     final screenWidth = MediaQuery.of(context).size.width;
     return Scaffold(
       body: Flex(
-        direction: screenWidth > 600 ? Axis.horizontal : Axis.vertical,
+        direction: screenWidth > 1000 ? Axis.horizontal : Axis.vertical,
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
@@ -46,7 +47,7 @@ class _RulerPlayGroundState extends State<RulerPlayGround> {
             gaugeThickness: gaugeThickness,
           ),
           Flexible(
-            flex: 1,
+            flex: screenWidth > 700 ? 1 : 3,
             child: SingleChildScrollView(
               child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 8),
@@ -54,8 +55,7 @@ class _RulerPlayGroundState extends State<RulerPlayGround> {
                   child: Container(
                     color: const Color(0xffF5F8FA),
                     padding: const EdgeInsets.all(8),
-                    height: MediaQuery.of(context).size.height,
-                    width: 700,
+                    height: screenWidth > 700 ? screenHeight : null,
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.start,
                       crossAxisAlignment: CrossAxisAlignment.start,

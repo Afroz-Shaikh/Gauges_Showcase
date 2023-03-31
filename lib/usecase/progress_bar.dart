@@ -75,36 +75,3 @@ class MyProgressBar extends StatelessWidget {
     );
   }
 }
-
-class GradientProgressBar extends StatelessWidget {
-  const GradientProgressBar({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
-        child: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: LinearGauge(
-            start: 0,
-            end: 100,
-            value: 100,
-            linearGaugeBoxDecoration: const LinearGaugeBoxDecoration(
-                thickness: 30,
-                borderRadius: 30,
-                edgeStyle: LinearEdgeStyle.bothCurve,
-                // backgroundColor: Colors.green.shade100,
-                linearGradient:
-                    LinearGradient(colors: [Colors.orange, Colors.red])),
-            rulers: const RulerStyle(
-              showLabel: false,
-              showPrimaryRulers: false,
-              rulerPosition: RulerPosition.bottom,
-              showSecondaryRulers: false,
-            ),
-          ),
-        ),
-      ),
-    );
-  }
-}

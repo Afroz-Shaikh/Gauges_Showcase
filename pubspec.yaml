@@ -33,6 +33,7 @@ dependencies:
   geekyants_flutter_gauges:
     git:
       url: https://github.com/GeekyAnts/GaugesFlutter.git
+      ref: development
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
@@ -40,6 +41,7 @@ dependencies:
   flutter_highlight: ^0.7.0
   url_launcher: ^6.1.10
   google_fonts: ^4.0.3
+  flutter_riverpod: ^1.0.3
 
 dev_dependencies:
   flutter_test:

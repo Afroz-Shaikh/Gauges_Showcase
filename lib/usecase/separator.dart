@@ -11,12 +11,12 @@ class Separator extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.all(28.0),
           child: LinearGauge(
-            linearGaugeBoxDecoration: const LinearGaugeBoxDecoration(
+            linearGaugeBoxDecoration: LinearGaugeBoxDecoration(
                 thickness: 30.0,
                 borderRadius: 30,
                 linearGaugeValueColor: Colors.green,
                 edgeStyle: LinearEdgeStyle.bothCurve,
-                backgroundColor: Color(0xff3D3B3F)),
+                backgroundColor: Colors.grey.shade300),
             start: 0,
             // value: 70,
             end: 100,

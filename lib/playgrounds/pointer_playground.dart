@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:geekyants_flutter_gauges/gauges.dart';
+import 'package:showcase_app/utils/snackbar.dart';
 
 import '../utils/utils.dart';
 import '../widgets/playground_header.dart';
@@ -26,9 +27,11 @@ class _PointerPlayGroundState extends State<PointerPlayGround> {
   @override
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
+    final screenHeight = MediaQuery.of(context).size.height;
+
     return Scaffold(
         body: Flex(
-      direction: screenWidth > 600 ? Axis.horizontal : Axis.vertical,
+      direction: screenWidth > 1000 ? Axis.horizontal : Axis.vertical,
       crossAxisAlignment: CrossAxisAlignment.center,
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
@@ -42,7 +45,7 @@ class _PointerPlayGroundState extends State<PointerPlayGround> {
             orientation: orientation,
             reverse: reverse),
         Flexible(
-          flex: 1,
+          flex: screenWidth > 700 ? 1 : 3,
           child: SingleChildScrollView(
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 8),
@@ -50,7 +53,7 @@ class _PointerPlayGroundState extends State<PointerPlayGround> {
                 child: Container(
                   color: const Color(0xffF5F8FA),
                   padding: const EdgeInsets.all(8),
-                  height: MediaQuery.of(context).size.height,
+                  height: screenWidth > 700 ? screenHeight : null,
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -262,20 +265,6 @@ class _PointerPlayGroundState extends State<PointerPlayGround> {
   }
 
   void handlePositionChange(PointerPosition? value) {
-    if (orientation == GaugeOrientation.horizontal &&
-        (pointerPosition == PointerPosition.left ||
-            pointerPosition == PointerPosition.right)) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-          padding: EdgeInsets.all(8),
-          content: Text(
-            '⚠️ Invalid Pointer Position',
-          ),
-          backgroundColor: primaryColor,
-          showCloseIcon: true,
-        ),
-      );
-    }
     if (value != null) {
       if (value == PointerPosition.center) {
         pointerPosition = PointerPosition.center;

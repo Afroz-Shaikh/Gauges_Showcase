@@ -6,12 +6,14 @@ class MyVaccinationGraph extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          HeaderText(),
-          VaccinationLinearGauge(),
+          SizedBox(
+              width: MediaQuery.of(context).size.width,
+              child: const HeaderText()),
+          const VaccinationLinearGauge(),
         ],
       ),
     );
@@ -53,13 +55,16 @@ class VaccinationLinearGauge extends StatelessWidget {
                 color: Colors.green.shade900,
                 position: ValueBarPosition.top,
                 valueBarThickness: 10,
-                offset: -20,
+                borderRadius: 10,
+                edgeStyle: LinearEdgeStyle.endCurve,
+                offset: 10,
               )
             ],
             pointers: const [
               Pointer(
                   value: 30,
                   height: 0,
+                  width: 40,
                   showLabel: true,
                   labelStyle: TextStyle(
                       color: Colors.black, fontWeight: FontWeight.bold),
@@ -110,6 +115,7 @@ class HeaderText extends StatelessWidget {
           const Text("% of population partially and fully vaccinated"),
           const SizedBox(height: 20),
           Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               const LabelText(
                 label: "Fully vaccinated",
@@ -142,8 +148,8 @@ class LabelText extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        Text(label),
         Icon(Icons.circle, color: color, size: 20),
+        Text(label),
       ],
     );
   }

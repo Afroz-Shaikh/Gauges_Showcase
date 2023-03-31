@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:geekyants_flutter_gauges/gauges.dart';
+import 'package:showcase_app/utils/snackbar.dart';
 import '../utils/colors.dart';
 import '../widgets/playground_header.dart';
 
@@ -38,11 +39,12 @@ class _ValueBarPlayGroundState extends State<ValueBarPlayGround> {
 
   @override
   Widget build(BuildContext context) {
+    final screenHeight = MediaQuery.of(context).size.height;
     final screenWidth = MediaQuery.of(context).size.width;
     return Scaffold(
         body: Flex(
-      direction: screenWidth > 600 ? Axis.horizontal : Axis.vertical,
-      crossAxisAlignment: CrossAxisAlignment.center,
+      direction: screenWidth > 1000 ? Axis.horizontal : Axis.vertical,
+      crossAxisAlignment: CrossAxisAlignment.start,
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         LinearGaugeView(
@@ -55,7 +57,7 @@ class _ValueBarPlayGroundState extends State<ValueBarPlayGround> {
             edgeStyle: edgeStyle,
             reverse: reverse),
         Flexible(
-          flex: 1,
+          flex: screenWidth > 700 ? 1 : 3,
           child: SingleChildScrollView(
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 8),
@@ -63,8 +65,7 @@ class _ValueBarPlayGroundState extends State<ValueBarPlayGround> {
                 child: Container(
                   color: const Color(0xffF5F8FA),
                   padding: const EdgeInsets.all(8),
-                  height: MediaQuery.of(context).size.height,
-                  width: 700,
+                  height: screenWidth > 700 ? screenHeight : null,
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -97,9 +98,15 @@ class _ValueBarPlayGroundState extends State<ValueBarPlayGround> {
                         label: "Offset",
                         numController: _offsetController,
                         onValueChanged: (p1) {
-                          setState(() {
-                            valueBarOffset = p1;
-                          });
+                          if (valuebarPosition != ValueBarPosition.center) {
+                            setState(() {
+                              valueBarOffset = p1;
+                            });
+                          } else {
+                            showSnackBar(
+                                "Can't Change Offset when ValueBar is Centered",
+                                context);
+                          }
                         },
                       ),
                       const SizedBox(height: 20),
@@ -451,28 +458,27 @@ class LinearGaugeView extends StatelessWidget {
     return Flexible(
       flex: 3,
       child: Container(
+        alignment: Alignment.center,
         margin: const EdgeInsets.only(left: 30),
         width: MediaQuery.of(context).size.width / 2,
         height: MediaQuery.of(context).size.height,
-        child: Center(
-          child: LinearGauge(
-            valueBar: [
-              ValueBar(
-                  value: value,
-                  color: Colors.red,
-                  offset: valueBarOffset,
-                  valueBarThickness: valueBarThickness,
-                  position: valueBarPosition,
-                  edgeStyle: edgeStyle,
-                  borderRadius: borderRadius),
-            ],
-            gaugeOrientation: orientation,
-            rulers: RulerStyle(
-              inverseRulers: reverse,
-              rulerPosition: orientation == GaugeOrientation.horizontal
-                  ? RulerPosition.bottom
-                  : RulerPosition.right,
-            ),
+        child: LinearGauge(
+          valueBar: [
+            ValueBar(
+                value: value,
+                color: Colors.red,
+                offset: valueBarOffset,
+                valueBarThickness: valueBarThickness,
+                position: valueBarPosition,
+                edgeStyle: edgeStyle,
+                borderRadius: borderRadius),
+          ],
+          gaugeOrientation: orientation,
+          rulers: RulerStyle(
+            inverseRulers: reverse,
+            rulerPosition: orientation == GaugeOrientation.horizontal
+                ? RulerPosition.bottom
+                : RulerPosition.right,
           ),
         ),
       ),

@@ -17,7 +17,7 @@ class Speedometer extends StatefulWidget {
   const Speedometer({Key? key}) : super(key: key);
 
   @override
-  _SpeedometerState createState() => _SpeedometerState();
+  State<Speedometer> createState() => _SpeedometerState();
 }
 
 class _SpeedometerState extends State<Speedometer> {
@@ -46,7 +46,6 @@ class _SpeedometerState extends State<Speedometer> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // backgroundColor: Colors.black,
       body: Center(
         child: Padding(
           padding: const EdgeInsets.all(28.0),
@@ -89,7 +88,6 @@ class _SpeedometerState extends State<Speedometer> {
                 enableAnimation: true,
                 valueBar: [
                   ValueBar(
-                      // color: const Color(0xff17c2e9),
                       color: speed > 150
                           ? const Color(0xffe91717)
                           : const Color.fromARGB(255, 0, 94, 226),
@@ -105,8 +103,8 @@ class _SpeedometerState extends State<Speedometer> {
                     linearGradient: LinearGradient(colors: [
                       Color(0xff0a3d60),
                       Color(0xff072E5f),
-                      Color(0xff0212161),
-                      Color(0xff0490a60),
+                      Color(0xff212161),
+                      Color(0xff490a60),
                       Color(0xff630362),
                     ])),
                 rulers: const RulerStyle(

@@ -10,11 +10,11 @@
 		</data>
 		<key>Resources/flutter_assets/AssetManifest.bin</key>
 		<data>
-		HPGL4OvekuyfEmVmlyf12LAZIqE=
+		dijtyJ6hAuZ5ZLVvw0wApTvsgOY=
 		</data>
 		<key>Resources/flutter_assets/AssetManifest.json</key>
 		<data>
-		3KRLwKG1Zz7pvLCaa+/dAg8qfN4=
+		QQC3H2VWu4+/uYHQNFtV49QhUIw=
 		</data>
 		<key>Resources/flutter_assets/FontManifest.json</key>
 		<data>
@@ -22,11 +22,19 @@
 		</data>
 		<key>Resources/flutter_assets/NOTICES.Z</key>
 		<data>
-		3CSpPC0FN/Y+p1t2mF6Cp65/cy0=
+		ypjpIc6FE9p+KcyckKTwtXHnxrI=
 		</data>
 		<key>Resources/flutter_assets/assets/bmi_light.png</key>
 		<data>
 		jUnoYAYBWA2XNFZzRIPP1Rb6pLI=
+		</data>
+		<key>Resources/flutter_assets/assets/dart-icon.png</key>
+		<data>
+		RzVZhc7WBNLIgKoKeUvxYCmAzos=
+		</data>
+		<key>Resources/flutter_assets/assets/github_logo.png</key>
+		<data>
+		vrZqc49PMV7QFO+ssHI+z8EWYRw=
 		</data>
 		<key>Resources/flutter_assets/assets/random_code.dart</key>
 		<data>
@@ -42,7 +50,7 @@
 		</data>
 		<key>Resources/flutter_assets/kernel_blob.bin</key>
 		<data>
-		fR7UVsX50CHrF9B4Lra+NcR9onM=
+		xxGfm2+VLbBqCFBn2xsutVg1zdU=
 		</data>
 		<key>Resources/flutter_assets/lib/usecase/battery.dart</key>
 		<data>
@@ -70,11 +78,19 @@
 		</data>
 		<key>Resources/flutter_assets/lib/usecase/lemonade.dart</key>
 		<data>
-		F3tP7gmxKYaxGkcJ4jyJpaG0AJQ=
+		wjm7aBPOivQNuAmExtDf8y7L/Gw=
+		</data>
+		<key>Resources/flutter_assets/lib/usecase/multiple_pointers.dart</key>
+		<data>
+		kXc50S8TEfPQGSDxUR75Ktq4qEc=
+		</data>
+		<key>Resources/flutter_assets/lib/usecase/multiple_valuebar.dart</key>
+		<data>
+		bLr+7K2atK/HutFQk8y2SCw5OQI=
 		</data>
 		<key>Resources/flutter_assets/lib/usecase/progress_bar.dart</key>
 		<data>
-		9IHwGeSE2AYGa0OU6CuyVQn6TR8=
+		DIpBZjg30j/aUDMA8405p6hwpNo=
 		</data>
 		<key>Resources/flutter_assets/lib/usecase/progress_level.dart</key>
 		<data>
@@ -86,7 +102,7 @@
 		</data>
 		<key>Resources/flutter_assets/lib/usecase/separator.dart</key>
 		<data>
-		QJulpBYGevQ11XYPlfbjr/ONuXg=
+		bjqUjAEANOg8WrSg9dxbb9qr08g=
 		</data>
 		<key>Resources/flutter_assets/lib/usecase/server_utilization.dart</key>
 		<data>
@@ -94,7 +110,7 @@
 		</data>
 		<key>Resources/flutter_assets/lib/usecase/speedometer.dart</key>
 		<data>
-		pC8k4VYMx2rUIx7B5tl7q3/6KK8=
+		QfeCbHpWpP/CfE+SUgXBBZT/VG4=
 		</data>
 		<key>Resources/flutter_assets/lib/usecase/temperature_meter.dart</key>
 		<data>
@@ -114,11 +130,11 @@
 		</data>
 		<key>Resources/flutter_assets/lib/usecase/vaccination_graph.dart</key>
 		<data>
-		i/UV84EFpiEMO5e3kWFCTCBGrII=
+		NuQtwcwS4hzb4paw4TfLddXozpw=
 		</data>
 		<key>Resources/flutter_assets/lib/usecase/water_level.dart</key>
 		<data>
-		zdONS49FVUIDx+Aa5M/3jVD5nwE=
+		py1qoJoYa64HRmkkJWlFLgb6uC4=
 		</data>
 		<key>Resources/flutter_assets/packages/cupertino_icons/assets/CupertinoIcons.ttf</key>
 		<data>
@@ -150,14 +166,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			sPDxVYs/WsO4brh1YJVWOqFG49nwlGNIarnePq6lclM=
+			YJfYOqcMAzpUkmLttwSQCNTAcMxSnCvHlYIB+exhbQ8=
 			</data>
 		</dict>
 		<key>Resources/flutter_assets/AssetManifest.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			XWYGuS7obTjwhNTRomceIpTfHe1cIfnrinz1g2MLtPE=
+			F84PiD1NfldbFybWmdrENuX98NWMOQ73fEusyOglYNY=
 			</data>
 		</dict>
 		<key>Resources/flutter_assets/FontManifest.json</key>
@@ -171,7 +187,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			knzZ8N3kat+OoP2C7jc3xDJnZw3iEvytuV6a2vsMaAI=
+			/dN8smnu8MypjmEzQ3P3eiEsRpdxVukgTLF9yWCGLVY=
 			</data>
 		</dict>
 		<key>Resources/flutter_assets/assets/bmi_light.png</key>
@@ -179,6 +195,20 @@
 			<key>hash2</key>
 			<data>
 			wUB0/W2vo2KjHMdmqmJpW3cCXJhS6o76FUcYw49pmrg=
+			</data>
+		</dict>
+		<key>Resources/flutter_assets/assets/dart-icon.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			UV6gMf86RQwTqzDzLY5AidG40XHJHWN+B0VEiAf3iPk=
+			</data>
+		</dict>
+		<key>Resources/flutter_assets/assets/github_logo.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			2D3fTqmOnS53hIhpy+Xw7KuzBY7eIsaBu+B7RakJGQk=
 			</data>
 		</dict>
 		<key>Resources/flutter_assets/assets/random_code.dart</key>
@@ -206,7 +236,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			VpdPaY3YsoMyCOA8Ommm/1ygsmGekqBbNudleB8XxSw=
+			fgZGmQ+Yd7l+E/Rbb6g8IfQ4cB2ePIwx7a1CAaBDOvs=
 			</data>
 		</dict>
 		<key>Resources/flutter_assets/lib/usecase/battery.dart</key>
@@ -255,14 +285,28 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			m5G+m3TEko3AUECJJZygfe4+N30DJTeydE9GS3175ZY=
+			WEkiQ/1VWDgQfLmDd+HUiPfzs8b1JINVgrU4fz4z+Ms=
+			</data>
+		</dict>
+		<key>Resources/flutter_assets/lib/usecase/multiple_pointers.dart</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			7Ve7jePBTz24oLTL78bGDRjDtrYs1plpYFti37AiQ8I=
+			</data>
+		</dict>
+		<key>Resources/flutter_assets/lib/usecase/multiple_valuebar.dart</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			+XoFLNsD3LCcegbiUYCoahEWuno0MnEIClRmubEaA+g=
 			</data>
 		</dict>
 		<key>Resources/flutter_assets/lib/usecase/progress_bar.dart</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			c11MTfhSPtrlhVEzsG6fTSWla3gVL3sufY61qg6SWLM=
+			cjQuqnrfp9LvsT7cCo6dd6KE0ARam7UwNogyIMPhjxk=
 			</data>
 		</dict>
 		<key>Resources/flutter_assets/lib/usecase/progress_level.dart</key>
@@ -283,7 +327,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			LZydzOCglMdfVMBAAtCpcqtKIBViN6IDcWfnItdh9qg=
+			t1ziiSCHf9PGAjvewmK4un3ATK8hCM8j+NXX2rT38AM=
 			</data>
 		</dict>
 		<key>Resources/flutter_assets/lib/usecase/server_utilization.dart</key>
@@ -297,7 +341,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			7FmYS9Nd92G2srbvUXD0Y0ucyGhViqZ7q3HZNIlmOWM=
+			7xpe8KdounFA8jKGENycwxNwxG5cp41Fs9M6pvAue4M=
 			</data>
 		</dict>
 		<key>Resources/flutter_assets/lib/usecase/temperature_meter.dart</key>
@@ -332,14 +376,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			6oLfcmpEh/aY7e2C3SvxlLrL/2DIbE400juuyPxuXGg=
+			o4+nEbIsyBqSiPtwug0/HIcbPkbgUL9UTl40Wwko0N0=
 			</data>
 		</dict>
 		<key>Resources/flutter_assets/lib/usecase/water_level.dart</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			iooxBopYcmQT48FRcy5ds73ETtYw/PmgW8B8KIZwwRg=
+			WRpB2RDoj45ET6jCur7owXjxR+CgS4EGRewMdWdcwa0=
 			</data>
 		</dict>
 		<key>Resources/flutter_assets/packages/cupertino_icons/assets/CupertinoIcons.ttf</key>
