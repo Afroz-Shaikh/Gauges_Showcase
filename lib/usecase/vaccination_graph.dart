@@ -28,14 +28,14 @@ class VaccinationLinearGauge extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.symmetric(horizontal: 20),
+      margin: const EdgeInsets.symmetric(horizontal: 30),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           LinearGauge(
             fillExtend: true,
-            extendLinearGauge: 20,
+            extendLinearGauge: 10,
             linearGaugeBoxDecoration: const LinearGaugeBoxDecoration(
                 thickness: 60.0,
                 linearGaugeValueColor: Colors.green,
@@ -46,7 +46,7 @@ class VaccinationLinearGauge extends StatelessWidget {
             gaugeOrientation: GaugeOrientation.horizontal,
             valueBar: [
               ValueBar(
-                value: 70,
+                value: 60,
                 color: Colors.green,
                 valueBarThickness: 60,
               ),
@@ -77,16 +77,19 @@ class VaccinationLinearGauge extends StatelessWidget {
               secondaryRulerPerInterval: 1,
               secondaryRulersHeight: 60,
               secondaryRulerColor: Colors.white,
+              primaryRulerColor: Colors.white,
               showPrimaryRulers: false,
+              showSecondaryRulers: true,
               inverseRulers: false,
               rulerPosition: RulerPosition.center,
               showLabel: false,
             ),
           ),
+          const SizedBox(height: 8),
           LinearGauge(
             extendLinearGauge: 0,
             start: 0,
-            end: 50,
+            end: 100,
             linearGaugeBoxDecoration: const LinearGaugeBoxDecoration(
               thickness: 1,
             ),

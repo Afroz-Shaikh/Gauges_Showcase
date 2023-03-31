@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:geekyants_flutter_gauges/gauges.dart';
+import 'package:showcase_app/utils/snackbar.dart';
 import '../utils/colors.dart';
 import '../widgets/playground_header.dart';
 
@@ -97,9 +98,15 @@ class _ValueBarPlayGroundState extends State<ValueBarPlayGround> {
                         label: "Offset",
                         numController: _offsetController,
                         onValueChanged: (p1) {
-                          setState(() {
-                            valueBarOffset = p1;
-                          });
+                          if (valuebarPosition != ValueBarPosition.center) {
+                            setState(() {
+                              valueBarOffset = p1;
+                            });
+                          } else {
+                            showSnackBar(
+                                "Can't Change Offset when ValueBar is Centered",
+                                context);
+                          }
                         },
                       ),
                       const SizedBox(height: 20),
