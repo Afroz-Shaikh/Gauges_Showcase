@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:geekyants_flutter_gauges/gauges.dart';
+import 'package:geekyants_flutter_gauges/geekyants_flutter_gauges.dart';
 
 class Separator extends StatelessWidget {
   const Separator({super.key});
@@ -11,6 +11,9 @@ class Separator extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.all(28.0),
           child: LinearGauge(
+            enableGaugeAnimation: true,
+
+            animationGap: 0.9,
             linearGaugeBoxDecoration: LinearGaugeBoxDecoration(
                 thickness: 30.0,
                 borderRadius: 30,

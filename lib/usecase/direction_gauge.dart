@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:geekyants_flutter_gauges/gauges.dart';
+import 'package:geekyants_flutter_gauges/geekyants_flutter_gauges.dart';
 
 class DirectionGauge extends StatelessWidget {
   const DirectionGauge({super.key});
@@ -14,6 +14,8 @@ class DirectionGauge extends StatelessWidget {
           style: TextStyle(fontWeight: FontWeight.w800),
         ),
         LinearGauge(
+            enableGaugeAnimation: true,
+            animationDuration: 3000,
             showLinearGaugeContainer: false,
             customLabels: const [
               CustomRulerLabel(text: '260°', value: 0),

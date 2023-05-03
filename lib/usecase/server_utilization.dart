@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:geekyants_flutter_gauges/gauges.dart';
+import 'package:geekyants_flutter_gauges/geekyants_flutter_gauges.dart';
 
 void main() {
   runApp(
@@ -18,6 +18,7 @@ class MyServerUtilizationExample extends StatelessWidget {
     return Scaffold(
       body: Center(
         child: LinearGauge(
+          enableGaugeAnimation: true,
           start: 0,
           end: 100,
           rangeLinearGauge: [

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:geekyants_flutter_gauges/gauges.dart';
+import 'package:geekyants_flutter_gauges/geekyants_flutter_gauges.dart';
 
 void main() {
   runApp(
@@ -23,13 +23,14 @@ class DiskSpace extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               const Spacer(flex: 1),
-              const Row(
+              Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: [],
               ),
               const Spacer(flex: 1),
               LinearGauge(
+                enableGaugeAnimation: true,
                 showLinearGaugeContainer: true,
                 linearGaugeBoxDecoration: const LinearGaugeBoxDecoration(
                   thickness: 20,

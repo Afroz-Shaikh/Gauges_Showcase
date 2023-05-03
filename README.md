@@ -1,16 +1,12 @@
 # showcase_app
 
-A new Flutter project.
+Welcome to our showcase application that demonstrates the power and flexibility of the [geekyants_flutter_gauges package](https://pub.dev/packages/geekyants_flutter_gauges)! This app offers a variety of use cases, demos, and playgrounds to help you learn how to use the package to build beautiful and dynamic gauges for your Flutter projects.
 
-## Getting Started
+Learn how to use the package through a series of interactive playgrounds and examples
+Get inspired with examples of gauges used in real-world applications
 
-This project is a starting point for a Flutter application.
+[Visit Site](https://gauges-showcase.vercel.app/#/)
 
-A few resources to get you started if this is your first Flutter project:
+# Credits
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+This showcase app was developed by the team at GeekyAnts, using the geekyants_flutter_gauges package. We hope you find it useful and inspiring!

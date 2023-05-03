@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:geekyants_flutter_gauges/gauges.dart';
+import 'package:geekyants_flutter_gauges/geekyants_flutter_gauges.dart';
 
 class Rainfall extends StatelessWidget {
   const Rainfall({super.key});
@@ -19,6 +19,7 @@ class Rainfall extends StatelessWidget {
         ),
         Center(
           child: LinearGauge(
+            enableGaugeAnimation: true,
             start: 0,
             end: 10,
             rangeLinearGauge: [
@@ -45,9 +46,9 @@ class Rainfall extends StatelessWidget {
         ),
         Container(
           margin: const EdgeInsets.all(15),
-          child: const Row(
+          child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [Text('Drought Hazard'), Text('Flood Hazard')],
+            children: const [Text('Drought Hazard'), Text('Flood Hazard')],
           ),
         )
       ],

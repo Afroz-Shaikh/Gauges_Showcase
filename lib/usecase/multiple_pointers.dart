@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:geekyants_flutter_gauges/gauges.dart';
+import 'package:geekyants_flutter_gauges/geekyants_flutter_gauges.dart';
 
 class MultiplePointer extends StatelessWidget {
   const MultiplePointer({super.key});
@@ -23,6 +23,8 @@ class MultiplePointer extends StatelessWidget {
           valueBar: [
             ValueBar(
                 value: 63,
+                enableAnimation: true,
+                animationDuration: 5000,
                 color: Colors.red,
                 valueBarThickness: 10,
                 borderRadius: 10)

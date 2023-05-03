@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:geekyants_flutter_gauges/gauges.dart';
+import 'package:geekyants_flutter_gauges/geekyants_flutter_gauges.dart';
 
 void main() {
   runApp(const MaterialApp(
@@ -18,6 +18,7 @@ class TimelineController extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           LinearGauge(
+            enableGaugeAnimation: true,
             customLabels: const [
               CustomRulerLabel(text: "12:00pm", value: 10),
               CustomRulerLabel(text: "", value: 15),

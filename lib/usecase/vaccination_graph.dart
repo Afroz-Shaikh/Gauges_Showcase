@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:geekyants_flutter_gauges/gauges.dart';
+import 'package:geekyants_flutter_gauges/geekyants_flutter_gauges.dart';
 
 class MyVaccinationGraph extends StatelessWidget {
   const MyVaccinationGraph({super.key});
@@ -34,6 +34,7 @@ class VaccinationLinearGauge extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           LinearGauge(
+            enableGaugeAnimation: true,
             fillExtend: true,
             extendLinearGauge: 10,
             linearGaugeBoxDecoration: const LinearGaugeBoxDecoration(
@@ -61,16 +62,16 @@ class VaccinationLinearGauge extends StatelessWidget {
               )
             ],
             pointers: const [
-              Pointer(
-                  value: 30,
-                  height: 0,
-                  width: 40,
-                  showLabel: true,
-                  labelStyle: TextStyle(
-                      color: Colors.black, fontWeight: FontWeight.bold),
-                  shape: PointerShape.circle,
-                  color: Colors.red,
-                  pointerPosition: PointerPosition.top),
+              // Pointer(
+              //     value: 30,
+              //     height: 0,
+              //     width: 40,
+              //     showLabel: true,
+              //     labelStyle: TextStyle(
+              //         color: Colors.black, fontWeight: FontWeight.bold),
+              //     shape: PointerShape.circle,
+              //     color: Colors.red,
+              //     pointerPosition: PointerPosition.top),
             ],
             rulers: const RulerStyle(
               secondaryRulersWidth: 5,

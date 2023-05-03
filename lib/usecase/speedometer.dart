@@ -2,7 +2,7 @@ import 'dart:async';
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:geekyants_flutter_gauges/gauges.dart';
+import 'package:geekyants_flutter_gauges/geekyants_flutter_gauges.dart';
 
 void main() {
   runApp(
@@ -85,7 +85,6 @@ class _SpeedometerState extends State<Speedometer> {
               LinearGauge(
                 start: 0,
                 end: 200,
-                enableAnimation: true,
                 valueBar: [
                   ValueBar(
                       color: speed > 150

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:geekyants_flutter_gauges/gauges.dart';
+import 'package:geekyants_flutter_gauges/geekyants_flutter_gauges.dart';
 
 class LemonadeGauge extends StatelessWidget {
   const LemonadeGauge({super.key});
@@ -10,6 +10,7 @@ class LemonadeGauge extends StatelessWidget {
       padding: const EdgeInsets.all(28.0),
       child: Center(
         child: LinearGauge(
+          enableGaugeAnimation: true,
           gaugeOrientation: GaugeOrientation.vertical,
           start: 0,
           end: 10,

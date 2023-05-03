@@ -1,3 +1,5 @@
+import 'package:geekyants_flutter_gauges/geekyants_flutter_gauges.dart';
+import 'package:showcase_app/playgrounds/custom_curve_playground.dart';
 import 'package:showcase_app/playgrounds/linear_gauge_playground.dart';
 import 'package:showcase_app/playgrounds/pointer_playground.dart';
 import 'package:showcase_app/playgrounds/range_linear_gauge_playground.dart';
@@ -195,5 +197,11 @@ List<LinearGaugeUseCase> menuItems = [
     widget: const RulerPlayGround(),
     type: "API",
     index: 21,
+  ),
+  LinearGaugeUseCase(
+    title: "CustomCurve API",
+    widget: const CustomCurvePlayGround(),
+    type: "API",
+    index: 22,
   ),
 ];

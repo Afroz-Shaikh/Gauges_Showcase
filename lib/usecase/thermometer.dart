@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:geekyants_flutter_gauges/gauges.dart';
+import 'package:geekyants_flutter_gauges/geekyants_flutter_gauges.dart';
 
 class Thermometer extends StatelessWidget {
   const Thermometer({super.key});
@@ -14,6 +14,7 @@ class Thermometer extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             LinearGauge(
+              enableGaugeAnimation: false,
               value: -20,
               start: -20,
               steps: 10,
@@ -23,6 +24,9 @@ class Thermometer extends StatelessWidget {
               valueBar: [
                 ValueBar(
                     value: 30,
+                    enableAnimation: true,
+                    animationDuration: 3000,
+                    animationType: Curves.easeInOutCubic,
                     valueBarThickness: 15,
                     color: Colors.blue,
                     borderRadius: 10)
@@ -40,6 +44,7 @@ class Thermometer extends StatelessWidget {
                   shape: PointerShape.circle,
                   value: -28,
                   color: Colors.grey,
+                  enableAnimation: false,
                   showLabel: false,
                   height: 45,
                   pointerPosition: PointerPosition.center,
@@ -48,6 +53,7 @@ class Thermometer extends StatelessWidget {
                 Pointer(
                   shape: PointerShape.circle,
                   value: -25,
+                  enableAnimation: false,
                   color: Colors.blue,
                   showLabel: false,
                   height: 35,

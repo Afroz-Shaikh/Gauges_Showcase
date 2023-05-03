@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:geekyants_flutter_gauges/gauges.dart';
+import 'package:geekyants_flutter_gauges/geekyants_flutter_gauges.dart';
 
 void main() {
   runApp(
@@ -26,6 +26,7 @@ class TemperatureMeter extends StatelessWidget {
             child: Padding(
               padding: const EdgeInsets.all(8.0),
               child: LinearGauge(
+                enableGaugeAnimation: true,
                 pointers: const [
                   Pointer(
                       height: 30,
