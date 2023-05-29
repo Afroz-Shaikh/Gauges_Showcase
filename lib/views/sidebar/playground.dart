@@ -18,7 +18,7 @@ class PlayGroundListView extends ConsumerWidget {
   }
 }
 
-class PlayGroundList extends StatelessWidget {
+class PlayGroundList extends ConsumerWidget {
   final Function(int) onSelected;
   const PlayGroundList({
     super.key,
@@ -26,11 +26,21 @@ class PlayGroundList extends StatelessWidget {
   });
 
   @override
-  Widget build(BuildContext context) {
-    List<dynamic> useCases =
-        menuItems.where((item) => item.type == 'UseCase').toList();
-    List<dynamic> playgroundList =
-        menuItems.where((item) => item.type == 'API').toList();
+  Widget build(BuildContext context, WidgetRef ref) {
+    Playground playground = ref.read(playgroundProvider);
+    List useCases, playgroundList;
+
+    if (playground == Playground.linear) {
+      useCases =
+          linearMenuItems.where((item) => item.type == 'UseCase').toList();
+      playgroundList =
+          linearMenuItems.where((item) => item.type == 'API').toList();
+    } else {
+      useCases =
+          radialMenuItems.where((item) => item.type == 'UseCase').toList();
+      playgroundList =
+          radialMenuItems.where((item) => item.type == 'API').toList();
+    }
 
     return Column(
       children: [

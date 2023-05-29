@@ -13,13 +13,14 @@ class ShowcaseListView extends ConsumerWidget {
     return ShowCaseList(
       onSelected: (i) {
         ref.read(menuIndexProvider.notifier).updateIndex(i);
+
         ref.read(codeViewProvider.notifier).updateCodeView(false);
       },
     );
   }
 }
 
-class ShowCaseList extends StatelessWidget {
+class ShowCaseList extends ConsumerWidget {
   final Function(int) onSelected;
   const ShowCaseList({
     super.key,
@@ -27,11 +28,16 @@ class ShowCaseList extends StatelessWidget {
   });
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    Playground playground = ref.read(playgroundProvider);
+    List<dynamic> usecases =
+        playground == Playground.linear ? linearMenuItems : radialMenuItems;
     List<dynamic> useCases =
-        menuItems.where((item) => item.type == 'UseCase').toList();
+        usecases.where((item) => item.type == 'UseCase').toList();
 
     return Column(
+      mainAxisSize: MainAxisSize.max,
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         for (var i = 0; i < useCases.length; i++)
           DrawerListTile(onSelected: onSelected, index: i),
@@ -52,9 +58,9 @@ class DrawerListTile extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final selectedIndex = ref.watch(menuIndexProvider);
+    final playground = ref.watch(playgroundProvider);
     return ListTile(
       autofocus: false,
-      selectedTileColor: Colors.white,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
       dense: true,
       selected: index == selectedIndex ? true : false,
@@ -64,7 +70,9 @@ class DrawerListTile extends ConsumerWidget {
         onSelected(index);
       },
       title: Text(
-        menuItems[index].title,
+        playground == Playground.linear
+            ? linearMenuItems[index].title
+            : radialMenuItems[index].title,
       ),
     );
   }

@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:showcase_app/utils/constants.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-import '../utils/colors.dart';
-
 class GetPackageButton extends StatelessWidget {
   const GetPackageButton({
     super.key,
@@ -17,8 +15,7 @@ class GetPackageButton extends StatelessWidget {
         message: "Get Package on Pub.dev",
         child: ElevatedButton.icon(
             style: ElevatedButton.styleFrom(
-              backgroundColor: clearWhite,
-              foregroundColor: Colors.blue,
+              // foregroundColor: Colors.black,
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(10)),
             ),
@@ -37,7 +34,8 @@ class GetPackageButton extends StatelessWidget {
 
 class GithubButton extends StatelessWidget {
   final String? url;
-  const GithubButton({super.key, required this.url});
+  final Color color;
+  const GithubButton({super.key, required this.url, required this.color});
 
   @override
   Widget build(BuildContext context) {
@@ -48,6 +46,7 @@ class GithubButton extends StatelessWidget {
         },
         icon: Image.asset(
           githubLogoPath,
+          color: color,
           scale: 30,
         ));
   }
@@ -59,5 +58,34 @@ Future<void> _launchInBrowser(Uri url) async {
     mode: LaunchMode.platformDefault,
   )) {
     throw Exception('Could not launch $url');
+  }
+}
+
+class HireUsButton extends StatelessWidget {
+  const HireUsButton({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: Tooltip(
+        message: "Hire GeekyAnts for your next project",
+        child: ElevatedButton.icon(
+            style: ElevatedButton.styleFrom(
+              // foregroundColor: Colors.black,
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10)),
+            ),
+            onPressed: () {
+              _launchInBrowser(Uri.parse(packageUrl));
+            },
+            icon: Image.asset(
+              geekyantsLogoPath,
+              fit: BoxFit.fitWidth,
+              scale: 40,
+            ),
+            label: const Text("Hire Us")),
+      ),
+    );
   }
 }

@@ -5,7 +5,7 @@ showSnackBar(String title, BuildContext context) {
   final screenWidth = MediaQuery.of(context).size.width;
   final snackbar = SnackBar(
     width: isMobile ? screenWidth : screenWidth / 3,
-    backgroundColor: Colors.red.withOpacity(0.9),
+    // backgroundColor: Colors.red.withOpacity(0.9),
     behavior: SnackBarBehavior.floating,
     content: Text(title),
     duration: const Duration(seconds: 3),

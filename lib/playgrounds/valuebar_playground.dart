@@ -61,68 +61,67 @@ class _ValueBarPlayGroundState extends State<ValueBarPlayGround> {
           child: SingleChildScrollView(
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 8),
-              child: Card(
-                child: Container(
-                  color: const Color(0xffF5F8FA),
-                  padding: const EdgeInsets.all(8),
-                  height: screenWidth > 700 ? screenHeight : null,
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      const PlayGroundHeader(text: "Gauge Orientation"),
-                      buildOrientationHandler(),
-                      const Divider(),
-                      const PlayGroundHeader(text: "Ruler Style "),
-                      inverseAxisHandler(),
-                      const Divider(),
-                      const PlayGroundHeader(text: "Value"),
-                      buildValueHandler(),
-                      const Divider(),
-                      const PlayGroundHeader(text: "Position"),
-                      buildValueBarPositionHandler(),
-                      const Divider(),
-                      const PlayGroundHeader(text: "ValueBar Properties"),
-                      const SizedBox(height: 20),
-                      buildNumInput(
-                        label: "Thickness",
-                        numController: _thicknessController,
-                        onValueChanged: (p0) {
+              child: Container(
+                decoration: BoxDecoration(
+                    border: Border.all(color: Colors.grey.withOpacity(0.3))),
+                padding: const EdgeInsets.all(8),
+                height: screenWidth > 700 ? screenHeight : null,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const PlayGroundHeader(text: "Gauge Orientation"),
+                    buildOrientationHandler(),
+                    const Divider(),
+                    const PlayGroundHeader(text: "Ruler Style "),
+                    inverseAxisHandler(),
+                    const Divider(),
+                    const PlayGroundHeader(text: "Value"),
+                    buildValueHandler(),
+                    const Divider(),
+                    const PlayGroundHeader(text: "Position"),
+                    buildValueBarPositionHandler(),
+                    const Divider(),
+                    const PlayGroundHeader(text: "ValueBar Properties"),
+                    const SizedBox(height: 20),
+                    buildNumInput(
+                      label: "Thickness",
+                      numController: _thicknessController,
+                      onValueChanged: (p0) {
+                        setState(() {
+                          valueBarThickness = p0;
+                        });
+                      },
+                    ),
+                    const SizedBox(height: 20),
+                    buildNumInput(
+                      label: "Offset",
+                      numController: _offsetController,
+                      onValueChanged: (p1) {
+                        if (valuebarPosition != ValueBarPosition.center) {
                           setState(() {
-                            valueBarThickness = p0;
+                            valueBarOffset = p1;
                           });
-                        },
-                      ),
-                      const SizedBox(height: 20),
-                      buildNumInput(
-                        label: "Offset",
-                        numController: _offsetController,
-                        onValueChanged: (p1) {
-                          if (valuebarPosition != ValueBarPosition.center) {
-                            setState(() {
-                              valueBarOffset = p1;
-                            });
-                          } else {
-                            showSnackBar(
-                                "Can't Change Offset when ValueBar is Centered",
-                                context);
-                          }
-                        },
-                      ),
-                      const SizedBox(height: 20),
-                      buildNumInput(
-                        label: "Radius",
-                        numController: _radiusController,
-                        onValueChanged: (p2) {
-                          setState(() {
-                            borderRadius = p2;
-                          });
-                        },
-                      ),
-                      const Divider(),
-                      buildEdgeStyleHandler(),
-                    ],
-                  ),
+                        } else {
+                          showSnackBar(
+                              "Can't Change Offset when ValueBar is Centered",
+                              context);
+                        }
+                      },
+                    ),
+                    const SizedBox(height: 20),
+                    buildNumInput(
+                      label: "Radius",
+                      numController: _radiusController,
+                      onValueChanged: (p2) {
+                        setState(() {
+                          borderRadius = p2;
+                        });
+                      },
+                    ),
+                    const Divider(),
+                    buildEdgeStyleHandler(),
+                  ],
                 ),
               ),
             ),
