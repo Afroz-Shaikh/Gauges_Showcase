@@ -25,9 +25,9 @@ class FancyClock extends StatelessWidget {
         ],
         track: const RadialTrack(
           hideTrack: true,
-          startAngle: 270,
+          startAngle: 90,
+          endAngle: 450,
           steps: 1,
-          endAngle: 630,
           trackStyle: TrackStyle(
               primaryRulerColor: Colors.red,
               primaryRulersWidth: 3,

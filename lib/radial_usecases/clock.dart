@@ -24,8 +24,8 @@ class Clock extends StatelessWidget {
       ],
       track: const RadialTrack(
         startAngle: 90,
-        steps: 1,
         endAngle: 450,
+        steps: 1,
         start: 0,
         end: 12,
       ),
