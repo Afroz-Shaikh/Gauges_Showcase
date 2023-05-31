@@ -33,7 +33,7 @@ class _CustomCurvePlayGroundState extends State<CustomCurvePlayGround> {
     return Scaffold(
         body: Flex(
       direction: screenWidth > 1000 ? Axis.horizontal : Axis.vertical,
-      crossAxisAlignment: CrossAxisAlignment.start,
+      crossAxisAlignment: CrossAxisAlignment.center,
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         LinearGaugeView(
@@ -50,36 +50,35 @@ class _CustomCurvePlayGroundState extends State<CustomCurvePlayGround> {
           flex: screenWidth > 700 ? 1 : 3,
           child: SingleChildScrollView(
             child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 8),
-              child: Card(
-                child: Container(
-                  color: const Color(0xffF5F8FA),
-                  padding: const EdgeInsets.all(8),
-                  height: screenWidth > 700 ? screenHeight : null,
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      const PlayGroundHeader(text: "Gauge Orientation"),
-                      buildOrientationHandler(),
-                      const Divider(),
-                      const PlayGroundHeader(text: "Curve Style"),
-                      buildBezierHandler(),
-                      const PlayGroundHeader(text: "Paint Style"),
-                      buildPaintHandler(),
-                      const PlayGroundHeader(text: "Custom Curve Position"),
-                      buildCustomCurvePositionHandler(),
-                      const Divider(),
-                      const PlayGroundHeader(text: "Mid Value"),
-                      buildMidPointHandler(),
-                      const PlayGroundHeader(text: "Start Height"),
-                      buildStartHeightHandler(),
-                      const PlayGroundHeader(text: "End Height"),
-                      buildEndHeightHandler(),
-                      const PlayGroundHeader(text: "Mid Height"),
-                      buildMidHeightHandler(),
-                    ],
-                  ),
+              padding: const EdgeInsets.symmetric(horizontal: 0),
+              child: Container(
+                decoration: BoxDecoration(
+                    border: Border.all(color: Colors.grey.withOpacity(0.3))),
+                padding: const EdgeInsets.all(8),
+                height: screenWidth > 700 ? screenHeight : null,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const PlayGroundHeader(text: "Gauge Orientation"),
+                    buildOrientationHandler(),
+                    const Divider(),
+                    const PlayGroundHeader(text: "Curve Style"),
+                    buildBezierHandler(),
+                    const PlayGroundHeader(text: "Paint Style"),
+                    buildPaintHandler(),
+                    const PlayGroundHeader(text: "Custom Curve Position"),
+                    buildCustomCurvePositionHandler(),
+                    const Divider(),
+                    const PlayGroundHeader(text: "Mid Value"),
+                    buildMidPointHandler(),
+                    const PlayGroundHeader(text: "Start Height"),
+                    buildStartHeightHandler(),
+                    const PlayGroundHeader(text: "End Height"),
+                    buildEndHeightHandler(),
+                    const PlayGroundHeader(text: "Mid Height"),
+                    buildMidHeightHandler(),
+                  ],
                 ),
               ),
             ),
@@ -322,7 +321,7 @@ class LinearGaugeView extends StatelessWidget {
         alignment: Alignment.center,
         margin: const EdgeInsets.only(left: 30),
         width: MediaQuery.of(context).size.width / 2,
-        height: MediaQuery.of(context).size.height,
+        // height: MediaQuery.of(context).size.height,
         child: LinearGauge(
           curves: [
             CustomCurve(

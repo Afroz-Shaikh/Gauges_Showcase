@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:geekyants_flutter_gauges/geekyants_flutter_gauges.dart';
-import 'package:showcase_app/utils/snackbar.dart';
 
 import '../utils/utils.dart';
 import '../widgets/playground_header.dart';
@@ -49,34 +48,33 @@ class _PointerPlayGroundState extends State<PointerPlayGround> {
           child: SingleChildScrollView(
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 8),
-              child: Card(
-                child: Container(
-                  color: const Color(0xffF5F8FA),
-                  padding: const EdgeInsets.all(8),
-                  height: screenWidth > 700 ? screenHeight : null,
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      const PlayGroundHeader(text: "Gauge Orientation"),
-                      buildOrientationHandler(),
-                      const Divider(),
-                      const PlayGroundHeader(text: "Ruler Style"),
-                      inverseAxisHandler(),
-                      const Divider(),
-                      const PlayGroundHeader(text: "Pointer"),
-                      buildValueHandler(),
-                      const Divider(),
-                      buildPointerWidgetHandler(),
-                      buildPointerPositionHandler(),
-                      buildPointerAlignmentHandler(),
-                      const Divider(),
-                      const Text('Pointer Height'),
-                      buildPointerHeightHandler(),
-                      const Text('Pointer Width'),
-                      buildPointerWidthHandler(),
-                    ],
-                  ),
+              child: Container(
+                decoration: BoxDecoration(
+                    border: Border.all(color: Colors.grey.withOpacity(0.3))),
+                padding: const EdgeInsets.all(8),
+                height: screenWidth > 700 ? screenHeight : null,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const PlayGroundHeader(text: "Gauge Orientation"),
+                    buildOrientationHandler(),
+                    const Divider(),
+                    const PlayGroundHeader(text: "Ruler Style"),
+                    inverseAxisHandler(),
+                    const Divider(),
+                    const PlayGroundHeader(text: "Pointer"),
+                    buildValueHandler(),
+                    const Divider(),
+                    buildPointerWidgetHandler(),
+                    buildPointerPositionHandler(),
+                    buildPointerAlignmentHandler(),
+                    const Divider(),
+                    const Text('Pointer Height'),
+                    buildPointerHeightHandler(),
+                    const Text('Pointer Width'),
+                    buildPointerWidthHandler(),
+                  ],
                 ),
               ),
             ),

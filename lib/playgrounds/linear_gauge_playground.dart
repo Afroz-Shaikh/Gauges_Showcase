@@ -43,30 +43,29 @@ class _LinearGaugePlayGroundState extends State<LinearGaugePlayGround> {
           Flexible(
             flex: screenWidth > 700 ? 1 : 3,
             child: SingleChildScrollView(
-              child: Card(
-                child: Container(
-                  color: const Color(0xffF5F8FA),
-                  padding: const EdgeInsets.all(8.0),
-                  height: screenWidth > 700 ? screenHeight : null,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      // Inverse Axis
-                      const PlayGroundHeader(text: "Gauge Orientation"),
-                      buildOrientationHandler(),
-                      const PlayGroundHeader(text: "Ruler Style"),
-                      inverseAxisHandler(),
-                      const Divider(),
-                      const PlayGroundHeader(text: "Value Bar"),
-                      buildValueBarPosition(),
-                      buildBarOffset(),
-                      const Divider(),
-                      // Pointer Shape
-                      const PlayGroundHeader(text: "Pointers"),
-                      buildPointerShapes(),
-                    ],
-                  ),
+              child: Container(
+                decoration: BoxDecoration(
+                    border: Border.all(color: Colors.grey.withOpacity(0.3))),
+                padding: const EdgeInsets.all(8.0),
+                height: screenWidth > 700 ? screenHeight : null,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    // Inverse Axis
+                    const PlayGroundHeader(text: "Gauge Orientation"),
+                    buildOrientationHandler(),
+                    const PlayGroundHeader(text: "Ruler Style"),
+                    inverseAxisHandler(),
+                    const Divider(),
+                    const PlayGroundHeader(text: "Value Bar"),
+                    buildValueBarPosition(),
+                    buildBarOffset(),
+                    const Divider(),
+                    // Pointer Shape
+                    const PlayGroundHeader(text: "Pointers"),
+                    buildPointerShapes(),
+                  ],
                 ),
               ),
             ),
@@ -335,7 +334,7 @@ class _LinearGaugePlayGroundState extends State<LinearGaugePlayGround> {
   }
 }
 
-class LinearGaugeView extends StatelessWidget {
+class LinearGaugeView extends StatefulWidget {
   const LinearGaugeView({
     super.key,
     required this.shape,
@@ -353,6 +352,13 @@ class LinearGaugeView extends StatelessWidget {
   final bool reverse;
 
   @override
+  State<LinearGaugeView> createState() => _LinearGaugeViewState();
+}
+
+class _LinearGaugeViewState extends State<LinearGaugeView> {
+  double value = 50;
+  double valueBar = 75;
+  @override
   Widget build(BuildContext context) {
     return Flexible(
       flex: 3,
@@ -363,18 +369,38 @@ class LinearGaugeView extends StatelessWidget {
           // height: MediaQuery.of(context).size.height / 1,
           child: LinearGauge(
               pointers: [
-                Pointer(value: 50, shape: shape)
+                Pointer(
+                  value: value,
+                  isInteractive: true,
+                  shape: widget.shape,
+                  onChanged: (value) {
+                    setState(() {
+                      this.value = value;
+                    });
+                  },
+                ),
+                Pointer(
+                  value: valueBar,
+                  isInteractive: true,
+                  shape: PointerShape.circle,
+                  color: Colors.transparent,
+                  onChanged: (value) {
+                    setState(() {
+                      valueBar = value;
+                    });
+                  },
+                )
               ],
               valueBar: [
                 ValueBar(
-                    value: 75,
-                    position: _valueBarPosition,
-                    offset: _valueBarOffset),
+                    value: valueBar,
+                    position: widget._valueBarPosition,
+                    offset: widget._valueBarOffset),
               ],
-              gaugeOrientation: orientation,
+              gaugeOrientation: widget.orientation,
               rulers: RulerStyle(
                   rulerPosition: RulerPosition.center,
-                  inverseRulers: reverse))),
+                  inverseRulers: widget.reverse))),
     );
   }
 }

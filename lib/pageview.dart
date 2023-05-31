@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:showcase_app/data.dart';
 import 'package:showcase_app/providers/menu_item_provider.dart';
-import 'package:showcase_app/utils/utils.dart';
-import 'package:showcase_app/views/sidebar/showcase.dart';
+
+import 'package:showcase_app/views/sidebar/drawer.dart';
 import 'package:showcase_app/widgets/appbar_buttons.dart';
 import 'package:showcase_app/widgets/codeview.dart';
 
@@ -14,7 +14,12 @@ class GaugeView extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     int index = ref.watch(menuIndexProvider);
     bool showCode = ref.watch(codeViewProvider);
+    bool darkMode = ref.watch(darkModeProvider);
+    Playground playground = ref.watch(playgroundProvider);
+
     bool displayMobileLayout = MediaQuery.of(context).size.width < 600;
+    List menuItems =
+        playground == Playground.linear ? linearMenuItems : radialMenuItems;
     return Expanded(
       child: Container(
         decoration: BoxDecoration(
@@ -30,14 +35,17 @@ class GaugeView extends ConsumerWidget {
             elevation: 0,
             centerTitle: false,
             title: Text(
-              menuItems[index].title,
-              style: const TextStyle(color: Colors.black, fontSize: 14),
+              playground == Playground.linear
+                  ? linearMenuItems[index].title
+                  : radialMenuItems[index].title,
+              style: const TextStyle(fontSize: 14),
             ),
             automaticallyImplyLeading: displayMobileLayout ? true : false,
-            backgroundColor: Colors.white,
+            // backgroundColor: Colors.white,
             actions: [
               menuItems[index].sourceCodePath != null
                   ? IconButton(
+                      color: darkMode ? Colors.white : Colors.black,
                       icon: showCode
                           ? const Icon(Icons.display_settings)
                           : const Icon(Icons.code_rounded),
@@ -53,17 +61,18 @@ class GaugeView extends ConsumerWidget {
                   : const SizedBox(),
               menuItems[index].sourceCodeUrl != null
                   ? GithubButton(
-                      url: menuItems[index].sourceCodeUrl,
+                      color: darkMode ? Colors.white : Colors.black,
+                      url: linearMenuItems[index].sourceCodeUrl,
                     )
                   : const SizedBox(),
               IconButton(
+                  color: darkMode ? Colors.white : Colors.black,
                   tooltip: "Full Screen",
                   onPressed: () {
                     showDialog(
                       context: context,
                       builder: (BuildContext context) => SizedBox(
                         child: AlertDialog(
-                          backgroundColor: clearWhite,
                           actions: [
                             TextButton(
                                 onPressed: () {
@@ -82,35 +91,36 @@ class GaugeView extends ConsumerWidget {
             ],
           ),
           drawer: displayMobileLayout
-              ? Drawer(
-                  child: ListView(
-                    children: [
-                      ExpansionPanelList(
-                        children: [
-                          ExpansionPanel(
-                            headerBuilder: (BuildContext context,
-                                    bool isExpanded) =>
-                                const ListTile(
-                                    leading: Icon(Icons.linear_scale_outlined),
-                                    title: Text('Linear Gauge')),
-                            body: MobileDrawerList(
-                              onSelected: (i) {
-                                ref
-                                    .read(menuIndexProvider.notifier)
-                                    .updateIndex(i);
-                                ref
-                                    .read(codeViewProvider.notifier)
-                                    .updateCodeView(false);
-                                Navigator.pop(context);
-                              },
-                            ),
-                            isExpanded: true,
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
-                )
+              ? const DrawerContent()
+              // ? Drawer(
+              //     child: ListView(
+              //       children: [
+              //         ExpansionPanelList(
+              //           children: [
+              //             ExpansionPanel(
+              //               headerBuilder: (BuildContext context,
+              //                       bool isExpanded) =>
+              //                   const ListTile(
+              //                       leading: Icon(Icons.linear_scale_outlined),
+              //                       title: Text('Linear Gauge')),
+              //               body: MobileDrawerList(
+              //                 onSelected: (i) {
+              //                   ref
+              //                       .read(menuIndexProvider.notifier)
+              //                       .updateIndex(i);
+              //                   ref
+              //                       .read(codeViewProvider.notifier)
+              //                       .updateCodeView(false);
+              //                   Navigator.pop(context);
+              //                 },
+              //               ),
+              //               isExpanded: true,
+              //             ),
+              //           ],
+              //         ),
+              //       ],
+              //     ),
+              //   )
               : null,
           body: showCode
               ? CodeView(
@@ -128,39 +138,46 @@ class MainContent extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     int index = ref.watch(menuIndexProvider);
-    return menuItems[index].widget;
+    Playground playground = ref.watch(playgroundProvider);
+    if (playground == Playground.linear) {
+      return linearMenuItems[index].widget;
+    } else {
+      return radialMenuItems[index].widget;
+    }
+
     // menuItems[selectedIndex].widget
   }
 }
 
-class MobileDrawerList extends StatelessWidget {
-  final Function(int) onSelected;
-  const MobileDrawerList({
-    super.key,
-    required this.onSelected,
-  });
+// class MobileDrawerList extends StatelessWidget {
+//   final Function(int) onSelected;
+//   const MobileDrawerList({
+//     super.key,
+//     required this.onSelected,
+//   });
 
-  @override
-  Widget build(BuildContext context) {
-    List showCaseItemsList =
-        menuItems.where((element) => element.type == 'UseCase').toList();
+//   @override
+//   Widget build(BuildContext context) {
+//     List showCaseItemsList =
+//         linearMenuItems.where((element) => element.type == 'UseCase').toList();
 
-    List apiItemsList =
-        menuItems.where((element) => element.type == 'API').toList();
+//     List apiItemsList =
+//         linearMenuItems.where((element) => element.type == 'API').toList();
 
-    return Column(
-      children: [
-        for (var i = 0; i < showCaseItemsList.length; i++)
-          DrawerListTile(onSelected: onSelected, index: menuItems[i].index),
-        const Divider(),
-        const ListTile(
-          title: Text('API Playground'),
-        ),
-        for (var i = 0; i < apiItemsList.length; i++)
-          DrawerListTile(
-              onSelected: onSelected,
-              index: menuItems[i].index + showCaseItemsList.length),
-      ],
-    );
-  }
-}
+//     return Column(
+//       children: [
+//         for (var i = 0; i < showCaseItemsList.length; i++)
+//           DrawerListTile(
+//               onSelected: onSelected, index: linearMenuItems[i].index),
+//         const Divider(),
+//         const ListTile(
+//           title: Text('API Playground'),
+//         ),
+//         for (var i = 0; i < apiItemsList.length; i++)
+//           DrawerListTile(
+//               onSelected: onSelected,
+//               index: linearMenuItems[i].index + showCaseItemsList.length),
+//       ],
+//     );
+//   }
+// }

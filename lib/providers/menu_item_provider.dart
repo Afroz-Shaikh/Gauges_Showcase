@@ -11,6 +11,24 @@ class MenuIndexNotifier extends StateNotifier<int> {
   }
 }
 
+// StateNotifier for Playground (show/hide)
+enum Playground { linear, radial }
+
+final playgroundProvider =
+    StateNotifierProvider<PlaygroundNotifier, Playground>(
+        (ref) => PlaygroundNotifier());
+
+class PlaygroundNotifier extends StateNotifier<Playground> {
+  PlaygroundNotifier() : super(Playground.linear);
+
+  // Playground get selectedPlayground => _selectedPlayground;
+
+  void selectPlayground(Playground playground) {
+    state = playground;
+  }
+}
+
+// StateNotifier for CodeView (show/hide)
 final codeViewProvider =
     StateNotifierProvider<CodeViewNotifier, bool>((ref) => CodeViewNotifier());
 
@@ -21,3 +39,15 @@ class CodeViewNotifier extends StateNotifier<bool> {
     state = showCode;
   }
 }
+
+// StateNotifier for ThemeMode (light, dark,)
+class DarkModeNotifier extends StateNotifier<bool> {
+  DarkModeNotifier() : super(false);
+
+  void toggle() {
+    state = !state;
+  }
+}
+
+final darkModeProvider =
+    StateNotifierProvider<DarkModeNotifier, bool>((ref) => DarkModeNotifier());
