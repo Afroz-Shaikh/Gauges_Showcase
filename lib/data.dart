@@ -8,6 +8,7 @@ import 'package:showcase_app/radial_usecases/clock.dart';
 import 'package:showcase_app/radial_usecases/fancy_clock.dart';
 import 'package:showcase_app/radial_usecases/radial_tracker.dart';
 import 'package:showcase_app/radial_usecases/simple_gauge.dart';
+import 'package:showcase_app/radial_usecases/tracker.dart';
 import 'package:showcase_app/usecase/blood_sugar_test.dart';
 import 'package:showcase_app/usecase/disk_space.dart';
 import 'package:showcase_app/usecase/height_indicator.dart';
@@ -219,20 +220,24 @@ List<LinearGaugeUseCase> linearMenuItems = [
 
 List<LinearGaugeUseCase> radialMenuItems = [
   LinearGaugeUseCase(
-    title: "Simple Gauge",
-    widget: const SimpleGauge(),
+    title: "Calories Tracker",
+    widget: const CaloriesTracker(),
+    index: 0,
+    type: "UseCase",
+  ),
+  LinearGaugeUseCase(
+    title: "Speed Gauge",
+    widget: const SpeedTest(),
     index: 0,
     type: "UseCase",
     // sourceCodePath: "lib/usecase/speedometer.dart",
     // sourceCodeUrl: "${githubUrlPrefix}speedometer.dart",
   ),
   LinearGaugeUseCase(
-    title: "Gradient Radial Gauge",
-    widget: const RadialExample(),
-    index: 1,
+    title: "Radial Compass",
+    widget: const RadialCompass(),
+    index: 5,
     type: "UseCase",
-    // sourceCodePath: "lib/main.dart",
-    // sourceCodeUrl: "${githubUrlPrefix}speedometer.dart",
   ),
   LinearGaugeUseCase(
     title: "Simple Clock",
@@ -259,9 +264,17 @@ List<LinearGaugeUseCase> radialMenuItems = [
     // sourceCodeUrl: "${githubUrlPrefix}speedometer.dart",
   ),
   LinearGaugeUseCase(
+    title: "Simple Radial Gauge",
+    widget: const SimpleGauge(),
+    index: 1,
+    type: "UseCase",
+    // sourceCodePath: "lib/main.dart",
+    // sourceCodeUrl: "${githubUrlPrefix}speedometer.dart",
+  ),
+  LinearGaugeUseCase(
     title: "Radial Gauge Playground",
     widget: const RadialGaugePlayground(),
-    index: 5,
+    index: 9,
     type: "API",
     // sourceCodePath: "lib/usecase/speedometer.dart",
     // sourceCodeUrl: "${githubUrlPrefix}speedometer.dart",

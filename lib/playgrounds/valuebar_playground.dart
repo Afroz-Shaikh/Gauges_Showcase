@@ -48,14 +48,15 @@ class _ValueBarPlayGroundState extends State<ValueBarPlayGround> {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         LinearGaugeView(
-            value: value,
-            valueBarOffset: valueBarOffset,
-            valueBarThickness: valueBarThickness,
-            orientation: orientation,
-            valueBarPosition: valuebarPosition,
-            borderRadius: borderRadius,
-            edgeStyle: edgeStyle,
-            reverse: reverse),
+          value: value,
+          valueBarOffset: valueBarOffset,
+          valueBarThickness: valueBarThickness,
+          orientation: orientation,
+          valueBarPosition: valuebarPosition,
+          borderRadius: borderRadius,
+          reverse: reverse,
+          edgeStyle: edgeStyle,
+        ),
         Flexible(
           flex: screenWidth > 700 ? 1 : 3,
           child: SingleChildScrollView(
@@ -430,7 +431,7 @@ class _ValueBarPlayGroundState extends State<ValueBarPlayGround> {
   }
 }
 
-class LinearGaugeView extends StatelessWidget {
+class LinearGaugeView extends StatefulWidget {
   const LinearGaugeView({
     super.key,
     required this.value,
@@ -453,6 +454,11 @@ class LinearGaugeView extends StatelessWidget {
   final bool reverse;
 
   @override
+  State<LinearGaugeView> createState() => _LinearGaugeViewState();
+}
+
+class _LinearGaugeViewState extends State<LinearGaugeView> {
+  @override
   Widget build(BuildContext context) {
     return Flexible(
       flex: 3,
@@ -464,18 +470,18 @@ class LinearGaugeView extends StatelessWidget {
         child: LinearGauge(
           valueBar: [
             ValueBar(
-                value: value,
+                value: widget.value,
                 color: Colors.red,
-                offset: valueBarOffset,
-                valueBarThickness: valueBarThickness,
-                position: valueBarPosition,
-                edgeStyle: edgeStyle,
-                borderRadius: borderRadius),
+                offset: widget.valueBarOffset,
+                valueBarThickness: widget.valueBarThickness,
+                position: widget.valueBarPosition,
+                edgeStyle: widget.edgeStyle,
+                borderRadius: widget.borderRadius),
           ],
-          gaugeOrientation: orientation,
+          gaugeOrientation: widget.orientation,
           rulers: RulerStyle(
-            inverseRulers: reverse,
-            rulerPosition: orientation == GaugeOrientation.horizontal
+            inverseRulers: widget.reverse,
+            rulerPosition: widget.orientation == GaugeOrientation.horizontal
                 ? RulerPosition.bottom
                 : RulerPosition.right,
           ),

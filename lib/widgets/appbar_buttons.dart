@@ -32,6 +32,19 @@ class GetPackageButton extends StatelessWidget {
   }
 }
 
+class DocsButton extends StatelessWidget {
+  const DocsButton({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return ElevatedButton(
+        onPressed: () {
+          _launchInBrowser(Uri.parse(apiReferenceUrl));
+        },
+        child: const Text(" View Docs"));
+  }
+}
+
 class GithubButton extends StatelessWidget {
   final String? url;
   final Color color;
@@ -77,7 +90,7 @@ class HireUsButton extends StatelessWidget {
                   borderRadius: BorderRadius.circular(10)),
             ),
             onPressed: () {
-              _launchInBrowser(Uri.parse(packageUrl));
+              _launchInBrowser(Uri.parse(hireUsUrl));
             },
             icon: Image.asset(
               geekyantsLogoPath,
@@ -85,6 +98,53 @@ class HireUsButton extends StatelessWidget {
               scale: 40,
             ),
             label: const Text("Hire Us")),
+      ),
+    );
+  }
+}
+
+class FooterButton extends StatelessWidget {
+  const FooterButton({
+    super.key,
+    required this.text,
+    required this.imageUrl,
+    required this.scale,
+    required this.url,
+    this.bgColor,
+  });
+
+  const FooterButton.github(
+      {super.key,
+      required this.text,
+      required this.imageUrl,
+      required this.scale,
+      required this.url,
+      this.bgColor = Colors.white});
+
+  final String text;
+  final String imageUrl;
+  final double scale;
+  final Color? bgColor;
+  final String url;
+
+  @override
+  Widget build(BuildContext context) {
+    return InkWell(
+      onTap: () {
+        _launchInBrowser(Uri.parse(url));
+      },
+      child: Row(
+        children: [
+          Image.asset(
+            imageUrl,
+            scale: scale,
+            color: bgColor,
+          ),
+          const SizedBox(
+            width: 10,
+          ),
+          Text(text, style: const TextStyle(color: Colors.white))
+        ],
       ),
     );
   }

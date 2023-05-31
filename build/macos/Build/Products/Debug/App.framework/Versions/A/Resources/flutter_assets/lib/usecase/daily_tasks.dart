@@ -21,6 +21,7 @@ class WeeklyOverview extends StatelessWidget {
         child: LinearGauge(
             showLinearGaugeContainer: false,
             pointers: const [
+              // Monday
               Pointer(
                   value: 10,
                   shape: PointerShape.rectangle,

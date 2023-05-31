@@ -95,7 +95,7 @@ class _DrawerContentState extends State<DrawerContent> {
                                 "Flutter Gauges",
                                 style: TextStyle(fontWeight: FontWeight.bold),
                               ),
-                              Text("v1.0.0+5")
+                              Text("v1.0.1")
                             ],
                           ),
                         ),

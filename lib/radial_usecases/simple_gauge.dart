@@ -12,7 +12,9 @@ class SimpleGauge extends StatelessWidget {
         needlePointer: [
           NeedlePointer(
             value: 0,
-            needleHeight: width / 4.5,
+            needleHeight: width / 4.6,
+            color: Colors.black,
+            tailColor: Colors.black,
           ),
         ],
         track: const RadialTrack(

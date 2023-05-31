@@ -1,40 +1,44 @@
 import 'package:flutter/material.dart';
-
 import 'package:geekyants_flutter_gauges/geekyants_flutter_gauges.dart';
 
-class RadialExample extends StatelessWidget {
-  const RadialExample({super.key});
+class SpeedTest extends StatelessWidget {
+  const SpeedTest({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const RadialGauge(
-      needlePointer: [
-        NeedlePointer(
-          value: 10,
-          needleHeight: 200,
-          needleWidth: 10,
-          tailColor: Colors.transparent,
-          gradient: LinearGradient(colors: [Colors.green, Colors.blue]),
+    double value = 80;
+    return Container(
+      color: Colors.white,
+      child: RadialGauge(
+        valueBar: [
+          RadialValueBar(
+            value: value,
+            valueBarThickness: 30,
+            gradient: const LinearGradient(colors: [Colors.blue, Colors.green]),
+          )
+        ],
+        needlePointer: [
+          NeedlePointer(
+            value: value,
+            needleHeight: 200,
+            needleWidth: 20,
+            needleStyle: NeedleStyle.flatNeedle,
+            tailColor: Colors.transparent,
+            gradient: const LinearGradient(
+                colors: [Colors.transparent, Colors.black]),
+          ),
+        ],
+        track: RadialTrack(
+          thickness: 30,
+          steps: 10,
+          trackStyle: const TrackStyle(
+              showPrimaryRulers: false, showSecondaryRulers: false),
+          color: Colors.black.withOpacity(0.2),
+          hideTrack: false,
+          start: 0,
+          end: 100,
         ),
-      ],
-      track: RadialTrack(
-        thickness: 30,
-        steps: 10,
-        hideTrack: false,
-        gradient: LinearGradient(colors: [Colors.blue, Colors.green]),
-        start: 0,
-        end: 100,
       ),
     );
   }
 }
-
-
-//* Example 1 - Clocl 
-//  RadialTrack(
-//         startAngle: 0,
-//         endAngle: 360,
-//         hideTrack: true,
-//         start: 0,
-//         end: 12,
-//       ),

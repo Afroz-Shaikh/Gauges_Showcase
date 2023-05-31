@@ -41,7 +41,10 @@ class DashBoard extends ConsumerWidget {
           actions: [
             // ThemeButton(),
             !displayMobileLayout ? const DocsButton() : const SizedBox.shrink(),
-            const GetPackageButton(),
+            !displayMobileLayout
+                ? const GetPackageButton()
+                : const SizedBox.shrink(),
+            const HireUsButton(),
             const SizedBox(
               width: 10,
             ),
@@ -55,15 +58,6 @@ class DashBoard extends ConsumerWidget {
             const GaugeView()
           ],
         ));
-  }
-}
-
-class DocsButton extends StatelessWidget {
-  const DocsButton({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return ElevatedButton(onPressed: () {}, child: const Text(" View Docs"));
   }
 }
 

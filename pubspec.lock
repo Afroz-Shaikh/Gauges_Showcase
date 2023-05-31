@@ -125,7 +125,7 @@ packages:
     description:
       path: "."
       ref: main
-      resolved-ref: a4ed805a6dcd50b7e369a6bbd6eb3a5f5e0106a8
+      resolved-ref: "9a373d3597c894a5eee0963f96bf0020795cac5b"
       url: "https://github.com/GeekyAnts/GaugesFlutter.git"
     source: git
     version: "1.0.1"

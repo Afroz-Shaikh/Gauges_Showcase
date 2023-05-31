@@ -13,14 +13,19 @@ class Clock extends StatelessWidget {
       needlePointer: [
         NeedlePointer(
           value: 0,
-          // tailRadius: 100,
+          needleStyle: NeedleStyle.flatNeedle,
           needleHeight: width / 4.5,
+        ),
+        NeedlePointer(
+          value: 3,
+          needleStyle: NeedleStyle.flatNeedle,
+          needleHeight: width / 7.5,
         ),
       ],
       track: const RadialTrack(
-        startAngle: 270,
+        startAngle: 90,
         steps: 1,
-        endAngle: 630,
+        endAngle: 450,
         start: 0,
         end: 12,
       ),

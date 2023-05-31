@@ -26,6 +26,7 @@ class DiskSpace extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 crossAxisAlignment: CrossAxisAlignment.end,
+                children: const [],
               ),
               const Spacer(flex: 1),
               LinearGauge(

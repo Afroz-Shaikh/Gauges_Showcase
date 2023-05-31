@@ -39,10 +39,12 @@ class RadialTracker extends StatelessWidget {
                 ),
               ],
               track: const RadialTrack(
-                startAngle: 180,
-                endAngle: 360,
-                steps: 100,
+                steps: 10,
                 hideTrack: false,
+                trackStyle: TrackStyle(
+                  showPrimaryRulers: true,
+                  showSecondaryRulers: false,
+                ),
                 start: 0,
                 thickness: 20,
                 end: 100,

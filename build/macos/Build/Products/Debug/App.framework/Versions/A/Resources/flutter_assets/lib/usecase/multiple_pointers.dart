@@ -99,8 +99,8 @@ class MultiplePointer extends StatelessWidget {
             primaryRulerColor: Colors.blueGrey,
             secondaryRulerColor: Colors.blueGrey,
             rulerPosition: RulerPosition.bottom,
-            textStyle: const TextStyle(
-                fontWeight: FontWeight.bold, color: Colors.black),
+            textStyle:
+                const TextStyle(fontWeight: FontWeight.bold, color: Colors.black),
             labelOffset: 3,
           ),
         ),

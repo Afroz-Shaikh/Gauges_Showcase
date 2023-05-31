@@ -13,8 +13,14 @@ class FancyClock extends StatelessWidget {
         needlePointer: [
           NeedlePointer(
             value: 10,
-            tailColor: Colors.green,
+            needleStyle: NeedleStyle.flatNeedle,
             needleHeight: width / 4.5,
+          ),
+          NeedlePointer(
+            value: 13,
+            color: Colors.grey,
+            needleStyle: NeedleStyle.flatNeedle,
+            needleHeight: width / 7.5,
           ),
         ],
         track: const RadialTrack(

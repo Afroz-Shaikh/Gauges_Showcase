@@ -12,7 +12,9 @@ class RadialGaugePlayground extends StatefulWidget {
 }
 
 class _RadialGaugePlaygroundState extends State<RadialGaugePlayground> {
-  double value = 0;
+  double value = 30;
+  double rulerOffset = 0;
+  // double la
 
   @override
   Widget build(BuildContext context) {
@@ -82,6 +84,7 @@ class _RadialGaugeViewState extends State<RadialGaugeView> {
   Widget build(BuildContext context) {
     return RadialGauge(
       track: const RadialTrack(start: 0, end: 100, startAngle: -30),
+      valueBar: [RadialValueBar(value: widget.value)],
       needlePointer: [
         NeedlePointer(
           value: widget.value,

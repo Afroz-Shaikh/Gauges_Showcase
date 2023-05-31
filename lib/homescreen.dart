@@ -86,7 +86,7 @@ class HomeScreen extends ConsumerWidget {
                       },
                     ),
                     GaugeCard(
-                      title: "Radial Gauge",
+                      title: "Radial Gauge [Pre-release]",
                       description:
                           "A radial gauge package for Flutter that displays progress and can be customized for appearance and behavior.",
                       icon: Icons.ads_click_rounded,
@@ -113,52 +113,60 @@ class HomeScreen extends ConsumerWidget {
                 flex: 1,
               ),
 
-              Container(
-                height: 40,
-                color: const Color(0xff171B21),
-                child: Padding(
-                  padding: const EdgeInsets.only(left: 8.0, right: 28),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      const Padding(
-                        padding: EdgeInsets.all(8.0),
-                        child: Text(
-                          "© 2023 GeekyAnts",
-                          style: TextStyle(color: Colors.white),
-                        ),
-                      ),
-                      Row(
-                        children: [
-                          Image.asset(
-                            githubLogoPath,
-                            color: Colors.white,
-                            scale: 30,
-                          ),
-                          const SizedBox(
-                            width: 10,
-                          ),
-                          const Text("Github", style: TextStyle(color: Colors.white)),
-                          const SizedBox(
-                            width: 10,
-                          ),
-                          Image.asset(dartLogoPath, scale: 14),
-                          const SizedBox(
-                            width: 10,
-                          ),
-                          const Text("Package",
-                              style: TextStyle(color: Colors.white)),
-                        ],
-                      )
-                    ],
-                  ),
-                ),
-              )
+              const MainFooter()
               // Spacer(
               //   flex: 1,
               // ),
             ],
           ),
+        ),
+      ),
+    );
+  }
+}
+
+class MainFooter extends StatelessWidget {
+  const MainFooter({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: 40,
+      color: const Color(0xff171B21),
+      child: Padding(
+        padding: const EdgeInsets.only(left: 8.0, right: 28),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            const Padding(
+              padding: EdgeInsets.all(8.0),
+              child: Text(
+                "© 2023 GeekyAnts",
+                style: TextStyle(color: Colors.white),
+              ),
+            ),
+            Row(
+              children: const [
+                FooterButton.github(
+                  text: "Github",
+                  imageUrl: githubLogoPath,
+                  scale: 30,
+                  url: githubPathUrl,
+                ),
+                SizedBox(
+                  width: 10,
+                ),
+                FooterButton(
+                  text: "Package",
+                  imageUrl: dartLogoPath,
+                  scale: 14,
+                  url: packageUrl,
+                )
+              ],
+            )
+          ],
         ),
       ),
     );
