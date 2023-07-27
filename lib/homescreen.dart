@@ -87,7 +87,7 @@ class HomeScreen extends ConsumerWidget {
                           },
                         ),
                         GaugeCard(
-                          title: "Radial Gauge [Pre-release]",
+                          title: "Radial Gauge",
                           description:
                               "A radial gauge package for Flutter that displays progress and can be customized for appearance and behavior.",
                           icon: Icons.ads_click_rounded,
