@@ -3,7 +3,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:showcase_app/providers/menu_item_provider.dart';
 import 'package:showcase_app/utils/constants.dart';
 import 'package:showcase_app/widgets/appbar_buttons.dart';
-
 import 'dashboard.dart';
 
 class HomeScreen extends ConsumerWidget {
@@ -14,6 +13,7 @@ class HomeScreen extends ConsumerWidget {
     bool displayMobileLayout = MediaQuery.of(context).size.width < 600;
 
     return Scaffold(
+      bottomNavigationBar: const MainFooter(),
       backgroundColor: const Color(0xffF4F4F4),
       appBar: AppBar(
         elevation: 0.5,
@@ -31,7 +31,7 @@ class HomeScreen extends ConsumerWidget {
         ),
         actions: [
           !displayMobileLayout ? const DocsButton() : const SizedBox.shrink(),
-          const GetPackageButton(),
+          !displayMobileLayout ? const GetPackageButton() : const SizedBox(),
           const HireUsButton(),
           SizedBox(
             width: !displayMobileLayout ? 30 : 10,
@@ -40,83 +40,78 @@ class HomeScreen extends ConsumerWidget {
       ),
       body: SingleChildScrollView(
         child: SizedBox(
-          height: MediaQuery.of(context).size.height - kToolbarHeight,
           child: Column(
             children: [
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Container(
-                  decoration: BoxDecoration(
-                    shape: BoxShape.rectangle,
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  width: MediaQuery.of(context).size.width,
-                  child: Image.asset(
-                    bannerPath,
-                    fit: BoxFit.fitWidth,
-                    alignment: Alignment.topCenter,
-                    scale: 1,
-                  ),
-                ),
-              ),
-              Center(
-                child: Flex(
-                  direction:
-                      displayMobileLayout ? Axis.vertical : Axis.horizontal,
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: [
-                    GaugeCard(
-                      title: "Linear Gauge",
-                      description:
-                          "A linear gauge package for Flutter that displays progress and can be customized for appearance and behavior.",
-                      icon: Icons.linear_scale,
-                      onPressed: () {
-                        ref
-                            .read(playgroundProvider.notifier)
-                            .selectPlayground(Playground.linear);
-                        ref.read(menuIndexProvider.notifier).updateIndex(0);
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => const DashBoard(
-                              playground: Playground.linear,
-                            ),
-                          ),
-                        );
-                      },
+              Column(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Container(
+                      decoration: BoxDecoration(
+                        shape: BoxShape.rectangle,
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      width: MediaQuery.of(context).size.width,
+                      child: Image.asset(
+                        bannerPath,
+                        fit: BoxFit.fitWidth,
+                        alignment: Alignment.topCenter,
+                        scale: 1,
+                      ),
                     ),
-                    GaugeCard(
-                      title: "Radial Gauge [Pre-release]",
-                      description:
-                          "A radial gauge package for Flutter that displays progress and can be customized for appearance and behavior.",
-                      icon: Icons.ads_click_rounded,
-                      onPressed: () {
-                        ref
-                            .read(playgroundProvider.notifier)
-                            .selectPlayground(Playground.radial);
+                  ),
+                  Center(
+                    child: Flex(
+                      direction:
+                          displayMobileLayout ? Axis.vertical : Axis.horizontal,
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        GaugeCard(
+                          title: "Linear Gauge",
+                          description:
+                              "A linear gauge package for Flutter that displays progress and can be customized for appearance and behavior.",
+                          icon: Icons.linear_scale,
+                          onPressed: () {
+                            ref
+                                .read(playgroundProvider.notifier)
+                                .selectPlayground(Playground.linear);
+                            ref.read(menuIndexProvider.notifier).updateIndex(0);
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const DashBoard(
+                                  playground: Playground.linear,
+                                ),
+                              ),
+                            );
+                          },
+                        ),
+                        GaugeCard(
+                          title: "Radial Gauge [Pre-release]",
+                          description:
+                              "A radial gauge package for Flutter that displays progress and can be customized for appearance and behavior.",
+                          icon: Icons.ads_click_rounded,
+                          onPressed: () {
+                            ref
+                                .read(playgroundProvider.notifier)
+                                .selectPlayground(Playground.radial);
 
-                        ref.read(menuIndexProvider.notifier).updateIndex(0);
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => const DashBoard(
-                              playground: Playground.radial,
-                            ),
-                          ),
-                        );
-                      },
-                    )
-                  ],
-                ),
+                            ref.read(menuIndexProvider.notifier).updateIndex(0);
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const DashBoard(
+                                  playground: Playground.radial,
+                                ),
+                              ),
+                            );
+                          },
+                        )
+                      ],
+                    ),
+                  ),
+                ],
               ),
-              const Spacer(
-                flex: 1,
-              ),
-
-              const MainFooter()
-              // Spacer(
-              //   flex: 1,
-              // ),
             ],
           ),
         ),
@@ -132,6 +127,7 @@ class MainFooter extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    bool displaySmallFooter = MediaQuery.of(context).size.width < 356;
     return Container(
       height: 40,
       color: const Color(0xff171B21),
@@ -148,17 +144,19 @@ class MainFooter extends StatelessWidget {
               ),
             ),
             Row(
-              children: const [
-                FooterButton.github(
-                  text: "Github",
-                  imageUrl: githubLogoPath,
-                  scale: 30,
-                  url: githubPathUrl,
-                ),
-                SizedBox(
+              children: [
+                !displaySmallFooter
+                    ? const FooterButton.github(
+                        text: "Github",
+                        imageUrl: githubLogoPath,
+                        scale: 30,
+                        url: githubPathUrl,
+                      )
+                    : const SizedBox.shrink(),
+                const SizedBox(
                   width: 10,
                 ),
-                FooterButton(
+                const FooterButton(
                   text: "Package",
                   imageUrl: dartLogoPath,
                   scale: 14,
@@ -266,7 +264,7 @@ class _GaugeCardState extends State<GaugeCard> {
                       foregroundColor: Colors.white,
                       backgroundColor: Colors.red,
                       shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(32.0),
+                        borderRadius: BorderRadius.circular(10.0),
                       ),
                     ),
                     child: const Text("Show UseCases"),

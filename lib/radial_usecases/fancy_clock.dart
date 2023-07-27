@@ -10,25 +10,36 @@ class FancyClock extends StatelessWidget {
     double width = MediaQuery.of(context).size.width;
 
     return RadialGauge(
+        radiusFactor: 0.9,
         needlePointer: [
           NeedlePointer(
             value: 10,
+            needleWidth: 10,
+            tailColor: Colors.red,
+            tailRadius: 20,
             needleStyle: NeedleStyle.flatNeedle,
-            needleHeight: width / 4.5,
+            needleHeight: width / 5.5,
           ),
           NeedlePointer(
             value: 13,
-            color: Colors.grey,
+            color: Colors.black,
+            needleWidth: 10,
+            tailColor: Colors.black,
+            tailRadius: 20,
             needleStyle: NeedleStyle.flatNeedle,
             needleHeight: width / 7.5,
           ),
         ],
-        track: const RadialTrack(
-          hideTrack: true,
+        track: RadialTrack(
+          hideTrack: false,
+          color: Colors.red.withOpacity(0.02),
           startAngle: 90,
           endAngle: 450,
           steps: 1,
-          trackStyle: TrackStyle(
+          trackStyle: const TrackStyle(
+              labelStyle:
+                  TextStyle(fontWeight: FontWeight.bold, color: Colors.black),
+              showLastLabel: false,
               primaryRulerColor: Colors.red,
               primaryRulersWidth: 3,
               secondaryRulerColor: Colors.black,

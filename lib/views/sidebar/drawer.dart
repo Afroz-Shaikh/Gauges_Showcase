@@ -81,21 +81,21 @@ class _DrawerContentState extends State<DrawerContent> {
                             : const PlayGroundListView(),
                       )),
                 ),
-                Align(
+                const Align(
                   alignment: Alignment.bottomCenter,
                   child: SizedBox(
                     width: double.infinity,
                     child: Padding(
-                      padding: const EdgeInsets.all(8.0),
+                      padding: EdgeInsets.all(8.0),
                       child: Card(
                         child: Center(
                           child: Column(
-                            children: const [
+                            children: [
                               Text(
                                 "Flutter Gauges",
                                 style: TextStyle(fontWeight: FontWeight.bold),
                               ),
-                              Text("v1.0.1")
+                              Text("v1.0.2")
                             ],
                           ),
                         ),

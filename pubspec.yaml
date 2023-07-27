@@ -43,6 +43,7 @@ dependencies:
   url_launcher: ^6.1.10
   google_fonts: ^4.0.3
   flutter_riverpod: ^1.0.3
+  flutter_animate: ^4.1.1+1
 
 dev_dependencies:
   flutter_test:
@@ -69,6 +70,7 @@ flutter:
   assets:
     - assets/
     - lib/usecase/
+    - lib/radial_usecases/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

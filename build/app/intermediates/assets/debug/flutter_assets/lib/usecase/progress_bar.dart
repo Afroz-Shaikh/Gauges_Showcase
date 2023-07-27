@@ -21,12 +21,12 @@ class MyProgressBar extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 18),
+            const Padding(
+              padding: EdgeInsets.symmetric(horizontal: 18),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.end,
-                children: const [
+                children: [
                   Icon(
                     Icons.local_gas_station_rounded,
                     size: 100,

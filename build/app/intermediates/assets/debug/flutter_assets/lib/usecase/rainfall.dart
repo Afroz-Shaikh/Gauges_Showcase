@@ -59,9 +59,9 @@ class _RainfallState extends State<Rainfall> {
         ),
         Container(
           margin: const EdgeInsets.all(15),
-          child: Row(
+          child: const Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: const [Text('Drought Hazard'), Text('Flood Hazard')],
+            children: [Text('Drought Hazard'), Text('Flood Hazard')],
           ),
         )
       ],
