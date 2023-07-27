@@ -78,8 +78,8 @@ class _CodeViewState extends State<CodeView> {
                 //   ),
                 // );
               },
-              child: Row(
-                children: const [
+              child: const Row(
+                children: [
                   Icon(
                     Icons.copy,
                     color: Colors.black,

@@ -1,6 +1,7 @@
 /Users/shaikafroz/FlutterGauges/ShowCaseApp/showcase_app/build/macos/Build/Products/Debug/App.framework/Versions/A/App
 /Users/shaikafroz/FlutterGauges/ShowCaseApp/showcase_app/build/macos/Build/Products/Debug/App.framework/Versions/A/Resources/Info.plist
 /Users/shaikafroz/FlutterGauges/ShowCaseApp/showcase_app/build/macos/Build/Products/Debug/App.framework/Versions/A/Resources/flutter_assets/AssetManifest.json
+/Users/shaikafroz/FlutterGauges/ShowCaseApp/showcase_app/build/macos/Build/Products/Debug/App.framework/Versions/A/Resources/flutter_assets/AssetManifest.smcbin
 /Users/shaikafroz/FlutterGauges/ShowCaseApp/showcase_app/build/macos/Build/Products/Debug/App.framework/Versions/A/Resources/flutter_assets/FontManifest.json
 /Users/shaikafroz/FlutterGauges/ShowCaseApp/showcase_app/build/macos/Build/Products/Debug/App.framework/Versions/A/Resources/flutter_assets/NOTICES.Z
 /Users/shaikafroz/FlutterGauges/ShowCaseApp/showcase_app/build/macos/Build/Products/Debug/App.framework/Versions/A/Resources/flutter_assets/assets/.DS_Store
@@ -21,6 +22,7 @@
 /Users/shaikafroz/FlutterGauges/ShowCaseApp/showcase_app/build/macos/Build/Products/Debug/App.framework/Versions/A/Resources/flutter_assets/isolate_snapshot_data
 /Users/shaikafroz/FlutterGauges/ShowCaseApp/showcase_app/build/macos/Build/Products/Debug/App.framework/Versions/A/Resources/flutter_assets/kernel_blob.bin
 /Users/shaikafroz/FlutterGauges/ShowCaseApp/showcase_app/build/macos/Build/Products/Debug/App.framework/Versions/A/Resources/flutter_assets/lib/usecase/.DS_Store
+/Users/shaikafroz/FlutterGauges/ShowCaseApp/showcase_app/build/macos/Build/Products/Debug/App.framework/Versions/A/Resources/flutter_assets/lib/usecase/air_purifier.dart
 /Users/shaikafroz/FlutterGauges/ShowCaseApp/showcase_app/build/macos/Build/Products/Debug/App.framework/Versions/A/Resources/flutter_assets/lib/usecase/battery.dart
 /Users/shaikafroz/FlutterGauges/ShowCaseApp/showcase_app/build/macos/Build/Products/Debug/App.framework/Versions/A/Resources/flutter_assets/lib/usecase/blood_sugar_test.dart
 /Users/shaikafroz/FlutterGauges/ShowCaseApp/showcase_app/build/macos/Build/Products/Debug/App.framework/Versions/A/Resources/flutter_assets/lib/usecase/daily_tasks.dart
@@ -32,11 +34,14 @@
 /Users/shaikafroz/FlutterGauges/ShowCaseApp/showcase_app/build/macos/Build/Products/Debug/App.framework/Versions/A/Resources/flutter_assets/lib/usecase/multiple_valuebar.dart
 /Users/shaikafroz/FlutterGauges/ShowCaseApp/showcase_app/build/macos/Build/Products/Debug/App.framework/Versions/A/Resources/flutter_assets/lib/usecase/progress_bar.dart
 /Users/shaikafroz/FlutterGauges/ShowCaseApp/showcase_app/build/macos/Build/Products/Debug/App.framework/Versions/A/Resources/flutter_assets/lib/usecase/progress_level.dart
+/Users/shaikafroz/FlutterGauges/ShowCaseApp/showcase_app/build/macos/Build/Products/Debug/App.framework/Versions/A/Resources/flutter_assets/lib/usecase/radial_pointer.dart
 /Users/shaikafroz/FlutterGauges/ShowCaseApp/showcase_app/build/macos/Build/Products/Debug/App.framework/Versions/A/Resources/flutter_assets/lib/usecase/rainfall.dart
 /Users/shaikafroz/FlutterGauges/ShowCaseApp/showcase_app/build/macos/Build/Products/Debug/App.framework/Versions/A/Resources/flutter_assets/lib/usecase/separator.dart
 /Users/shaikafroz/FlutterGauges/ShowCaseApp/showcase_app/build/macos/Build/Products/Debug/App.framework/Versions/A/Resources/flutter_assets/lib/usecase/server_utilization.dart
 /Users/shaikafroz/FlutterGauges/ShowCaseApp/showcase_app/build/macos/Build/Products/Debug/App.framework/Versions/A/Resources/flutter_assets/lib/usecase/space.dart
 /Users/shaikafroz/FlutterGauges/ShowCaseApp/showcase_app/build/macos/Build/Products/Debug/App.framework/Versions/A/Resources/flutter_assets/lib/usecase/speedometer.dart
+/Users/shaikafroz/FlutterGauges/ShowCaseApp/showcase_app/build/macos/Build/Products/Debug/App.framework/Versions/A/Resources/flutter_assets/lib/usecase/steps_counter.dart
+/Users/shaikafroz/FlutterGauges/ShowCaseApp/showcase_app/build/macos/Build/Products/Debug/App.framework/Versions/A/Resources/flutter_assets/lib/usecase/taskTracker.dart
 /Users/shaikafroz/FlutterGauges/ShowCaseApp/showcase_app/build/macos/Build/Products/Debug/App.framework/Versions/A/Resources/flutter_assets/lib/usecase/temperature_meter.dart
 /Users/shaikafroz/FlutterGauges/ShowCaseApp/showcase_app/build/macos/Build/Products/Debug/App.framework/Versions/A/Resources/flutter_assets/lib/usecase/thermometer.dart
 /Users/shaikafroz/FlutterGauges/ShowCaseApp/showcase_app/build/macos/Build/Products/Debug/App.framework/Versions/A/Resources/flutter_assets/lib/usecase/timeline_controller.dart

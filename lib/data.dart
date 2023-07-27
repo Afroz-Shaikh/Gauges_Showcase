@@ -4,11 +4,13 @@ import 'package:showcase_app/playgrounds/pointer_playground.dart';
 import 'package:showcase_app/playgrounds/radial_gauge_playground.dart';
 import 'package:showcase_app/playgrounds/range_linear_gauge_playground.dart';
 import 'package:showcase_app/playgrounds/ruler_playground.dart';
-import 'package:showcase_app/radial_usecases/clock.dart';
+import 'package:showcase_app/radial_usecases/calories_tracker.dart';
+import 'package:showcase_app/radial_usecases/temperature_controller.dart';
 import 'package:showcase_app/radial_usecases/fancy_clock.dart';
 import 'package:showcase_app/radial_usecases/radial_tracker.dart';
 import 'package:showcase_app/radial_usecases/simple_gauge.dart';
 import 'package:showcase_app/radial_usecases/tracker.dart';
+import 'package:showcase_app/radial_usecases/value_slider.dart';
 import 'package:showcase_app/usecase/blood_sugar_test.dart';
 import 'package:showcase_app/usecase/disk_space.dart';
 import 'package:showcase_app/usecase/height_indicator.dart';
@@ -21,6 +23,7 @@ import 'package:showcase_app/usecase/separator.dart';
 import 'package:showcase_app/usecase/server_utilization.dart';
 import 'package:showcase_app/usecase/space.dart';
 import 'package:showcase_app/usecase/speedometer.dart';
+import 'package:showcase_app/usecase/steps_counter.dart';
 import 'package:showcase_app/usecase/temperature_meter.dart';
 import 'package:showcase_app/usecase/thermometer.dart';
 import 'package:showcase_app/usecase/timeline_controller.dart';
@@ -30,8 +33,11 @@ import './model/menu_item.dart';
 import '../../usecase/vaccination_graph.dart';
 import '../../usecase/water_level.dart';
 import 'playgrounds/valuebar_playground.dart';
-import 'usecase/direction_gauge.dart';
+import 'radial_usecases/air_purifier.dart';
+import 'radial_usecases/direction_gauge.dart';
 import 'usecase/multiple_valuebar.dart';
+import 'usecase/radial_pointer.dart';
+import 'radial_usecases/taskTracker.dart';
 
 const String githubUrlPrefix =
     "https://github.com/Afroz-Shaikh/Gauges_Showcase/blob/main/lib/usecase/";
@@ -220,63 +226,103 @@ List<LinearGaugeUseCase> linearMenuItems = [
 
 List<LinearGaugeUseCase> radialMenuItems = [
   LinearGaugeUseCase(
-    title: "Calories Tracker",
-    widget: const CaloriesTracker(),
+    title: "Activity Tracker",
+    widget: const ActivityTracker(),
     index: 0,
     type: "UseCase",
+    sourceCodePath: "lib/radial_usecases/calories_tracker.dart",
+    // sourceCodeUrl: "${githubUrlPrefix}speedometer.dart",
+  ),
+  LinearGaugeUseCase(
+    title: "Temperature Controller",
+    widget: const TemperatureController(),
+    index: 2,
+    type: "UseCase",
+    sourceCodePath: "lib/radial_usecases/temperature_controller.dart",
+    // sourceCodeUrl: "${githubUrlPrefix}speedometer.dart",
   ),
   LinearGaugeUseCase(
     title: "Speed Gauge",
     widget: const SpeedTest(),
     index: 0,
     type: "UseCase",
-    // sourceCodePath: "lib/usecase/speedometer.dart",
+    sourceCodePath: "lib/radial_usecases/gradient_radial_gauge.dart",
+
     // sourceCodeUrl: "${githubUrlPrefix}speedometer.dart",
+  ),
+  LinearGaugeUseCase(
+    title: "Bike Speedometer",
+    widget: const BikeSpeedometer(),
+    index: 1,
+    type: "UseCase",
+    sourceCodePath: "lib/radial_usecases/simple_gauge.dart",
+
+    // sourceCodeUrl: "${githubUrlPrefix}speedometer.dart",
+  ),
+  LinearGaugeUseCase(
+    title: "Task tracker",
+    widget: const TaskTracker(),
+    index: 5,
+    type: "UseCase",
+    sourceCodePath: "lib/radial_usecases/taskTracker.dart",
   ),
   LinearGaugeUseCase(
     title: "Radial Compass",
     widget: const RadialCompass(),
     index: 5,
     type: "UseCase",
+    sourceCodePath: "lib/radial_usecases/tracker.dart",
   ),
   LinearGaugeUseCase(
-    title: "Simple Clock",
-    widget: const Clock(),
-    index: 2,
+    title: "Value Slider",
+    widget: const ValueSlider(),
+    index: 11,
     type: "UseCase",
-    // sourceCodePath: "lib/usecase/speedometer.dart",
-    // sourceCodeUrl: "${githubUrlPrefix}speedometer.dart",
+    sourceCodePath: "lib/radial_usecases/value_slider.dart",
   ),
   LinearGaugeUseCase(
     title: "Fancy Clock",
     widget: const FancyClock(),
     index: 3,
     type: "UseCase",
-    sourceCodePath: "lib/usecase/speedometer.dart",
-    sourceCodeUrl: "${githubUrlPrefix}speedometer.dart",
+    sourceCodePath: "lib/radial_usecases/fancy_clock.dart",
+    // sourceCodePath: "lib/usecase/speedometer.dart",
   ),
   LinearGaugeUseCase(
     title: "Radial tracker",
     widget: const RadialTracker(),
     index: 4,
     type: "UseCase",
-    // sourceCodePath: "lib/usecase/speedometer.dart",
+    sourceCodePath: "lib/radial_usecases/radial_tracker.dart",
     // sourceCodeUrl: "${githubUrlPrefix}speedometer.dart",
   ),
   LinearGaugeUseCase(
-    title: "Simple Radial Gauge",
-    widget: const SimpleGauge(),
-    index: 1,
+    title: "Radial With Pointer",
+    widget: const RadialPointer(),
+    index: 5,
     type: "UseCase",
-    // sourceCodePath: "lib/main.dart",
-    // sourceCodeUrl: "${githubUrlPrefix}speedometer.dart",
+    sourceCodePath: "lib/radial_usecases/radial_pointer.dart",
+  ),
+  LinearGaugeUseCase(
+    title: "Steps Counter",
+    widget: const RadialStepCounter(),
+    index: 5,
+    type: "UseCase",
+    sourceCodePath: "lib/radial_usecases/steps_counter.dart",
+  ),
+  LinearGaugeUseCase(
+    title: "Air Purifier",
+    widget: const AirPurifier(),
+    index: 5,
+    type: "UseCase",
+    sourceCodePath: "lib/radial_usecases/air_purifier.dart",
   ),
   LinearGaugeUseCase(
     title: "Radial Gauge Playground",
     widget: const RadialGaugePlayground(),
     index: 9,
     type: "API",
-    // sourceCodePath: "lib/usecase/speedometer.dart",
+
     // sourceCodeUrl: "${githubUrlPrefix}speedometer.dart",
   ),
 ];

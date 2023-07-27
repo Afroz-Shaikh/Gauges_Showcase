@@ -1,4 +1,4 @@
-#Wed May 24 17:07:03 IST 2023
+#Thu Jul 27 15:09:10 IST 2023
 base.0=/Users/shaikafroz/FlutterGauges/ShowCaseApp/showcase_app/build/app/intermediates/dex/debug/mergeDexDebug/classes.dex
 renamed.0=classes.dex
 path.0=classes.dex

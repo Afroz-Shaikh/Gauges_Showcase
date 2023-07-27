@@ -24,7 +24,7 @@ class _SpaceDemoState extends State<SpaceDemo> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black,
+      backgroundColor: Colors.white,
       body: Center(
         child: Stack(
           children: [
@@ -66,6 +66,7 @@ class _SpaceDemoState extends State<SpaceDemo> {
               child: SizedBox(
                 height: MediaQuery.of(context).size.height * 0.8,
                 child: LinearGauge(
+                  animationDuration: 7000,
                   start: 0,
                   end: 382,
                   gaugeOrientation: GaugeOrientation.vertical,
@@ -83,6 +84,7 @@ class _SpaceDemoState extends State<SpaceDemo> {
                         value: value,
                         pointerPosition: PointerPosition.right,
                         isInteractive: true,
+                        animationDuration: 8000,
                         onChanged: (value) {
                           setState(() {
                             this.value = value;
@@ -93,7 +95,12 @@ class _SpaceDemoState extends State<SpaceDemo> {
                           scale: 6,
                         ))
                   ],
-                  valueBar: [ValueBar(value: value)],
+                  valueBar: [
+                    ValueBar(
+                      value: value,
+                      animationDuration: 8000,
+                    )
+                  ],
                   rulers: RulerStyle(
                     primaryRulerColor: Colors.white,
                     inverseRulers: false,

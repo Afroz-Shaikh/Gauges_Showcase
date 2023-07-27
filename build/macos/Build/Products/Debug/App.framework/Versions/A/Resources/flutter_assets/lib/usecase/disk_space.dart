@@ -23,10 +23,10 @@ class DiskSpace extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               const Spacer(flex: 1),
-              Row(
+              const Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 crossAxisAlignment: CrossAxisAlignment.end,
-                children: const [],
+                children: [],
               ),
               const Spacer(flex: 1),
               LinearGauge(
