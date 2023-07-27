@@ -33,7 +33,7 @@ class RadialTracker extends StatelessWidget {
               needlePointer: [
                 NeedlePointer(
                   value: 40,
-                  needleHeight: MediaQuery.of(context).size.width / 7,
+                  // needleHeight: MediaQuery.of(context).size.width / 7,
                   tailColor: Colors.red,
                   color: Colors.red,
                 ),

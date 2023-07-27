@@ -39,7 +39,7 @@ class _ActivityTrackerState extends State<ActivityTracker> {
               ],
             )),
             RadialGauge(
-              radiusFactor: 0.7,
+              radiusFactor: 1,
               valueBar: [
                 RadialValueBar(
                   value: 100,

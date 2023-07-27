@@ -13,8 +13,10 @@ class _TemperatureControllerState extends State<TemperatureController> {
   double value = 10;
   double value2 = 30;
   double value3 = 50;
+
   @override
   Widget build(BuildContext context) {
+    double width = MediaQuery.of(context).size.width;
     return Scaffold(
       backgroundColor: Colors.black,
       // backgroundColor: Colors.black,
@@ -31,7 +33,7 @@ class _TemperatureControllerState extends State<TemperatureController> {
                     "${value2.round().toString()}°",
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
-                      fontSize: 135,
+                      fontSize: width > 500 ? 135 : 30,
                       color: getColor(),
                     ),
                   ),
