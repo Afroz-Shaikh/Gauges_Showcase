@@ -22,7 +22,6 @@ class _RadialCompassState extends State<RadialCompass> {
               NeedlePointer(
                 value: 50,
                 color: Colors.blueGrey,
-                needleHeight: 200,
                 tailColor: Colors.transparent,
               ),
               NeedlePointer(
