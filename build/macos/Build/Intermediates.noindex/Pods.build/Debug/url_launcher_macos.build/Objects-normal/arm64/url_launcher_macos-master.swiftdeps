@@ -1,7 +1,0 @@
-version: "Apple Swift version 5.8.1 (swiftlang-5.8.0.124.5 clang-1403.0.22.11.100)"
-options: "d1e2d6debb86239bb04c6b56520f3ae65dda5a36db23a3cf1ba8429ca468afe6"
-build_start_time: [1690444813, 162829000]
-build_end_time: [1690444813, 747672000]
-inputs:
-  "/Users/shaikafroz/.pub-cache/hosted/pub.dev/url_launcher_macos-3.0.6/macos/Classes/UrlLauncherPlugin.swift": [1690441790, 908539931]
-  "/Users/shaikafroz/.pub-cache/hosted/pub.dev/url_launcher_macos-3.0.6/macos/Classes/messages.g.swift": [1690441790, 910384716]

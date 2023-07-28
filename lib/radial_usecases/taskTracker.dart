@@ -1,12 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:geekyants_flutter_gauges/geekyants_flutter_gauges.dart';
 
-class TaskTracker extends StatelessWidget {
+class TaskTracker extends StatefulWidget {
   const TaskTracker({super.key});
 
   @override
+  State<TaskTracker> createState() => _TaskTrackerState();
+}
+
+class _TaskTrackerState extends State<TaskTracker> {
+  double value = 20;
+  @override
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
+
     double width = MediaQuery.of(context).size.width;
     return Scaffold(
       backgroundColor: const Color(0xff182027),
@@ -19,7 +26,7 @@ class TaskTracker extends StatelessWidget {
                 value: 80,
                 valueBarThickness: width > 600 ? 33 : 20,
                 radialOffset: width > 600 ? 36 : 20,
-                color: Color(0xffb9f342),
+                color: const Color(0xffb9f342),
               ),
               RadialValueBar(
                 value: 100,
@@ -29,22 +36,8 @@ class TaskTracker extends StatelessWidget {
               )
             ],
             needlePointer: [
-              // NeedlePointer(
-              //   value: 80,
-              //   tailColor: Color(0xff383f45),
-              // ),
               NeedlePointer(
-                value: 80,
-                needleWidth: width > 600 ? 30 : 10,
-                tailColor: Colors.white,
-                tailRadius: width > 600 ? 60 : 20,
-                color: Colors.white,
-              ),
-              NeedlePointer(
-                value: 30,
-                color: Colors.transparent,
-                tailColor: Colors.black,
-                tailRadius: width > 600 ? 20 : 10,
+                value: value,
               ),
             ],
             track: const RadialTrack(

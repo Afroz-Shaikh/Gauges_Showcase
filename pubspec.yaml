@@ -33,8 +33,8 @@ dependencies:
     sdk: flutter
   geekyants_flutter_gauges:
     git:
-      url: https://github.com/GeekyAnts/GaugesFlutter.git
-      ref: main
+      url: https://github.com/Afroz-Shaikh/GaugesFlutter
+      ref: fix-needle-gap
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.

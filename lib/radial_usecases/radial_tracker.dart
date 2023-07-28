@@ -7,12 +7,13 @@ class RadialTracker extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Column(
+    final width = MediaQuery.of(context).size.width;
+    return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Center(
           child: RadialGauge(
-            valueBar: [
+            valueBar: const [
               RadialValueBar(
                 gradient: LinearGradient(colors: [
                   Colors.red,
@@ -29,11 +30,15 @@ class RadialTracker extends StatelessWidget {
             needlePointer: [
               NeedlePointer(
                 value: 40,
-                tailColor: Colors.red,
+                tailColor: Colors.black,
                 color: Colors.red,
+                needleHeight: width / 5,
+                needleWidth: 10,
+                tailRadius: 20,
+                needleStyle: NeedleStyle.gaugeNeedle,
               ),
             ],
-            track: RadialTrack(
+            track: const RadialTrack(
               steps: 10,
               hideTrack: false,
               trackStyle: TrackStyle(
