@@ -9,7 +9,7 @@ class Rainfall extends StatefulWidget {
 }
 
 class _RainfallState extends State<Rainfall> {
-  double rainfall = 5.3;
+  double rainfall = 5;
 
   @override
   Widget build(BuildContext context) {
@@ -27,6 +27,7 @@ class _RainfallState extends State<Rainfall> {
         Center(
           child: LinearGauge(
             enableGaugeAnimation: true,
+            steps: 1,
             start: 0,
             end: 10,
             rangeLinearGauge: [

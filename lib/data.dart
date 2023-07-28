@@ -9,7 +9,7 @@ import 'package:showcase_app/radial_usecases/temperature_controller.dart';
 import 'package:showcase_app/radial_usecases/fancy_clock.dart';
 import 'package:showcase_app/radial_usecases/radial_tracker.dart';
 import 'package:showcase_app/radial_usecases/simple_gauge.dart';
-import 'package:showcase_app/radial_usecases/tracker.dart';
+import 'package:showcase_app/radial_usecases/radial_compass.dart';
 import 'package:showcase_app/radial_usecases/value_slider.dart';
 import 'package:showcase_app/usecase/blood_sugar_test.dart';
 import 'package:showcase_app/usecase/disk_space.dart';

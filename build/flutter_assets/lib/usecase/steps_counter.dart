@@ -42,7 +42,7 @@ class RadialStepCounter extends StatelessWidget {
             ),
           )),
           const RadialGauge(
-            // radiusFactor: 0.9,
+            radiusFactor: 0.9,
             valueBar: [
               RadialValueBar(
                 gradient: LinearGradient(colors: [

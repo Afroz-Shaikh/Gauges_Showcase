@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:geekyants_flutter_gauges/geekyants_flutter_gauges.dart';
-import 'package:showcase_app/radial_usecases/tracker.dart';
+import 'package:showcase_app/radial_usecases/radial_compass.dart';
 
 class ActivityTracker extends StatefulWidget {
   const ActivityTracker({super.key});

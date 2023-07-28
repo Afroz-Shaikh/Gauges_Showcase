@@ -124,9 +124,9 @@ packages:
     dependency: "direct main"
     description:
       path: "."
-      ref: main
-      resolved-ref: "490eccaa8553e4044410f32168ae794bdfbf03ef"
-      url: "https://github.com/GeekyAnts/GaugesFlutter.git"
+      ref: fix-needle-gap
+      resolved-ref: "3fa1267ff0e14d88829bac4bef383e88729a280a"
+      url: "https://github.com/Afroz-Shaikh/GaugesFlutter"
     source: git
     version: "1.0.2"
   google_fonts:
