@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 import 'package:showcase_app/providers/menu_item_provider.dart';
+import 'package:showcase_app/routes/route_names.dart';
 import 'package:showcase_app/utils/constants.dart';
 import 'package:showcase_app/widgets/appbar_buttons.dart';
 import 'dashboard.dart';
@@ -76,13 +78,16 @@ class HomeScreen extends ConsumerWidget {
                                 .read(playgroundProvider.notifier)
                                 .selectPlayground(Playground.linear);
                             ref.read(menuIndexProvider.notifier).updateIndex(0);
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => const DashBoard(
-                                  playground: Playground.linear,
-                                ),
-                              ),
+                            // Navigator.push(
+                            //   context,
+                            //   MaterialPageRoute(
+                            //     builder: (context) => const DashBoard(
+                            //       playground: Playground.linear,
+                            //     ),
+                            //   ),
+                            // );
+                            context.pushNamed(
+                              RouteConstansts.linear,
                             );
                           },
                         ),
@@ -97,13 +102,9 @@ class HomeScreen extends ConsumerWidget {
                                 .selectPlayground(Playground.radial);
 
                             ref.read(menuIndexProvider.notifier).updateIndex(0);
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => const DashBoard(
-                                  playground: Playground.radial,
-                                ),
-                              ),
+
+                            context.pushNamed(
+                              RouteConstansts.radial,
                             );
                           },
                         )
