@@ -38,6 +38,10 @@ class DocsButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
+        style: ElevatedButton.styleFrom(
+          elevation: 0,
+          backgroundColor: Colors.white,
+        ),
         onPressed: () {
           _launchInBrowser(Uri.parse(apiReferenceUrl));
         },
