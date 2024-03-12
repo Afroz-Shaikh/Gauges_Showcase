@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:showcase_app/providers/menu_item_provider.dart';
@@ -91,6 +92,13 @@ class HomeScreen extends ConsumerWidget {
                             );
                           },
                         ),
+                        // ).animate(effects: [
+                        //   //Shimmer
+                        //   ShimmerEffect(
+                        //       duration: const Duration(seconds: 2),
+                        //       blendMode: BlendMode.srcATop,
+                        //       color: Colors.black.withOpacity(0.2))
+                        // ]),
                         GaugeCard(
                           title: "Radial Gauge",
                           description:
@@ -140,7 +148,7 @@ class MainFooter extends StatelessWidget {
             const Padding(
               padding: EdgeInsets.all(8.0),
               child: Text(
-                "© 2023 GeekyAnts",
+                "© 2024 GeekyAnts",
                 style: TextStyle(color: Colors.white),
               ),
             ),
@@ -235,7 +243,7 @@ class _GaugeCardState extends State<GaugeCard> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Card(
-                      color: Colors.white.withOpacity(0.8),
+                      color: Colors.white.withOpacity(1),
                       child: Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: Icon(

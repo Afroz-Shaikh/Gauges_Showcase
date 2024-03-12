@@ -6,8 +6,6 @@ import 'package:showcase_app/routes/router.dart';
 import 'package:showcase_app/utils/utils.dart';
 import 'package:url_strategy/url_strategy.dart';
 
-import 'homescreen.dart';
-
 void main() {
   // WidgetsFlutterBinding.ensureInitialized();
   setPathUrlStrategy();
