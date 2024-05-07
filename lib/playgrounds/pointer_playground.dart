@@ -29,59 +29,61 @@ class _PointerPlayGroundState extends State<PointerPlayGround> {
     final screenHeight = MediaQuery.of(context).size.height;
 
     return Scaffold(
+        backgroundColor: Colors.white,
         body: Flex(
-      direction: screenWidth > 1000 ? Axis.horizontal : Axis.vertical,
-      crossAxisAlignment: CrossAxisAlignment.center,
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        LinearGaugeView(
-            value: value,
-            height: height,
-            width: width,
-            shape: shape,
-            position: pointerPosition,
-            alignment: alignment,
-            orientation: orientation,
-            reverse: reverse),
-        Flexible(
-          flex: screenWidth > 700 ? 1 : 3,
-          child: SingleChildScrollView(
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 8),
-              child: Container(
-                decoration: BoxDecoration(
-                    border: Border.all(color: Colors.grey.withOpacity(0.3))),
-                padding: const EdgeInsets.all(8),
-                height: screenWidth > 700 ? screenHeight : null,
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    const PlayGroundHeader(text: "Gauge Orientation"),
-                    buildOrientationHandler(),
-                    const Divider(),
-                    const PlayGroundHeader(text: "Ruler Style"),
-                    inverseAxisHandler(),
-                    const Divider(),
-                    const PlayGroundHeader(text: "Pointer"),
-                    buildValueHandler(),
-                    const Divider(),
-                    buildPointerWidgetHandler(),
-                    buildPointerPositionHandler(),
-                    buildPointerAlignmentHandler(),
-                    const Divider(),
-                    const Text('Pointer Height'),
-                    buildPointerHeightHandler(),
-                    const Text('Pointer Width'),
-                    buildPointerWidthHandler(),
-                  ],
+          direction: screenWidth > 1000 ? Axis.horizontal : Axis.vertical,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            LinearGaugeView(
+                value: value,
+                height: height,
+                width: width,
+                shape: shape,
+                position: pointerPosition,
+                alignment: alignment,
+                orientation: orientation,
+                reverse: reverse),
+            Flexible(
+              flex: screenWidth > 700 ? 1 : 3,
+              child: SingleChildScrollView(
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 8),
+                  child: Container(
+                    decoration: BoxDecoration(
+                        border:
+                            Border.all(color: Colors.grey.withOpacity(0.3))),
+                    padding: const EdgeInsets.all(8),
+                    height: screenWidth > 700 ? screenHeight : null,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        const PlayGroundHeader(text: "Gauge Orientation"),
+                        buildOrientationHandler(),
+                        const Divider(),
+                        const PlayGroundHeader(text: "Ruler Style"),
+                        inverseAxisHandler(),
+                        const Divider(),
+                        const PlayGroundHeader(text: "Pointer"),
+                        buildValueHandler(),
+                        const Divider(),
+                        buildPointerWidgetHandler(),
+                        buildPointerPositionHandler(),
+                        buildPointerAlignmentHandler(),
+                        const Divider(),
+                        const Text('Pointer Height'),
+                        buildPointerHeightHandler(),
+                        const Text('Pointer Width'),
+                        buildPointerWidthHandler(),
+                      ],
+                    ),
+                  ),
                 ),
               ),
-            ),
-          ),
-        )
-      ],
-    ));
+            )
+          ],
+        ));
   }
 
   Widget buildOrientationHandler() {

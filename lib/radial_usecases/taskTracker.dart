@@ -38,6 +38,8 @@ class _TaskTrackerState extends State<TaskTracker> {
             needlePointer: [
               NeedlePointer(
                 value: value,
+                needleHeight:
+                    MediaQuery.of(context).size.width > 600 ? 160 : 100,
               ),
             ],
             track: const RadialTrack(
