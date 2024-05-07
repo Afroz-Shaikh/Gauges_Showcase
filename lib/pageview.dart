@@ -24,7 +24,7 @@ class GaugeView extends ConsumerWidget {
       child: Container(
         decoration: BoxDecoration(
           border: Border.all(
-            color: Colors.grey.withOpacity(0.2),
+            color: Colors.black.withOpacity(0.2),
             width: 1,
           ),
         ),
